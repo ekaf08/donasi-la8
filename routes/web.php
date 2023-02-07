@@ -19,17 +19,22 @@ Route::get('/', function () {
 
 
 Route::group([
-    'middleware' => ['auth', 'role:admin']
+    'middleware' => ['auth', 'role:admin,donatur']
 ], function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-});
 
-Route::group([
-    'middleware' => 'role:donatur'
-], function () {
-    Route::get('/dashboard', function () {
-        return 'Welcome Donatur';
-    })->name('dashboard');
+
+    Route::group([
+        'middleware' => 'role:admin'
+    ], function () {
+        //
+    });
+
+    Route::group([
+        'middleware' => 'role:donatur'
+    ], function () {
+        //
+    });
 });
