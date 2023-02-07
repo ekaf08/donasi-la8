@@ -58,4 +58,10 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function role()
+    {
+        // 1 user hanya boleh memiliki 1 role
+        return $this->hasOne(Role::class, 'id', 'role_id');
+    }
 }
