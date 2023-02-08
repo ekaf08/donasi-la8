@@ -64,4 +64,9 @@ class User extends Authenticatable
         // 1 user hanya boleh memiliki 1 role
         return $this->hasOne(Role::class, 'id', 'role_id');
     }
+
+    public function hasRole($role)
+    {
+        return $this->role->name == $role;
+    }
 }
