@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\{
+    CategoryController,
+    DashboardController,
+};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,15 +25,13 @@ Route::get('/', function () {
 Route::group([
     'middleware' => ['auth', 'role:admin,donatur']
 ], function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 
     Route::group([
         'middleware' => 'role:admin'
     ], function () {
-        //
+        Route::resource('/category', CategoryController::class);
     });
 
     Route::group([
