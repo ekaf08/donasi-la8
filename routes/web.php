@@ -27,7 +27,6 @@ Route::group([
 ], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-
     Route::group([
         'middleware' => 'role:admin'
     ], function () {
