@@ -2,40 +2,43 @@
 @section('title', 'Kategori')
 @section('breadcrumb')
     @parent
-    <li class="breadcrumb-item active"><a href="{{ route('category.index') }}">Kategori</a></li>
-    <li class="breadcrumb-item active">Tambah Kategori</li>
+    <li class="breadcrumb-item"><a href="{{ route('category.index') }}">Kategori</a></li>
+    @if (isset($edit_category))
+        <li class="breadcrumb-item active">Edit Kategori</li>
+    @else
+        <li class="breadcrumb-item active">Tambah Kategori</li>
+    @endif
+
 @endsection
 
 @section('content')
     <div class="row">
         <div class="col-lg-12">
+            @if (isset($edit_category))
+                <form action="{{ route('category.update', Crypt::encryptString($edit_category->id)) }}" method="post">
+                    @method('put')
+                @else
+                    <form action="{{ route('category.store') }}" method="post">
+            @endif
+            @csrf
             <div class="card">
-                <div class="card-header">
-                    <a href="{{ route('category.create') }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i>
-                        Tambah</a>
-                </div>
                 <div class="card-body">
-                    <table class="table table-striped">
-                        <thead class="bg-gradient-indigo text-capitalize text-center">
-                            <th width="5%">No</th>
-                            <th>Nama</th>
-                            <th width="25%">Jumlah Projek</th>
-                            <th width="15%"><i class="fas fa-cog"></i></th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1. </td>
-                                <td>Pendidikan</td>
-                                <td>10</td>
-                                <td class="text-center">
-                                    <button class="btn btn-primary"><i class="fas fa-edit"></i> Edit</button>
-                                    <button class="btn btn-danger"><i class="fas fa-trash-alt"></i> Hapus</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="form-group">
+                        <label for="name">Nama</label>
+                        @if (isset($edit_category))
+                            <input type="text" class="form-control" name="name" id="name"
+                                value="{{ $edit_category->name }}" required>
+                        @else
+                            <input type="text" class="form-control" name="name" id="name" required>
+                        @endif
+                    </div>
+                </div>
+                <div class="card-footer text-right">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
+                    <button type="reset" class="btn btn-danger"><i class="fas fa-eraser"></i> Reset</button>
                 </div>
             </div>
+            </form>
         </div>
     </div>
 @endsection

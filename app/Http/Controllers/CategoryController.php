@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Crypt;
 
 class CategoryController extends Controller
 {
@@ -14,7 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('category.index');
+        $category = Category::orderBy('name')->get();
+        return view('category.index', compact('category'));
     }
 
     /**
@@ -35,7 +38,18 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|unique:categories,name'
+        ]);
+
+        $data = $request->only('name');
+        $data['slug'] = Str::slug($request->name);
+        Category::create($data);
+
+        return redirect()->route('category.index')->with([
+            'message'   => 'Kategori berhasil ditambahkan',
+            'succes'    => true,
+        ]);
     }
 
     /**
@@ -55,9 +69,11 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        //
+        $id = Crypt::decryptString($id);
+        $edit_category = Category::find($id);
+        return view('category.form', compact('edit_category'));
     }
 
     /**
@@ -67,9 +83,22 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        //
+        $id = Crypt::decryptString($id);
+        $category = Category::find($id);
+        $this->validate($request, [
+            'name' => 'required|unique:categories,name,' . $category->id
+        ]);
+
+        $data = $request->only('name');
+        $data['slug'] = Str::slug($request->name);
+        $category->update($data);
+
+        return redirect()->route('category.index')->with([
+            'message'   => 'Kategori berhasil diperbarui',
+            'succes'    => true,
+        ]);
     }
 
     /**

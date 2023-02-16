@@ -20,6 +20,9 @@
     <link rel="stylesheet" href="{{ asset('/AdminLTE/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
     <!-- JQVMap -->
     <link rel="stylesheet" href="{{ asset('/AdminLTE/plugins/jqvmap/jqvmap.min.css') }}">
+    <!-- Sweet Alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {{-- <link rel="stylesheet" href="sweetalert2.min.css"> --}}
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('/AdminLTE/dist/css/adminlte.min.css') }}">
     <!-- overlayScrollbars -->
@@ -133,8 +136,34 @@
     <script src="{{ asset('/AdminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('/AdminLTE/dist/js/adminlte.js') }}"></script>
+    <!-- Sweet Alert -->
+    {{-- <script src="sweetalert2.all.min.js"></script> --}}
+
 
     @stack('scripts')
+
+    <!-- Sweet Alert -->
+    {{-- @if (session('success'))
+        <script>
+            Swal.fire(
+                'Selamat',
+                // "{{ session('message') }}",
+                "{{ session('success') }}",
+                // title: "{{ 'message' }}",
+                'success'
+            )
+        </script>
+    @endif
+
+    @if (session('error'))
+        <script>
+            Swal.fire(
+                'Oops!',
+                "{{ session('error') }}",
+                'error'
+            )
+        </script>
+    @endif --}}
 </body>
 
 </html>
