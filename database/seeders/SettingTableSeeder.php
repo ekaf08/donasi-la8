@@ -26,6 +26,7 @@ class SettingTableSeeder extends Seeder
             'postal_code' => 60227,
             'city' => '-',
             'province' => '-',
+            'f_status' => 't',
         ]);
     }
 }

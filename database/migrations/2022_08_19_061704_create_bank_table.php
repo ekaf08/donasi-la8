@@ -18,6 +18,7 @@ class CreateBankTable extends Migration
             $table->string('code')->unique();
             $table->string('name');
             $table->string('path_image');
+            $table->boolean('f_status');
             $table->timestamps();
             $table->softDeletes();
         });

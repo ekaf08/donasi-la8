@@ -1,4 +1,4 @@
-{{-- @push('scripts')
+@push('scripts')
     @if (session()->has('success'))
         <script>
             $(function() {
@@ -6,7 +6,7 @@
                     toast: true,
                     position: 'center',
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 2000
                 });
 
                 Toast.fire({
@@ -22,7 +22,7 @@
                     toast: true,
                     position: 'center',
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 2000
                 });
 
                 Toast.fire({
@@ -32,4 +32,4 @@
             })
         </script>
     @endif
-@endpush --}}
+@endpush

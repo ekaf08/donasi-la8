@@ -44,11 +44,12 @@ class CategoryController extends Controller
 
         $data = $request->only('name');
         $data['slug'] = Str::slug($request->name);
+        $data['f_status'] = $request->f_status;
         Category::create($data);
 
         return redirect()->route('category.index')->with([
             'message'   => 'Kategori berhasil ditambahkan',
-            'succes'    => true,
+            'success' => true,
         ]);
     }
 
@@ -93,11 +94,12 @@ class CategoryController extends Controller
 
         $data = $request->only('name');
         $data['slug'] = Str::slug($request->name);
+        $data['f_status'] = $request->f_status;
         $category->update($data);
 
         return redirect()->route('category.index')->with([
             'message'   => 'Kategori berhasil diperbarui',
-            'succes'    => true,
+            'success' => true,
         ]);
     }
 

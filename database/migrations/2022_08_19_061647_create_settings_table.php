@@ -29,6 +29,7 @@ class CreateSettingsTable extends Migration
             $table->string('path_image')->nullable();
             $table->string('path_image_header')->nullable();
             $table->string('path_image_footer')->nullable();
+            $table->boolean('f_status');
             $table->timestamps();
             $table->softDeletes();
         });

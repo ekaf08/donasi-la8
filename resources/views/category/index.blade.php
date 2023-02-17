@@ -19,18 +19,28 @@
                             <th width="5%">No</th>
                             <th>Nama</th>
                             <th width="12%">Jumlah Projek</th>
-                            <th width="15%"><i class="fas fa-cog"></i></th>
+                            <th width="10%">F Status</th>
+                            <th width="10%"><i class="fas fa-cog"></i></th>
                         </thead>
                         <tbody>
                             @foreach ($category as $item => $key)
                                 <tr>
-                                    <td>{{ $item + 1 }}</td>
+                                    <td>{{ $item + 1 }} .</td>
                                     <td>{{ $key->name }}</td>
                                     <td class="text-center">0</td>
                                     <td class="text-center">
+                                        @if ($key->f_status == 't')
+                                            <span class="badge badge-pill badge-success">Aktif</span>
+                                        @else
+                                            <span class="badge badge-pill badge-danger">Non Aktif</span>
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
                                         <a href="{{ route('category.edit', Crypt::encryptString($key->id)) }}"
-                                            class="btn btn-info"><i class="fas fa-edit"></i> Edit</a>
-                                        <button class="btn btn-danger"><i class="fas fa-trash-alt"></i> Hapus</button>
+                                            class="btn btn-info" title="Edit - {{ $key->name }}"><i
+                                                class="fas fa-edit"></i> </a>
+                                        <button class="btn btn-danger" title="Hapus - {{ $key->name }}"><i
+                                                class="fas fa-trash-alt"></i> </button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -42,4 +52,5 @@
     </div>
 
 @endsection
-<x-toast />
+{{-- <x-toast /> --}}
+<x-swal />

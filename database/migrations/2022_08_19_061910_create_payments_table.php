@@ -21,6 +21,7 @@ class CreatePaymentsTable extends Migration
             $table->bigInteger('bank_id');
             $table->text('note');
             $table->string('path_image');
+            $table->boolean('f_status');
             $table->timestamps();
             $table->softDeletes();
         });
