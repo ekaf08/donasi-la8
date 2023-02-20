@@ -19,7 +19,7 @@
                             <th width="5%">No</th>
                             <th>Nama</th>
                             <th width="12%">Jumlah Projek</th>
-                            <th width="10%">F Status</th>
+                            <th width="10%">Flag</th>
                             <th width="10%"><i class="fas fa-cog"></i></th>
                         </thead>
                         <tbody>
