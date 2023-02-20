@@ -30,9 +30,9 @@
                                     <td class="text-center">0</td>
                                     <td class="text-center">
                                         @if ($key->f_status == 't')
-                                            <span class="badge badge-pill badge-success">Aktif</span>
+                                            <span class="badge text-link text-success text-bold">Aktif</span>
                                         @else
-                                            <span class="badge badge-pill badge-danger">Non Aktif</span>
+                                            <span class="badge text-link text-danger text-bold">Non Aktif</span>
                                         @endif
                                     </td>
                                     <td class="text-center">
@@ -41,9 +41,9 @@
                                             @csrf
                                             @method('delete')
                                             <a href="{{ route('category.edit', Crypt::encryptString($key->id)) }}"
-                                                class="btn btn-info" title="Edit - {{ $key->name }}"><i
+                                                class="btn btn-link text-info" title="Edit - {{ $key->name }}"><i
                                                     class="fas fa-edit"></i> </a>
-                                            <button class="btn btn-danger" type="button"
+                                            <button class="btn btn-link text-danger" type="button"
                                                 onclick="deleteData('{{ route('category.destroy', Crypt::encryptString($key->id)) }}')"
                                                 title="Hapus - {{ $key->name }}"><i class="fas fa-trash-alt"></i>
                                             </button>
