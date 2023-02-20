@@ -109,8 +109,18 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        //
+        $id = Crypt::decryptString($id);
+        // dd($id);
+        $data = Category::find($id);
+        $data['f_status'] = 'f';
+        $data->update();
+        $data->delete();
+
+        return redirect()->route('category.index')->with([
+            'message' => 'kategori berhasil dihapus',
+            'success' => true,
+        ]);
     }
 }
