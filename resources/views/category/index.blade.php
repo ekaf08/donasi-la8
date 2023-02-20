@@ -19,7 +19,7 @@
                             <th width="5%">No</th>
                             <th>Nama</th>
                             <th width="12%">Jumlah Projek</th>
-                            <th width="10%">F Status</th>
+                            <th width="10%">Flag</th>
                             <th width="10%"><i class="fas fa-cog"></i></th>
                         </thead>
                         <tbody>
@@ -36,11 +36,12 @@
                                         @endif
                                     </td>
                                     <td class="text-center">
-                                        <a href="{{ route('category.edit', Crypt::encryptString($key->id)) }}"
-                                            class="btn btn-info" title="Edit - {{ $key->name }}"><i
-                                                class="fas fa-edit"></i> </a>
-                                        <button class="btn btn-danger" title="Hapus - {{ $key->name }}"><i
-                                                class="fas fa-trash-alt"></i> </button>
+                                            <a href="{{ route('category.edit', Crypt::encryptString($key->id)) }}"
+                                                class="btn btn-info" title="Edit - {{ $key->name }}"><i
+                                                    class="fas fa-edit"></i> </a>
+                                            <button class="btn btn-danger" onclick="deleteData('{{ route('category.destroy', Crypt::encryptString($key->id)) }}')" title="Hapus -  $key->name  }}"><i
+                                                    class="fas fa-trash-alt"></i> </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
@@ -54,3 +55,41 @@
 @endsection
 {{-- <x-toast /> --}}
 <x-swal />
+@push('scripts')
+<script>
+    function deleteData(url) {
+                Swal.fire({
+                title: 'Yakin ?',
+                text: "Menghapus Data Ini ?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya',
+                cancelButtonText: 'Tidak'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                $.post(url, {
+                    '_token': $('[name=csrf-token]').attr('content'),
+                    '_method': 'delete'
+                })
+                .done((response)=> {
+                    Swal.fire(
+                    'Berhasil',
+                    'Data Anda Telah Di Hapus',
+                    'success'
+                )
+                    location.reload();
+                })
+                .fail((errors) => {
+                    Swal.fire(
+                    'Oops',
+                    'Data Gagal Di Hapus',
+                    'error'
+                )
+                    return;
+                })
+                }
+            })
+        }
+</script>
