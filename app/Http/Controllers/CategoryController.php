@@ -14,7 +14,7 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    protected $paginate = 3;
+    protected $paginate = 10;
     public function index(Request $request)
     {
         $category = Category::orderBy('name')
