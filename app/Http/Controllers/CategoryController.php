@@ -14,9 +14,10 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    protected $paginate = 3;
     public function index()
     {
-        $category = Category::orderBy('name')->get();
+        $category = Category::orderBy('name')->paginate($this->paginate);
         return view('category.index', compact('category'));
     }
 

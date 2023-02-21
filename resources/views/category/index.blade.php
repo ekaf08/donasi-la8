@@ -23,36 +23,42 @@
                             <th width="10%"><i class="fas fa-cog"></i></th>
                         </thead>
                         <tbody>
-                            @foreach ($category as $item => $key)
+                            @foreach ($category as $key => $item)
                                 <tr>
-                                    <td>{{ $item + 1 }} .</td>
-                                    <td>{{ $key->name }}</td>
+                                    <td>
+                                        <x-number-table :key="$key" :model="$category" /> .
+                                    </td>
+                                    <td>{{ $item->name }}</td>
                                     <td class="text-center">0</td>
                                     <td class="text-center">
-                                        @if ($key->f_status == 't')
+                                        @if ($item->f_status == 't')
                                             <span class="badge text-link text-success text-bold">Aktif</span>
                                         @else
                                             <span class="badge text-link text-danger text-bold">Non Aktif</span>
                                         @endif
                                     </td>
                                     <td class="text-center">
-                                        <form action="{{ route('category.destroy', Crypt::encryptString($key->id)) }}"
+                                        {{-- <form action="{{ route('category.destroy', Crypt::encryptString($item->id)) }}"
                                             method="POST">
                                             @csrf
-                                            @method('delete')
-                                            <a href="{{ route('category.edit', Crypt::encryptString($key->id)) }}"
-                                                class="btn btn-link text-info" title="Edit - {{ $key->name }}"><i
-                                                    class="fas fa-edit"></i> </a>
-                                            <button class="btn btn-link text-danger" type="button"
-                                                onclick="deleteData('{{ route('category.destroy', Crypt::encryptString($key->id)) }}')"
-                                                title="Hapus - {{ $key->name }}"><i class="fas fa-trash-alt"></i>
-                                            </button>
-                                        </form>
+                                            @method('delete') --}}
+                                        <a href="{{ route('category.edit', Crypt::encryptString($item->id)) }}"
+                                            class="btn btn-link text-info" title="Edit - {{ $item->name }}"><i
+                                                class="fas fa-edit"></i> </a>
+                                        <button class="btn btn-link text-danger" type="button"
+                                            onclick="deleteData('{{ route('category.destroy', Crypt::encryptString($item->id)) }}')"
+                                            title="Hapus - {{ $item->name }}"><i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        {{-- </form> --}}
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
+
+                    <div class="float-right mt-4">
+                        {{ $category->links('pagination::bootstrap-4') }}
+                    </div>
                 </div>
             </div>
         </div>
