@@ -14,6 +14,10 @@
                         Tambah</a>
                 </div>
                 <div class="card-body">
+                    <form class="d-flex justify-content-between">
+                        <x-dropdown-table />
+                        <x-filter-table />
+                    </form>
                     <table class="table table-striped" id="data-table">
                         <thead class="bg-gradient-indigo text-center">
                             <th width="5%">No</th>

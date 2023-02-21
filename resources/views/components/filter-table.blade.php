@@ -1,3 +1,4 @@
-<div>
-    <!-- The only way to do great work is to love what you do. - Steve Jobs -->
+<div class="form-inline form-group">
+    <input type="text" class="form-control mb-2" name="cari" placeholder="Cari..." value="{{ request('cari') }}">
+    <button class="btn btn-link btn-link-primary mb-2"><i class="fas fa-search-location"></i></button>
 </div>

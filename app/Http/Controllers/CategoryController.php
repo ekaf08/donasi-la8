@@ -15,9 +15,14 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     protected $paginate = 3;
-    public function index()
+    public function index(Request $request)
     {
-        $category = Category::orderBy('name')->paginate($this->paginate);
+        $category = Category::orderBy('name')
+            ->when($request->has('cari') && $request->cari != "", function ($query) use ($request) {
+                $query->where('name', 'LIKE', '%' . $request->cari . '%');
+            })
+            ->paginate($request->rows ?? $this->paginate)
+            ->appends($request->only('rows', 'cari'));
         return view('category.index', compact('category'));
     }
 
