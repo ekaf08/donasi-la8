@@ -25,10 +25,21 @@
                 <div class="form-group">
                     <label for="name">Nama</label>
                     @if (isset($edit_category))
-                        <input type="text" class="form-control" name="name" id="name"
-                            value="{{ $edit_category->name }}" required>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
+                            id="name" value="{{ $edit_category->name }}" required>
+                        @error('name')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     @else
-                        <input type="text" class="form-control" name="name" id="name" required>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
+                            value="{{ old('name') }}" id="name" required>
+                        @error('name')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     @endif
                 </div>
                 <div class="form-group">
