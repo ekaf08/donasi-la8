@@ -14,7 +14,7 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    protected $paginate = 10;
+    protected $paginate = 5;
     public function index(Request $request)
     {
         $category = Category::orderBy('name')
@@ -23,6 +23,8 @@ class CategoryController extends Controller
             })
             ->paginate($request->rows ?? $this->paginate)
             ->appends($request->only('rows', 'cari'));
+
+        // dd($category)->toArray();
         return view('category.index', compact('category'));
     }
 
