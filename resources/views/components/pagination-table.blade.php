@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-between mt-4">
-    <p>Menampilkan 1 s/d 10 dari 20 entri</p>
+    <p>Menampilkan {{ $model->firstItem() }} s/d {{ $model->lastItem() }} dari {{ $model->total() }} data</p>
 
-    {{-- {{ $model->links('pagination::bootstrap-4') }} --}}
-    {{ $model->links() }}
+    {{ $model->links('pagination::bootstrap-4') }}
+    {{-- {{ $model->links() }} //konfigurasi bootstrapnya ada du AppServiceProvider.php --}}
 </div>
