@@ -3,6 +3,7 @@
 use App\Http\Controllers\{
     CategoryController,
     DashboardController,
+    CampaignController,
 };
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,7 @@ Route::group([
         'middleware' => 'role:admin'
     ], function () {
         Route::resource('/category', CategoryController::class);
+        Route::resource('/campaign', CampaignController::class);
     });
 
     Route::group([

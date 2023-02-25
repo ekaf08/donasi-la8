@@ -1,6 +1,6 @@
-<aside class="main-sidebar elevation-4 sidebar-light-indigo">
+<aside class="main-sidebar elevation-4 sidebar-light-navy">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link bg-indigo">
+    <a href="index3.html" class="brand-link bg-navy">
         <img src="{{ asset('/AdminLTE/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">EmbohWes</span>
@@ -47,7 +47,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('campaign.index') }}"
+                            class="nav-link {{ request()->is('campaign*') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-project-diagram"></i>
                             <p>
                                 Projek
