@@ -52,12 +52,12 @@
                 <x-table>
                     <x-slot name="thead">
                         <th class="border" width=5%>No</th>
-                        <th class="border" width=10%>Gambar</th>
-                        <th class="border" width=25%>Deskripsi</th>
+                        <th class="border" width=1%>Gambar</th>
+                        <th class="border" width=30%>Deskripsi</th>
                         <th class="border" width=10%>Tgl Publish</th>
                         <th class="border text-center" width=3%>Status</th>
                         <th class="border text-center" width=10%>Penulis</th>
-                        <th class="border text-center" width=15%><i class="fas fa-cog"></i></th>
+                        <th class="border text-center" width=10%><i class="fas fa-cog"></i></th>
                     </x-slot>
                 </x-table>
             </x-card>
@@ -65,4 +65,6 @@
     </div>
 @endsection
 {{-- <x-toast /> --}}
+
 <x-swal />
+@includeIf('includes.datatable')
