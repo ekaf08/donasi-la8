@@ -63,8 +63,36 @@
             </x-card>
         </div>
     </div>
+
+    <x-modal size='modal-xl'>
+        <x-slot name="title">Tambah Projek</x-slot>
+        <div class="row">
+            <div class="col-lg-6 form-group">
+                <label for="title">Judul</label>
+                <input type="text" class="form-control" name="title" id="title">
+            </div>
+            <div class="col-lg-6 form-group">
+                <label for="categories">Judul</label>
+                <select name="categories" id="categories">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <x-slot name="footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+            <button class="btn btn-primary">Simpan</button>
+        </x-slot>
+    </x-modal>
 @endsection
 {{-- <x-toast /> --}}
 
 <x-swal />
 @includeIf('includes.datatable')
+
+@push('scripts')
+    <script>
+        function addForm(url, title = 'judul 123') {
+            $('.modal').modal('show');
+        }
+    </script>
+@endpush
