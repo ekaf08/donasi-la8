@@ -2,10 +2,10 @@
 <div
     {{ $attributes->merge([
         'class' => 'modal fade',
-        'id' => 'staticBackdrop',
+        'id' => 'modal-form',
         'data-backdrop' => 'static',
         'data-keyboard' => 'false',
-        'tabindex' => '-1',
+        // 'tabindex' => '1',
         'aria-labelledby' => 'staticBackdropLabel',
         'aria-hidden' => 'true',
     ]) }}>
