@@ -30,7 +30,7 @@
                             <td>
                                 <x-number-table :key="$key" :model="$category" /> .
                             </td>
-                            <td>{{ $item->name }}</td>
+                            <td>{{ strip_tags($item->name) }}</td>
                             <td class="text-center">0</td>
                             <td class="text-center">
                                 @if ($item->f_status == 't')

@@ -7,6 +7,7 @@ use App\Http\Controllers\{
     FileUploadController,
 };
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\XSS;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,10 +34,8 @@ Route::group([
     Route::delete('/revert', [FileUploadController::class, 'delete'])->name('revert');
 
     Route::group([
-        'middleware' => 'role:admin'
+        'middleware' => ['role:admin', 'XSS']
     ], function () {
-
-
         Route::resource('/category', CategoryController::class);
         Route::resource('/campaign', CampaignController::class);
     });
