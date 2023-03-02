@@ -64,52 +64,7 @@
         </div>
     </div>
 
-    <x-modal size='modal-xl'>
-        <x-slot name="title">Tambah Projek</x-slot>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <label for="title">Judul</label>
-                    <input type="text" class="form-control" name="title" id="title">
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <label for="categories">Kategori</label>
-                    <select name="categories" id="categories" class="form-control select2">
-                        <option value=""></option>
-                    </select>
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="short_description">Deskripsi Singkat</label>
-            <textarea name="short_description" id="short_description" rows="4" class="form-control"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="body">Isi Konten</label>
-            <textarea name="body" id="body" rows="4" class="form-control summernote"></textarea>
-        </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="form-group">
-                    <label>Tanggal Publish</label>
-                    <div class="input-group datetimepicker" id="datetimepicker1" data-target-input="nearest">
-                        <input type="text" name="publish_date" class="form-control datetimepicker-input"
-                            data-target="#datetimepicker1" />
-                        <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
-                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6"></div>
-        </div>
-        <x-slot name="footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-            <button class="btn btn-primary">Simpan</button>
-        </x-slot>
-    </x-modal>
+    @includeIf('campaign.form')
 @endsection
 {{-- <x-toast /> --}}
 
@@ -118,8 +73,10 @@
 @includeIf('includes.summernote')
 @includeIf('includes.select2')
 @includeIf('includes.datepicker')
+@includeIf('includes.numbering')
 
 @push('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"></script>
     <script>
         function addForm(url, title = 'judul 123') {
             $('#modal-form').modal('show');

@@ -134,6 +134,25 @@
     <!-- Sweet Alert -->
     {{-- <script src="sweetalert2.all.min.js"></script> --}}
 
+    <!--Start fungsi untuk preview input gambar dan menghilangkan url image-->
+    <script>
+        //menghilangkan url image
+        $('.custom-file-input').on('change', function() {
+            let filename = $(this).val().split('\\').pop();
+            $(this)
+                .next('.custom-file-label')
+                .addClass('selected')
+                .html(filename);
+        })
+
+        // untuk preview input gambar
+        function preview(target, image) {
+            $(target)
+                .attr('src', window.URL.createObjectURL(image))
+                .show();
+        }
+    </script>
+    <!--End -->
 
     @stack('scripts')
 
