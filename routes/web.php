@@ -4,6 +4,7 @@ use App\Http\Controllers\{
     CategoryController,
     DashboardController,
     CampaignController,
+    FileUploadController,
 };
 use Illuminate\Support\Facades\Route;
 
@@ -27,10 +28,15 @@ Route::group([
     'middleware' => ['auth', 'role:admin,donatur']
 ], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    // route untuk filepond
+    Route::post('/upload', [FileUploadController::class, 'store'])->name('upload');
+    Route::delete('/revert', [FileUploadController::class, 'delete'])->name('revert');
 
     Route::group([
         'middleware' => 'role:admin'
     ], function () {
+
+
         Route::resource('/category', CategoryController::class);
         Route::resource('/campaign', CampaignController::class);
     });
