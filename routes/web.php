@@ -34,7 +34,7 @@ Route::group([
     Route::delete('/revert', [FileUploadController::class, 'delete'])->name('revert');
 
     Route::group([
-        'middleware' => ['role:admin', 'XSS']
+        'middleware' => ['role:admin']
     ], function () {
         Route::resource('/category', CategoryController::class);
         Route::resource('/campaign', CampaignController::class);

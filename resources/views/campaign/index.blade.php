@@ -77,10 +77,106 @@
 @includeIf('includes.filepond')
 
 @push('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"></script>
     <script>
-        function addForm(url, title = 'judul 123') {
-            $('#modal-form').modal('show');
+        let modal = '#modal-form';
+
+        function addForm(url, title = null) {
+            $(modal).modal('show');
+            $(`${modal} .modal-title`).text(title ?? 'Tambah Data');
+            $(`${modal} form`).attr('action', url);
+
+            resetForm(`${modal} form`);
+        }
+
+        function editForm(url, title = 'Edit Data') {
+            $.get(url).done(response => {
+                    $(modal).modal('show');
+                    $(`${modal} .modal-title`).text(title);
+                    $(`${modal} form`).attr('action', url);
+
+                    resetForm(`${modal} form`);
+                })
+                .fail(errors => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Mohon maaf !!',
+                        // footer: '<a href="">Why do I have this issue?</a>'
+                    })
+                });
+        }
+
+        function submitForm(originalForm) {
+            $.post({
+                    url: $(originalForm).attr('action'),
+                    data: new FormData(originalForm),
+                    dataType: 'json',
+                    contentType: false,
+                    cache: false,
+                    processData: false
+                })
+                .done(response => {
+                    $(modal).modal('hide');
+                    showAlert(response.message, 'success');
+                    table.ajax.reload();
+                })
+                .fail(errors => {
+                    if (errors.status == 422) {
+                        loopErrors(errors.responseJSON.errors);
+                        return;
+                    }
+                    // showAlert(errors.responseJSON.message, 'danger');
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Mohon maaf !!',
+                        // footer: '<a href="">Why do I have this issue?</a>'
+                    })
+                });
+        }
+
+        function deleteData(url) {
+            Swal.fire({
+                title: 'Yakin ?',
+                text: "Menghapus Data Ini ?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya',
+                cancelButtonText: 'Tidak',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.post(url, {
+                            '_token': $('[name=csrf-token]').attr('content'),
+                            '_method': 'delete'
+                        })
+                        .done((response) => {
+                            Swal.fire(
+                                'Berhasil',
+                                'Data Anda Telah Di Hapus',
+                                'success'
+                            )
+                            table.ajax.reload();
+                        })
+                        .fail((errors) => {
+                            Swal.fire(
+                                'Oops',
+                                'Data Gagal Di Hapus',
+                                'error'
+                            )
+                            return;
+                        })
+                }
+            })
+        }
+
+        // script helper
+        function resetForm(selector) {
+            $(selector)[0].reset();
+            $('.select2').trigger('change');
+            $('.form-control, .custom-select, .custom-checkbox, .custom-radio, .select2').removeClass('is-invalid');
+            $('.invalid-feedback').remove();
         }
     </script>
 @endpush
