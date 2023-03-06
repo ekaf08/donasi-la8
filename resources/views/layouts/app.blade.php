@@ -136,6 +136,12 @@
 
     <!--Start fungsi untuk preview input gambar dan menghilangkan url image-->
     <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
         //menghilangkan url image
         $('.custom-file-input').on('change', function() {
             let filename = $(this).val().split('\\').pop();

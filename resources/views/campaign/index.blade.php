@@ -14,40 +14,6 @@
                             class="fas fa-plus-circle"></i>
                         Tambah</button>
                 </x-slot>
-                <div class="d-flex justify-content-between">
-                    <div class="form-group">
-                        <label for="status2">Status</label>
-                        <select name="status2" id="status2" class="custom-select">
-                            <option disabled selected>Pilih salah satu ...</option>
-                            <option value="publish">Publish</option>
-                            <option value="pending">Pending</option>
-                            <option value="archived">Diarsipkan</option>
-                        </select>
-                    </div>
-
-                    <div class="d-flex">
-                        <div class="form-group mx-3">
-                            <label for="start_date2">Tanggal Awal</label>
-                            <div class="input-group datepicker" id="start_date2" data-target-input="nearest">
-                                <input type="text" name="start_date2" class="form-control datetimepicker-input"
-                                    data-target="#start_date2" />
-                                <div class="input-group-append" data-target="#start_date2" data-toggle="datetimepicker">
-                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="end_date2">Tanggal Akhir</label>
-                            <div class="input-group datepicker" id="end_date2" data-target-input="nearest">
-                                <input type="text" name="end_date2" class="form-control datetimepicker-input"
-                                    data-target="#end_date2" />
-                                <div class="input-group-append" data-target="#end_date2" data-toggle="datetimepicker">
-                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <x-table>
                     <x-slot name="thead">
@@ -74,10 +40,13 @@
 @includeIf('includes.select2')
 @includeIf('includes.datepicker')
 @includeIf('includes.numbering')
-@includeIf('includes.filepond')
+{{-- @includeIf('includes.filepond') --}}
 
 @push('scripts')
     <script>
+        let table;
+        $('.table').DataTable();
+
         let modal = '#modal-form';
 
         function addForm(url, title = null) {
@@ -121,15 +90,23 @@
                     table.ajax.reload();
                 })
                 .fail(errors => {
+                    // console.log(errors.responseJSON.errors);
+                    // return;
                     if (errors.status == 422) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Mohon maaf ..',
+                            text: 'Data gagal disimpan !!',
+                            footer: 'Silahkan cek isian anda'
+                        })
                         loopErrors(errors.responseJSON.errors);
                         return;
                     }
                     // showAlert(errors.responseJSON.message, 'danger');
                     Swal.fire({
                         icon: 'error',
-                        title: 'Oops...',
-                        text: 'Mohon maaf !!',
+                        title: 'Mohon maaf ..',
+                        text: 'Data gagal disimpan !!',
                         // footer: '<a href="">Why do I have this issue?</a>'
                     })
                 });
@@ -175,8 +152,84 @@
         function resetForm(selector) {
             $(selector)[0].reset();
             $('.select2').trigger('change');
-            $('.form-control, .custom-select, .custom-checkbox, .custom-radio, .select2').removeClass('is-invalid');
+            $(`[name=body]`).summernote('code', '');
+            $('.form-control, .custom-select, [type=radio], [type=checkbox], [type=file], .custom-radio, .select2, .note-editor')
+                .removeClass('is-invalid');
             $('.invalid-feedback').remove();
+        }
+
+        function loopForm(originalForm) {
+            for (field in originalForm) {
+                if ($(`[name=${file}]`).attr('type') != 'file') {
+                    if ($(`[name=${field}]`).hasClass('summernote')) {
+                        $(`[name=${field}]`).summernote('code', originalForm[field])
+                    }
+
+                    $(`[name=${field}]`).val(originalForm[file]);
+                    $('select').trigger('change');
+                }
+            }
+        }
+
+        function loopErrors(errors, message = true) {
+            $('.invalid-feedback').remove();
+
+            if (errors == undefined) {
+                return;
+            }
+
+            for (error in errors) {
+                $(`[name=${error}]`).addClass('is-invalid');
+
+                if ($(`[name=${error}]`).hasClass('select2')) {
+                    $(`<span class="error invalid-feedback">${errors[error][0]}</span>`)
+                        .insertAfter($(`[name=${error}]`).next());
+                } else if ($(`[name=${error}]`).hasClass('summernote')) {
+                    $('.note-editor').addClass('is-invalid');
+                    $(`<span class="error invalid-feedback">${errors[error][0]}</span>`)
+                        .insertAfter($(`[name=${error}]`).next());
+                } else if ($(`[name=${error}]`).hasClass('custom-control-input')) {
+                    $(`<span class="error invalid-feedback">${errors[error][0]}</span>`)
+                        .insertAfter($(`[name=${error}]`).next());
+                } else {
+                    if ($(`[name=${error}]`).length == 0) {
+                        $(`[name="${error}[]"]`).addClass('is-invalid');
+                        $(`<span class="error invalid-feedback">${errors[error][0]}</span>`)
+                            .insertAfter($(`[name="${error}[]"]`).next());
+                    } else {
+                        $(`<span class="error invalid-feedback">${errors[error][0]}</span>`)
+                            .insertAfter($(`[name=${error}]`));
+                    }
+                }
+            }
+        }
+
+        function showAlert(message, type) {
+            let title = '';
+            switch (type) {
+                case 'success':
+                    title = 'Success';
+                    break;
+                case 'error':
+                    title = 'Failed';
+                    break;
+                default:
+                    break;
+            }
+
+            $(function() {
+                var Toast = Swal.mixin({
+                    toast: true,
+                    position: 'center',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+
+                Toast.fire({
+                    icon: `bg-${type}`,
+                    title: message
+                })
+            })
         }
     </script>
 @endpush

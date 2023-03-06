@@ -10,11 +10,9 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <label for="categories">Kategori</label>
-                <select name="categories[]" id="categories" class="form-control select2">
-                    <option disabled selected>Pilih salah satu ..</option>
+                <select name="categories[]" id="categories" class="select2" multiple>
                     @foreach ($category as $key => $item)
-                        <option value="{{ $item->id }}"
-                            @if ($item->id == old('item')) {{ 'selected' }} @endif>{{ $item->name }}</option>
+                        <option value="{{ $key }}">{{ $item }}</option>
                     @endforeach
                 </select>
             </div>
@@ -124,6 +122,6 @@
     </div>
     <x-slot name="footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-        <button class="btn btn-primary">Simpan</button>
+        <button type="button" class="btn btn-primary" onclick="submitForm(this.form)">Simpan</button>
     </x-slot>
 </x-modal>
