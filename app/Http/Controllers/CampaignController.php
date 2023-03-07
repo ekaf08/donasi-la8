@@ -38,6 +38,7 @@ class CampaignController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
         $validator = Validator::make($request->all(), [
             'title' => 'required|min:8',
             'categories' => 'required|array',
@@ -45,7 +46,7 @@ class CampaignController extends Controller
             'body' => 'required|min:8',
             'publish_date' => 'required|date_format:Y-m-d H:i',
             'end_date' => 'required|date_format:Y-m-d H:i',
-            'goal' => 'required|integer',
+            'goal' => 'required',
             'note' => 'nullable',
             'receiver' => 'required',
             'status' => 'required',
