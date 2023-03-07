@@ -10,9 +10,9 @@
         'aria-hidden' => 'true',
     ]) }}>
     <div class="modal-dialog {{ isset($size) ? $size : 'modal-lg' }}">
-        <form method="post" enctype="multipart/form-data">
-            @csrf
-            <div class="modal-content">
+        <div class="modal-content">
+            <form method="POST" enctype="multipart/form-data">
+                @csrf
                 @isset($title)
                     <div class="modal-header">
                         <h5 class="modal-title">{{ $title }}</h5>
@@ -29,7 +29,7 @@
                         {{ $footer }}
                     </div>
                 @endisset
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>

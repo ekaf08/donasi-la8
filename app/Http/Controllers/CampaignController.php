@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Campaign;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class CampaignController extends Controller
 {
@@ -38,7 +39,6 @@ class CampaignController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
         $validator = Validator::make($request->all(), [
             'title' => 'required|min:8',
             'categories' => 'required|array',
@@ -56,7 +56,16 @@ class CampaignController extends Controller
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 422);
         }
-        dd($validator);
+
+        $data = $request->except('path_image', 'categories', 'goal');
+        $data['slug'] = Str::slug($request->title);
+        $data['path_image'] = upload('img_campaign', $request->file('path_image'), 'campaign');
+        $data['goal'] = str_replace('.', ',', '');
+        // return $data['path_image'];
+        $campaign = Campaign::create($data);
+        $campaign->category_campaign()->attach($request->categories);
+
+        return response()->json(['data' => $campaign, 'message' => 'Projek berhasil ditambahkan']);
     }
 
     /**
