@@ -60,8 +60,8 @@ class CampaignController extends Controller
         $data = $request->except('path_image', 'categories', 'goal');
         $data['slug'] = Str::slug($request->title);
         $data['path_image'] = upload('img_campaign', $request->file('path_image'), 'campaign');
-        $data['goal'] = str_replace('.', ',', '');
-        // return $data['path_image'];
+        $data['goal'] = Str::replace(',', '', $request->goal);
+        // return $data;
         $campaign = Campaign::create($data);
         $campaign->category_campaign()->attach($request->categories);
 
