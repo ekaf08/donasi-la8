@@ -29,7 +29,7 @@ class CreateCampaignsTable extends Migration
             $table->dateTime('end_date');
             $table->text('note')->nullable();
             $table->string('receiver');
-            $table->boolean('f_status');
+            // $table->boolean('f_status');
             $table->timestamps();
             $table->softDeletes();
         });

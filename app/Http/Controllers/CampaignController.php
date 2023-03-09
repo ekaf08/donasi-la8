@@ -50,7 +50,7 @@ class CampaignController extends Controller
             'note' => 'nullable',
             'receiver' => 'required',
             'status' => 'required',
-            'path_image' => 'required|mimes:png,jpg,jpeg|max:1048'
+            'path_image' => 'mimes:png,jpg,jpeg|max:1048'
         ]);
 
         if ($validator->fails()) {
@@ -61,6 +61,7 @@ class CampaignController extends Controller
         $data['slug'] = Str::slug($request->title);
         $data['path_image'] = upload('img_campaign', $request->file('path_image'), 'campaign');
         $data['goal'] = Str::replace(',', '', $request->goal);
+        $data['user_id'] = auth()->id();
         // return $data;
         $campaign = Campaign::create($data);
         $campaign->category_campaign()->attach($request->categories);
