@@ -17,7 +17,7 @@ class CreateCategoryCampaignTable extends Migration
             $table->id();
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('campaign_id');
-            $table->boolean('f_status');
+            // $table->boolean('f_status');
             $table->timestamps();
             $table->softDeletes();
         });

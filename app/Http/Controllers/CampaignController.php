@@ -66,7 +66,7 @@ class CampaignController extends Controller
         $campaign = Campaign::create($data);
         $campaign->category_campaign()->attach($request->categories);
 
-        return response()->json(['data' => $campaign, 'message' => 'Projek berhasil ditambahkan']);
+        return response()->json(['data' => $campaign, 'message' => 'Projek berhasil ditambahkan', 'success' => true]);
     }
 
     /**

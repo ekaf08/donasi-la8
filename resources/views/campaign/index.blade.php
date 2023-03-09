@@ -224,11 +224,25 @@
                     showConfirmButton: false,
                     timer: 2000
                 });
+                switch (type) {
+                    case 'success':
+                        Toast.fire({
+                            icon: 'success',
+                            title: message
+                        })
+                        break;
+                    case 'error':
+                        Toast.fire({
+                            icon: 'error',
+                            title: message
+                        })
+                        break;
 
-                Toast.fire({
-                    icon: `bg-${type}`,
-                    title: message
-                })
+                    default:
+                        break;
+                }
+
+
             })
         }
 
