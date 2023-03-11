@@ -32,7 +32,7 @@ class CampaignController extends Controller
                 return $query->title . '<br><small>' . Str::limit($query->short_description, 500) . '</small>';
             })
             ->editColumn('path_image', function ($query) {
-                return '<img src="' . Storage::disk('local')->url($query->path_image) . '" class="img-thumbnail">';
+                return '<img src="' . Storage::disk('local')->url($query->path_image) . '" class="img-thumbnail mx-auto d-block">';
             })
             ->addColumn('author', function ($query) {
                 return auth()->user()->name;
@@ -40,7 +40,7 @@ class CampaignController extends Controller
                 return
                     '
                     <div class="text-center">
-                        <a href="' . route('campaign.detail', encrypt($query->id)) . '" class="btn btn-link text-primary"><i class="fas fa-search-plus"></i></a>
+                        <a href="' . route('campaign.detail', encrypt($query->id)) . '" class="btn btn-link text-primary" title="Detail- `' . $query->title . '`"><i class="fas fa-search-plus"></i></a>
                         <button type="button" class="btn btn-link text-success" onclick="editForm(`' . route('campaign.show', encrypt($query->id)) . '`)" title="Edit- `' . $query->title . '`"><i class="fas fa-edit"></i></button>
                         <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('campaign.destroy', encrypt($query->id)) . '`)" title="Hapus- `' . $query->title . '`"><i class="fas fa-trash-alt"></i></button>
                     </div>

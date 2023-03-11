@@ -10,8 +10,8 @@
         <div class="col-lg-12">
             <x-card>
                 <x-slot name="header">
-                    <button onclick="addForm(`{{ route('campaign.store') }}`)" class="btn btn-primary"><i
-                            class="fas fa-plus-circle"></i>
+                    <button onclick="addForm(`{{ route('campaign.store') }}`, 'Tambah Data Projek / Campaign')"
+                        class="btn btn-primary"><i class="fas fa-plus-circle"></i>
                         Tambah</button>
                 </x-slot>
 
@@ -92,9 +92,9 @@
         });
 
 
-        function addForm(url, title = null) {
+        function addForm(url, title) {
             $(modal).modal('show');
-            $(`${modal} .modal-title`).text(title ?? 'Tambah Data');
+            $(`${modal} .modal-title`).text(title);
             $(`${modal} form`).attr('action', url);
 
             resetForm(`${modal} form`);
