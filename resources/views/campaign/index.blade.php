@@ -17,12 +17,12 @@
 
                 <x-table>
                     <x-slot name="thead">
-                        <th class="border" width=5%>No</th>
-                        <th class="border" width=1%>Gambar</th>
+                        <th class="border" width=3%>No</th>
+                        <th class="border" width=10%>Gambar</th>
                         <th class="border" width=30%>Deskripsi</th>
                         <th class="border" width=10%>Tgl Publish</th>
                         <th class="border text-center" width=3%>Status</th>
-                        <th class="border text-center" width=10%>Penulis</th>
+                        <th class="border text-center" width=3%>Penulis</th>
                         <th class="border text-center" width=10%><i class="fas fa-cog"></i></th>
                     </x-slot>
                 </x-table>
@@ -44,10 +44,53 @@
 
 @push('scripts')
     <script>
-        let table;
-        $('.table').DataTable();
-
         let modal = '#modal-form';
+        let table;
+
+        table = $('.table').DataTable({
+            processing: true,
+            autowidth: false,
+            serverside: true,
+            ajax: {
+                url: "{{ route('campaign.data') }}",
+                type: 'GET'
+            },
+            columns: [{
+                    data: 'DT_RowIndex',
+                    searchable: false,
+                    sortable: false
+                },
+                {
+                    data: 'path_image',
+                    searchable: false,
+                    sortable: false
+                },
+                {
+                    data: 'short_description'
+                },
+                {
+                    data: 'publish_date'
+                },
+                {
+                    data: 'status'
+                },
+                {
+                    data: 'author'
+                },
+                {
+                    data: 'action',
+                    searchable: false,
+                    sortable: false
+                },
+            ],
+            'columnDefs': [{
+                "targets": [0, 4, 5],
+                "className": "text-center",
+                "width": "4%"
+            }],
+            "bDestroy": true
+        });
+
 
         function addForm(url, title = null) {
             $(modal).modal('show');
@@ -129,11 +172,7 @@
                             '_method': 'delete'
                         })
                         .done((response) => {
-                            Swal.fire(
-                                'Berhasil',
-                                'Data Anda Telah Di Hapus',
-                                'success'
-                            )
+                            showAlert(response.message, 'success');
                             table.ajax.reload();
                         })
                         .fail((errors) => {
@@ -205,18 +244,6 @@
         }
 
         function showAlert(message, type) {
-            let title = '';
-            switch (type) {
-                case 'success':
-                    title = 'Success';
-                    break;
-                case 'error':
-                    title = 'Failed';
-                    break;
-                default:
-                    break;
-            }
-
             $(function() {
                 var Toast = Swal.mixin({
                     toast: true,

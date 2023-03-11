@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Campaign;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
@@ -21,14 +22,39 @@ class CampaignController extends Controller
         return view('campaign.index', compact('category'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function data(Request $request)
     {
-        //
+        $query = Campaign::orderBy('publish_date', 'desc')->get();
+
+        return datatables($query)
+            ->addIndexColumn()
+            ->editColumn('short_description', function ($query) {
+                return $query->title . '<br><small>' . Str::limit($query->short_description, 500) . '</small>';
+            })
+            ->editColumn('path_image', function ($query) {
+                return '<img src="' . Storage::disk('local')->url($query->path_image) . '" class="img-thumbnail">';
+            })
+            ->addColumn('author', function ($query) {
+                return auth()->user()->name;
+            })->addColumn('action', function ($query) {
+                return
+                    '
+                    <div class="text-center">
+                        <a href="' . route('campaign.detail', encrypt($query->id)) . '" class="btn btn-link text-primary"><i class="fas fa-search-plus"></i></a>
+                        <button type="button" class="btn btn-link text-success" onclick="editForm(`' . route('campaign.show', encrypt($query->id)) . '`)" title="Edit- `' . $query->title . '`"><i class="fas fa-edit"></i></button>
+                        <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('campaign.destroy', encrypt($query->id)) . '`)" title="Hapus- `' . $query->title . '`"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                ';
+            })
+            ->rawColumns(['short_description', 'path_image', 'author', 'action'])
+            ->escapeColumns([])
+            ->make(true);
+    }
+
+    public function detail($id)
+    {
+        $id = decrypt($id);
+        dd('detail ' . $id . ', ok');
     }
 
     /**
@@ -77,18 +103,8 @@ class CampaignController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $id = decrypt($id);
+        dd('show ' . $id . ', ok');
     }
 
     /**
@@ -111,6 +127,16 @@ class CampaignController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $id = decrypt($id);
+        // dd('destroy ' . $id . ', ok');
+
+        $campaign = Campaign::where('id', $id)->first();
+        if (Storage::disk('public')->exists($campaign->path_image)) {
+            // hapus foto dari folder storage 
+            Storage::disk('public')->delete($campaign->path_image);
+        }
+
+        $campaign->delete();
+        return response()->json(['data' => null, 'message' => 'Projek berhasil dihapus', 'success' => true]);
     }
 }
