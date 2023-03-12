@@ -49,7 +49,7 @@
 
         table = $('.table').DataTable({
             processing: true,
-            autowidth: false,
+            autoWidth: false,
             serverside: true,
             ajax: {
                 url: "{{ route('campaign.data') }}",

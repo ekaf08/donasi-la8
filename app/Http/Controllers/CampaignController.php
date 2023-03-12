@@ -35,7 +35,7 @@ class CampaignController extends Controller
                 return '<img src="' . Storage::disk('local')->url($query->path_image) . '" class="img-thumbnail mx-auto d-block">';
             })
             ->addColumn('author', function ($query) {
-                return auth()->user()->name;
+                return $query->user->name;
             })->addColumn('action', function ($query) {
                 return
                     '
