@@ -15,6 +15,40 @@
                         Tambah</button>
                 </x-slot>
 
+                <div class="d-flex justify-content-between">
+                    <div class="form-group">
+                        <label for="status2">Status</label>
+                        <select name="status2" class="custom-select" id="status2">
+                            <option disabled selected>Pilih salah satu</option>
+                            <option value="publish">Publish</option>
+                            <option value="archived">Diarsipkan</option>
+                            <option value="pending">Pending</option>
+                        </select>
+                    </div>
+                    <div class="d-flex">
+                        <div class="form-group mx-3">
+                            <label for="start_date2">Tanggal Awal</label>
+                            <div class="input-group datepicker" id="start_date2" data-target-input="nearest">
+                                <input type="text" name="start_date2" class="form-control datetimepicker-input"
+                                    data-target="#start_date2" />
+                                <div class="input-group-append" data-target="#start_date2" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="end_date2">Tanggal akhir</label>
+                            <div class="input-group datepicker" id="end_date2" data-target-input="nearest">
+                                <input type="text" name="end_date2" class="form-control datetimepicker-input"
+                                    data-target="#end_date2" />
+                                <div class="input-group-append" data-target="#end_date2" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <x-table>
                     <x-slot name="thead">
                         <th class="border" width=3%>No</th>
@@ -52,8 +86,13 @@
             autoWidth: false,
             serverside: true,
             ajax: {
-                url: "{{ route('campaign.data') }}",
-                type: 'GET'
+                url: '{{ route('campaign.data') }}',
+                type: 'GET',
+                data: function(d) {
+                    d.filter_status = $('[name=status2]').val();
+                    d.filter_start_date = $('[name=start_date2]').val();
+                    d.filter_end_date = $('[name=end_date2]').val();
+                }
             },
             columns: [{
                     data: 'DT_RowIndex',
@@ -91,6 +130,14 @@
             "bDestroy": true
         });
 
+
+        $('[name=status2]').on('change', function() {
+            table.ajax.reload();
+        });
+
+        $('.datepicker').on('change.datetimepicker', function() {
+            table.ajax.reload();
+        })
 
         function addForm(url, title) {
             $(modal).modal('show');

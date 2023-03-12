@@ -24,7 +24,21 @@ class CampaignController extends Controller
 
     public function data(Request $request)
     {
-        $query = Campaign::orderBy('publish_date', 'desc')->get();
+        $query = Campaign::orderBy('publish_date', 'desc')
+            ->when($request->has('filter_status') && $request->filter_status != "", function ($query) use ($request) {
+                $query->where('status', $request->filter_status);
+            })
+            ->when(
+                $request->has('filter_start_date') &&
+                    $request->filter_start_date != "" &&
+                    $request->has('filter_end_date') &&
+                    $request->filter_end_date != "",
+                function ($query) use ($request) {
+                    $query->whereBetween('publish_date', $request->only('filter_start_date', 'filter_end_date'));
+                }
+            )
+            ->orderBy('publish_date', 'desc')
+            ->get();
 
         return datatables($query)
             ->addIndexColumn()
