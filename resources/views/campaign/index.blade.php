@@ -100,19 +100,28 @@
             resetForm(`${modal} form`);
         }
 
-        function editForm(url, title = 'Edit Data') {
+        function editForm(url, title) {
             $.get(url).done(response => {
                     $(modal).modal('show');
                     $(`${modal} .modal-title`).text(title);
                     $(`${modal} form`).attr('action', url);
+                    $(`${modal} [name=_method]`).val('put');
 
                     resetForm(`${modal} form`);
+                    loopForm(response.data);
+                    // $(`[name=receiver]`).filter(`[value="${response.data.receiver}"]`).prop('checked', true);
+
+                    let selectedCategories = [];
+                    response.data.categories.forEach(item => {
+                        selectedCategories.push(item.id);
+                    });
+                    $('#categories').val(selectedCategories).trigger('change');
                 })
                 .fail(errors => {
                     Swal.fire({
                         icon: 'error',
-                        title: 'Oops...',
-                        text: 'Mohon maaf !!',
+                        title: 'Mohon maaf !!...',
+                        text: 'Data tidak dapat di tampilkan',
                         // footer: '<a href="">Why do I have this issue?</a>'
                     })
                 });
@@ -195,17 +204,23 @@
             $('.form-control, .custom-select, [type=radio], [type=checkbox], [type=file], .custom-radio, .select2, .note-editor')
                 .removeClass('is-invalid');
             $('.invalid-feedback').remove();
+            $(`.preview-path_image`).attr('src', '').hide();
         }
 
         function loopForm(originalForm) {
             for (field in originalForm) {
-                if ($(`[name=${file}]`).attr('type') != 'file') {
+                if ($(`[name=${field}]`).attr('type') != 'file') {
                     if ($(`[name=${field}]`).hasClass('summernote')) {
                         $(`[name=${field}]`).summernote('code', originalForm[field])
+                    } else if ($(`[name=${field}]`).attr('type') == 'radio') {
+                        $(`[name=${field}]`).filter(`[value="${originalForm[field]}"]`).prop('checked', true);
+                    } else {
+                        $(`[name=${field}]`).val(originalForm[field]);
                     }
-
-                    $(`[name=${field}]`).val(originalForm[file]);
                     $('select').trigger('change');
+                } else {
+                    $(`.preview-${field}`).attr('src', '/storage/' +
+                        originalForm[field]).show();
                 }
             }
         }

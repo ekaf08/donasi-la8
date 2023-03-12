@@ -29,7 +29,10 @@ class CampaignController extends Controller
         return datatables($query)
             ->addIndexColumn()
             ->editColumn('short_description', function ($query) {
-                return $query->title . '<br><small>' . Str::limit($query->short_description, 500) . '</small>';
+                return '<strong>' . $query->title . '</strong><br><small>' . Str::limit($query->short_description, 500) . '</small>';
+            })
+            ->editColumn('status', function ($query) {
+                return '<span class="badge badge-pill badge-' . $query->StatusColor() . '">' . $query->status . '</span>';
             })
             ->editColumn('path_image', function ($query) {
                 return '<img src="' . Storage::disk('local')->url($query->path_image) . '" class="img-thumbnail mx-auto d-block">';
@@ -41,12 +44,12 @@ class CampaignController extends Controller
                     '
                     <div class="text-center">
                         <a href="' . route('campaign.detail', encrypt($query->id)) . '" class="btn btn-link text-primary" title="Detail- `' . $query->title . '`"><i class="fas fa-search-plus"></i></a>
-                        <button type="button" class="btn btn-link text-success" onclick="editForm(`' . route('campaign.show', encrypt($query->id)) . '`)" title="Edit- `' . $query->title . '`"><i class="fas fa-edit"></i></button>
+                        <button type="button" class="btn btn-link text-success" onclick="editForm(`' . route('campaign.show', encrypt($query->id)) . '`, `Edit data projek ' . $query->title . '`)" title="Edit- `' . $query->title . '`"><i class="fas fa-edit"></i></button>
                         <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('campaign.destroy', encrypt($query->id)) . '`)" title="Hapus- `' . $query->title . '`"><i class="fas fa-trash-alt"></i></button>
                     </div>
                 ';
             })
-            ->rawColumns(['short_description', 'path_image', 'author', 'action'])
+            ->rawColumns(['short_description', 'path_image', 'author', 'action', 'status'])
             ->escapeColumns([])
             ->make(true);
     }
@@ -54,7 +57,13 @@ class CampaignController extends Controller
     public function detail($id)
     {
         $id = decrypt($id);
-        dd('detail ' . $id . ', ok');
+        // dd('detail ' . $id . ', ok');
+        $data = Campaign::where('id', $id)->first();
+        $campaign = $data->publish_date = date('Y-m-d H:i', strtotime($data->publish_date));
+        $campaign = $data->end_date = date('Y-m-d H:i', strtotime($data->end_date));
+
+
+        return $campaign;
     }
 
     /**
@@ -104,7 +113,14 @@ class CampaignController extends Controller
     public function show($id)
     {
         $id = decrypt($id);
-        dd('show ' . $id . ', ok');
+        // dd('show ' . $id . ', ok');
+
+        $campaign = Campaign::where('id', $id)->first();
+        $campaign->publish_date = date('Y-m-d H:i', strtotime($campaign->publish_date));
+        $campaign->end_date = date('Y-m-d H:i', strtotime($campaign->end_date));
+        $campaign->categories = $campaign->category_campaign;
+        // dd($campaign);
+        return response()->json(['data' => $campaign]);
     }
 
     /**
@@ -116,7 +132,43 @@ class CampaignController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $id = decrypt($id);
+        $campaign = Campaign::where('id', $id)->first();
+        $judul  = $campaign->title;
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|min:8',
+            'categories' => 'required|array',
+            'short_description' => 'required',
+            'body' => 'required|min:8',
+            'publish_date' => 'required|date_format:Y-m-d H:i',
+            'end_date' => 'required|date_format:Y-m-d H:i',
+            'goal' => 'required',
+            'note' => 'nullable',
+            'receiver' => 'required',
+            'status' => 'required',
+            'path_image' => 'mimes:png,jpg,jpeg|max:1048'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
+        $data = $request->except('path_image', 'categories', 'goal');
+        $data['slug'] = Str::slug($request->title);
+        if ($request->hasFile('path_image')) {
+            if (Storage::disk('public')->exists($campaign->path_image)) {
+                Storage::disk('public')->delete($campaign->path_image);
+            }
+            $data['path_image'] = upload('img_campaign', $request->file('path_image'), 'campaign');
+        }
+        $data['goal'] = Str::replace(',', '', $request->goal);
+        $data['user_id'] = auth()->id();
+        // return $data;
+
+        $campaign->update($data);
+        $campaign->category_campaign()->sync($request->categories);
+
+        return response()->json(['data' => $campaign, 'message' => 'Projek ' . $judul . ' berhasil diperbarui', 'success' => true]);
     }
 
     /**

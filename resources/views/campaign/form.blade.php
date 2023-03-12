@@ -1,5 +1,6 @@
 <x-modal size='modal-xl'>
-    <x-slot name="title">Tambah Projek</x-slot>
+    <x-slot name="title">JUDUL MODAL</x-slot>
+    @method('post')
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
@@ -116,8 +117,8 @@
                     <label class="custom-file-label" for="path_image">Pilih Gambar</label>
                 </div>
             </div>
-            <img src="{{ url('/img/no-img.jpg') }}" alt="" class="img-thumbnail img-fluid preview-path_image"
-                max-width: 50%; style="display: none;">
+            <img src="" alt="" class="img-thumbnail img-fluid preview-path_image" max-width: 50%;
+                style="display: none;">
         </div>
     </div>
     <x-slot name="footer">

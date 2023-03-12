@@ -18,6 +18,8 @@
         $('.note-btn-group.note-fontname').remove();
         setTimeout(() => {
             $('.note-btn-group.note-fontname').remove();
+            $('.note-btn-group.note-view').remove();
+            $('.note-btn-group.note-insert').remove();
 
         }, 300);
     </script>
