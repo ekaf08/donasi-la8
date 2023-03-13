@@ -23,6 +23,7 @@
                             <option value="publish">Publish</option>
                             <option value="archived">Diarsipkan</option>
                             <option value="pending">Pending</option>
+                            <option value="">Semua</option>
                         </select>
                     </div>
                     <div class="d-flex">
@@ -102,16 +103,44 @@
                 {
                     data: 'path_image',
                     searchable: false,
-                    sortable: false
+                    sortable: false,
+                    render: function(data, type, row) {
+                        if (data == null) {
+                            return "Tidak Ada";
+                        } else {
+                            return data
+                        }
+                    }
                 },
                 {
-                    data: 'short_description'
+                    data: 'short_description',
+                    render: function(data, type, row) {
+                        if (data == null) {
+                            return "Tidak Ada";
+                        } else {
+                            return data
+                        }
+                    }
                 },
                 {
-                    data: 'publish_date'
+                    data: 'publish_date',
+                    render: function(data, type, row) {
+                        if (data == null) {
+                            return "Tidak Ada";
+                        } else {
+                            return data
+                        }
+                    }
                 },
                 {
-                    data: 'status'
+                    data: 'status',
+                    render: function(data, type, row) {
+                        if (data == null) {
+                            return "Tidak Ada";
+                        } else {
+                            return data
+                        }
+                    }
                 },
                 {
                     data: 'author'
@@ -127,6 +156,19 @@
                 "className": "text-center",
                 "width": "4%"
             }],
+            "language": {
+                "info": "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
+                "infoEmpty": "Menampilkan 0 sampai 0 dari 0 data",
+                "infoFiltered": "(disaring dari _MAX_ total data)",
+                "lengthMenu": "Menampilkan _MENU_ data",
+                "search": "Cari:",
+                "zeroRecords": "Tidak ada data yang sesuai",
+                /* Kostum pagination dengan element baru */
+                "paginate": {
+                    "previous": "<i class='fas fa-angle-left'></i>",
+                    "next": "<i class='fas fa-angle-right'></i>"
+                }
+            },
             "bDestroy": true
         });
 
