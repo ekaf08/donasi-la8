@@ -72,12 +72,9 @@ class CampaignController extends Controller
     {
         $id = decrypt($id);
         // dd('detail ' . $id . ', ok');
-        $data = Campaign::findOrFail($id)->first();
-        $campaign = $data->publish_date = date('Y-m-d H:i', strtotime($data->publish_date));
-        $campaign = $data->end_date = date('Y-m-d H:i', strtotime($data->end_date));
-
-
-        return $campaign;
+        $campaign = Campaign::findOrFail($id)->first();
+        dd($campaign->category_campaign);
+        return view('campaign.detail', compact('campaign'));
     }
 
     /**
@@ -130,8 +127,11 @@ class CampaignController extends Controller
         // dd('show ' . $id . ', ok');
 
         $campaign = Campaign::where('id', $id)->first();
-
-        return view('campaign.deteail', compact('campaign'));
+        $campaign->publish_date = date('Y-m-d H:i', strtotime($campaign->publish_date));
+        $campaign->end_date = date('Y-m-d H:i', strtotime($campaign->end_date));
+        $campaign->categories = $campaign->category_campaign;
+        // dd($campaign);
+        return response()->json(['data' => $campaign]);
     }
 
     /**

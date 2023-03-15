@@ -51,7 +51,7 @@ if (!function_exists('terbilang')) {
 }
 
 if (!function_exists('tanggal_indonesia')) {
-    function tanggal_indonesia($tgl, $tampil_hari = false)
+    function tanggal_indonesia($tgl, $tampil_hari = true)
     {
         $nama_hari  = array(
             'Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum\'at', 'Sabtu'
