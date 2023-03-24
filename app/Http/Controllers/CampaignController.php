@@ -73,7 +73,7 @@ class CampaignController extends Controller
         $id = decrypt($id);
         // dd('detail ' . $id . ', ok');
         $campaign = Campaign::findOrFail($id)->first();
-        dd($campaign->category_campaign);
+        // dd($campaign->category_campaign);
         return view('campaign.detail', compact('campaign'));
     }
 
