@@ -64,11 +64,12 @@
                 </x-slot>
 
                 {{-- OPSI 1 UNTUK MENAMPILKAN GAMBAR UNGGULAN --}}
-                {{-- <img src="{{ Storage::disk('local')->url($campaign->path_image) }}" class="img-thumbnail"> --}}
+                <img src="{{ Storage::disk('local')->url($campaign->path_image) }}"
+                    class="img-thumbnail rounded mx-auto d-block border-0">
                 {{-- END OPSI 1  --}}
 
                 {{-- OPSI 2 UNTUK MENAMPILKAN GAMBAR UNGGULAN --}}
-                <img src="{{ Storage::disk('public')->url($campaign->path_image) }}" class="img-thumbnail">
+                {{-- <img src="{{ Storage::disk('public')->url($campaign->path_image) }}" class="img-thumbnail"> --}}
                 {{--  END OPSI 2 --}}
 
                 {{-- OPSI 3 UNTUK MENAMPILKAN GAMBAR UNGGULAN --}}

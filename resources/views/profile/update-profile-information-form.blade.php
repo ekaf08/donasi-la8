@@ -1,95 +1,153 @@
-<x-jet-form-section submit="updateProfileInformation">
-    <x-slot name="title">
-        {{ __('Profile Information') }}
-    </x-slot>
+<form action="{{ route('user-profile-information.update') }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    @method('put')
 
-    <x-slot name="description">
-        {{ __('Update your account\'s profile information and email address.') }}
-    </x-slot>
+    <x-card>
+        <div class="row justify-content-center">
+            <div class="col-lg-4">
+                <div class="text-center">
 
-    <x-slot name="form">
-        <!-- Profile Photo -->
-        @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-            <div x-data="{photoName: null, photoPreview: null}" class="col-span-6 sm:col-span-4">
-                <!-- Profile Photo File Input -->
-                <input type="file" class="hidden"
-                            wire:model="photo"
-                            x-ref="photo"
-                            x-on:change="
-                                    photoName = $refs.photo.files[0].name;
-                                    const reader = new FileReader();
-                                    reader.onload = (e) => {
-                                        photoPreview = e.target.result;
-                                    };
-                                    reader.readAsDataURL($refs.photo.files[0]);
-                            " />
-
-                <x-jet-label for="photo" value="{{ __('Photo') }}" />
-
-                <!-- Current Profile Photo -->
-                <div class="mt-2" x-show="! photoPreview">
-                    <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="rounded-full h-20 w-20 object-cover">
+                    {{-- <img src="{{  asset('storage' .auth()->user()->path_image ?? '../img/user2.png') }}" alt="" class="img-thumbnail preview-path_image" width="200" height="200"> --}}
+                    {{-- <img src="{{ url('storage/'.auth()->user()->path_image ?? '../img/user2.png') }}" alt="" class="img-thumbnail preview-path_image" width="200" height="200"> --}}
+                    <img src="
+                    @if (auth()->user()->path_image != null) {{ url('storage/' . auth()->user()->path_image) }} @else ../img/user2.png @endif
+                    "
+                        alt="" class="img-thumbnail preview-path_image" width="200" height="200">
                 </div>
-
-                <!-- New Profile Photo Preview -->
-                <div class="mt-2" x-show="photoPreview" style="display: none;">
-                    <span class="block rounded-full w-20 h-20 bg-cover bg-no-repeat bg-center"
-                          x-bind:style="'background-image: url(\'' + photoPreview + '\');'">
-                    </span>
+                <div class="form-group mt-3">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="path_image" name="path_image"
+                            onchange="preview('.preview-path_image', this.files[0])">
+                        <label for="path_image" class="custom-file-label">Pilih Foto</label>
+                    </div>
                 </div>
-
-                <x-jet-secondary-button class="mt-2 mr-2" type="button" x-on:click.prevent="$refs.photo.click()">
-                    {{ __('Select A New Photo') }}
-                </x-jet-secondary-button>
-
-                @if ($this->user->profile_photo_path)
-                    <x-jet-secondary-button type="button" class="mt-2" wire:click="deleteProfilePhoto">
-                        {{ __('Remove Photo') }}
-                    </x-jet-secondary-button>
-                @endif
-
-                <x-jet-input-error for="photo" class="mt-2" />
             </div>
-        @endif
-
-        <!-- Name -->
-        <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="name" value="{{ __('Name') }}" />
-            <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="state.name" autocomplete="name" />
-            <x-jet-input-error for="name" class="mt-2" />
         </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="name">Nama</label>
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
+                        id="name" value="{{ old('name') ?? auth()->user()->name }}">
+                    @error('name')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
 
-        <!-- Email -->
-        <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="email" value="{{ __('Email') }}" />
-            <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
-            <x-jet-input-error for="email" class="mt-2" />
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="email">E-Mail</label>
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
+                        id="email" value="{{ old('email') ?? auth()->user()->email }}">
+                    @error('email')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
 
-            @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) && ! $this->user->hasVerifiedEmail())
-                <p class="text-sm mt-2">
-                    {{ __('Your email address is unverified.') }}
-
-                    <button type="button" class="underline text-sm text-gray-600 hover:text-gray-900" wire:click.prevent="sendEmailVerification">
-                        {{ __('Click here to re-send the verification email.') }}
-                    </button>
-                </p>
-
-                @if ($this->verificationLinkSent)
-                    <p v-show="verificationLinkSent" class="mt-2 font-medium text-sm text-green-600">
-                        {{ __('A new verification link has been sent to your email address.') }}
-                    </p>
-                @endif
-            @endif
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="role_id">Role Jabatan</label>
+                    <input type="text" class="form-control @error('role_id') is-invalid @enderror" name="role_id"
+                        id="role_id" value="{{ old('role_id') ?? auth()->user()->role->name }}" disabled>
+                    @error('role_id')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
         </div>
-    </x-slot>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="phone">Telephone</label>
+                    <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone"
+                        id="phone"
+                        data-inputmask='"mask": "9999-9999-9999","removeMaskOnSubmit": true,"autoUnmask":true' data-mask
+                        value="{{ old('phone') ?? auth()->user()->phone }}">
+                    @error('phone')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="gender">Jenis Kelamin</label>
+                    <select class="form-control @error('gender') is-invalid @enderror" name="gender" id="gender"
+                        value="{{ old('gender') ?? auth()->user()->gender }}">
+                        <option seleceted disabled>Pilih salah satu</option>
+                        <option value="laki-laki">Laki-laki</option>
+                        <option value="perempuan">Perempuan</option>
+                    </select>
+                    @error('gender')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="birth_date">Tanggal Lahir</label>
+                    <div class="input-group datepicker" id="birth_date" data-target-input="nearest">
+                        <input type="text" name="birth_date"
+                            class="form-control datepicker-input @error('birth_date') is-invalid @enderror"
+                            data-target="#birth_date" value="{{ old('birth_date') ?? auth()->user()->birth_date }}" />
+                        <div class="input-group-append" data-target="#birth_date" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                    </div>
+                    @error('birth_date')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="job">Pekerjaan</label>
+                    <input type="text" class="form-control @error('job') is-invalid @enderror" name="job"
+                        id="job" value="{{ old('job') ?? auth()->user()->job }}">
+                    @error('job')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="address">Alamat</label>
+                    <textarea class="form-control @error('address') is-invalid @enderror" name="address" rows="5" id="address">{{ old('address') ?? auth()->user()->address }}</textarea>
+                    @error('address')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="about">Tentang Saya</label>
+                    <textarea rows="5" class="form-control @error('about') is-invalid @enderror" name="about" id="about">
+                        {{ old('about') ?? auth()->user()->about }}
+                    </textarea>
+                    @error('about')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+        </div>
+        <x-slot name="footer">
+            <button type="reset" class="btn btn-danger">Reset</button>
+            <button class="btn btn-primary">Simpan</button>
+        </x-slot>
+    </x-card>
 
-    <x-slot name="actions">
-        <x-jet-action-message class="mr-3" on="saved">
-            {{ __('Saved.') }}
-        </x-jet-action-message>
-
-        <x-jet-button wire:loading.attr="disabled" wire:target="photo">
-            {{ __('Save') }}
-        </x-jet-button>
-    </x-slot>
-</x-jet-form-section>
+</form>
+@includeIf('includes.datepicker')
+@push('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#phone').inputmask();
+        })
+    </script>
+@endpush

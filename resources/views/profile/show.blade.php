@@ -1,45 +1,59 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
 
-    <div>
-        <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-            @if (Laravel\Fortify\Features::canUpdateProfileInformation())
-                @livewire('profile.update-profile-information-form')
+@section('title', 'Detail Profil')
+@section('breadcrumb')
+    @parent
+    <li class="breadcrumb-item active">Profil</li>
+@endsection
 
-                <x-jet-section-border />
-            @endif
+@push('css')
+    <style>
+        .img-thumbnail {
+            /* border-color: #6610F2; */
+        }
 
-            @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::updatePasswords()))
-                <div class="mt-10 sm:mt-0">
-                    @livewire('profile.update-password-form')
+        .tombol-nav.nav-pills .nav-link.active,
+        .tombol-nav.nav-pills .show>.nav-link {
+            background: transparent;
+            color: var(--dark);
+            border-bottom: 3px solid;
+            border-bottom-color: #001F3F;
+            border-radius: 0;
+        }
+
+        .progress-bar {
+            background-color: #001F3F;
+        }
+    </style>
+@endpush
+
+@section('content')
+    <div class="row">
+        <div class="col-lg-12">
+            <ul class="nav nav-pills mb-3 tombol-nav" id="pills-tab" role="tablist">
+                {{-- Profil --}}
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link @if (request('pills') != 'password') active @endif"
+                        href="{{ route('profile.show') }}">Profil</a>
+                </li>
+                {{-- Password --}}
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link @if (request('pills') == 'password') active @endif"
+                        href="{{ route('profile.show') }}?pills=password">Password</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                {{-- Profil --}}
+                <div class="tab-pane fade @if (request('pills') != 'password') show active @endif" id="pills-profil"
+                    role="tabpanel" aria-labelledby="pills-profil-tab">
+                    @includeIf('profile.update-profile-information-form')
                 </div>
-
-                <x-jet-section-border />
-            @endif
-
-            @if (Laravel\Fortify\Features::canManageTwoFactorAuthentication())
-                <div class="mt-10 sm:mt-0">
-                    @livewire('profile.two-factor-authentication-form')
+                {{-- Password --}}
+                <div class="tab-pane fade @if (request('pills') == 'password') show active @endif" id="pills-password"
+                    role="tabpanel" aria-labelledby="pills-password-tab">
+                    @includeIf('profile.update-password-form')
                 </div>
-
-                <x-jet-section-border />
-            @endif
-
-            <div class="mt-10 sm:mt-0">
-                @livewire('profile.logout-other-browser-sessions-form')
             </div>
-
-            @if (Laravel\Jetstream\Jetstream::hasAccountDeletionFeatures())
-                <x-jet-section-border />
-
-                <div class="mt-10 sm:mt-0">
-                    @livewire('profile.delete-user-form')
-                </div>
-            @endif
         </div>
     </div>
-</x-app-layout>
+@endsection

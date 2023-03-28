@@ -15,7 +15,7 @@
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">{{ auth()->user()->name }}</a>
+                <a href="{{ route('profile.show') }}" class="d-block">{{ auth()->user()->name }}</a>
             </div>
         </div>
 
@@ -127,8 +127,8 @@
                         </a>
                     </li>
                 @endif
-                @if (auth()->user()->hasRole('admin') ||
-                        auth()->user()->hasRole('donatur'))
+                {{-- @if (auth()->user()->hasRole('admin') ||
+    auth()->user()->hasRole('donatur'))
                     <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-user-edit"></i>
@@ -137,7 +137,7 @@
                             </p>
                         </a>
                     </li>
-                @endif
+                @endif --}}
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

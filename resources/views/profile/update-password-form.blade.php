@@ -1,39 +1,66 @@
-<x-jet-form-section submit="updatePassword">
-    <x-slot name="title">
-        {{ __('Update Password') }}
-    </x-slot>
+<form action="{{ route('user-password.update') }}" method="POST">
+    @csrf
+    @method('put')
 
-    <x-slot name="description">
-        {{ __('Ensure your account is using a long, random password to stay secure.') }}
-    </x-slot>
+    <x-card>
 
-    <x-slot name="form">
-        <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="current_password" value="{{ __('Current Password') }}" />
-            <x-jet-input id="current_password" type="password" class="mt-1 block w-full" wire:model.defer="state.current_password" autocomplete="current-password" />
-            <x-jet-input-error for="current_password" class="mt-2" />
+        <div class="row ">
+            <div class="col-lg-3">
+                <div class="">
+                    {{-- <img src="{{  asset('storage' .auth()->user()->path_image ?? '../img/user2.png') }}" alt="" class="img-thumbnail preview-path_image" width="200" height="200"> --}}
+                    {{-- <img src="{{ url('storage/'.auth()->user()->path_image ?? 'storage/user/user2.png') }}" alt="" class="img-thumbnail preview-path_image" width="200" height="200"> --}}
+
+                    <img src="
+                    @if (auth()->user()->path_image != null) {{ url('storage/' . auth()->user()->path_image) }} @else ../img/user2.png @endif
+                    "
+                        alt="" class="img-thumbnail preview-path_image" width="200" height="200">
+                </div>
+            </div>
         </div>
 
-        <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="password" value="{{ __('New Password') }}" />
-            <x-jet-input id="password" type="password" class="mt-1 block w-full" wire:model.defer="state.password" autocomplete="new-password" />
-            <x-jet-input-error for="password" class="mt-2" />
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <label for="current_password">Password Aktif</label>
+                    <input type="password" class="form-control @error('current_password') is-invalid @enderror"
+                        name="current_password" id="current_password" value="">
+                    @error('current_password')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
         </div>
 
-        <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-            <x-jet-input id="password_confirmation" type="password" class="mt-1 block w-full" wire:model.defer="state.password_confirmation" autocomplete="new-password" />
-            <x-jet-input-error for="password_confirmation" class="mt-2" />
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password"
+                        id="password" value="">
+                    @error('password')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
         </div>
-    </x-slot>
 
-    <x-slot name="actions">
-        <x-jet-action-message class="mr-3" on="saved">
-            {{ __('Saved.') }}
-        </x-jet-action-message>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <label for="password_confirmation">Konfirmasi Password</label>
+                    <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror"
+                        name="password_confirmation" id="password_confirmation" value="">
+                    @error('password_confirmation')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+        </div>
 
-        <x-jet-button>
-            {{ __('Save') }}
-        </x-jet-button>
-    </x-slot>
-</x-jet-form-section>
+
+        <x-slot name="footer">
+            <button type="reset" class="btn btn-danger">Reset</button>
+            <button class="btn btn-primary">Simpan</button>
+        </x-slot>
+    </x-card>
+</form>
