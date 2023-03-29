@@ -20,7 +20,6 @@ class CreateMMenu extends Migration
             $table->boolean('has_sub')->default('f');
             $table->string('icon')->nullable();
             $table->string('active')->nullable();
-            $table->string('group_menu')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

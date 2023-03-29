@@ -25,119 +25,35 @@
                 data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                <li class="nav-item">
-                    <a href="{{ route('dashboard') }}"
-                        class="nav-link {{ request()->is('dashboard*') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Dashboard
-                        </p>
-                    </a>
-                </li>
-                @if (auth()->user()->hasRole('admin') ||
-                        auth()->user()->hasRole('donatur'))
-                    <li class="nav-header text-bold">MASTER</li>
-                    <li class="nav-item">
-                        <a href="{{ route('category.index') }}"
-                            class="nav-link {{ request()->is('category*') ? 'active' : '' }}">
-                            <i class="nav-icon fas fa-cube"></i>
-                            <p>
-                                Kategori
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('campaign.index') }}"
-                            class="nav-link {{ request()->is('campaign*') ? 'active' : '' }}">
-                            <i class="nav-icon fas fa-project-diagram"></i>
-                            <p>
-                                Projek
-                            </p>
-                        </a>
-                    </li>
+                {{-- @dd($role->menu) --}}
+                @foreach ($role->menu as $menu)
+                    @if (count($menu->sub_menu))
+                        <li class="nav-header text-bold text-uppercase">{{ $menu->menu_detail->nama_menu }}</li>
+                        @foreach ($menu->sub_menu as $sub_menu)
+                            <li class="nav-item">
+                                <a href="{{ route($sub_menu->sub_menu_detail?->go_to) }}"
+                                    class="nav-link {{ request()->is($sub_menu->sub_menu_detail?->active) ? 'active' : '' }}">
+                                    <i class="{{ $sub_menu->sub_menu_detail?->icon }}"></i>
+                                    <p>
+                                        {{-- @dd($sub_menu->sub_menu_detail?->nama_sub_menu) --}}
+                                        {{ $sub_menu->sub_menu_detail?->nama_sub_menu }}
+                                    </p>
+                                </a>
+                            </li>
+                        @endforeach
+                    @else
+                        <li class="nav-item">
+                            <a href="{{ route($menu->menu_detail->go_to) }}"
+                                class="nav-link {{ request()->is($menu->menu_detail->active) ? 'active' : '' }}">
+                                <i class="{{ $menu->menu_detail->icon }}"></i>
+                                <p>
+                                    {{ $menu->menu_detail->nama_menu }}
+                                </p>
+                            </a>
+                        </li>
+                    @endif
+                @endforeach
 
-                    <li class="nav-header text-bold">REFERENSI</li>
-                    <li class="nav-item">
-                        <a href="pages/widgets.html" class="nav-link">
-                            <i class="nav-icon fas fa-user-plus"></i>
-                            <p>
-                                Donatur
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-donate"></i>
-                            <p>
-                                Daftar Donasi
-                            </p>
-                        </a>
-                    </li>
-                @endif
-                @if (auth()->user()->hasRole('admin'))
-                    <li class="nav-header text-bold">INFORMASI</li>
-                    <li class="nav-item">
-                        <a href="pages/widgets.html" class="nav-link">
-                            <i class="nav-icon fas fa-envelope"></i>
-                            <p>
-                                Kontak Masuk
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-user-friends"></i>
-                            <p>
-                                Subscriber
-                            </p>
-                        </a>
-                    </li>
-                @endif
-                @if (auth()->user()->hasRole('admin') ||
-                        auth()->user()->hasRole('donatur'))
-                    <li class="nav-header text-bold">REPORT</li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-copy"></i>
-                            <p>
-                                Laporan
-                            </p>
-                        </a>
-                    </li>
-                @endif
-                @if (auth()->user()->hasRole('donatur'))
-                    <li class="nav-header text-bold">AKTIVITAS</li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-info-circle"></i>
-                            <p>
-                                Log Aktivitas
-                            </p>
-                        </a>
-                    </li>
-                @endif
-                <li class="nav-header text-bold">PENGATURAN</li>
-                @if (auth()->user()->hasRole('admin'))
-                    <li class="nav-item">
-                        <a href="#" class="nav-link ">
-                            <i class="nav-icon fas fa-cog"></i>
-                            <p>
-                                Setting
-                            </p>
-                        </a>
-                    </li>
-                @endif
-                {{-- @if (auth()->user()->hasRole('admin') ||
-    auth()->user()->hasRole('donatur'))
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-user-edit"></i>
-                            <p>
-                                Profil
-                            </p>
-                        </a>
-                    </li>
-                @endif --}}
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

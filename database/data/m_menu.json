@@ -1,0 +1,79 @@
+[
+    {
+        "id": 1,
+        "nama_menu": "Dashboard",
+        "go_to": "dashboard",
+        "has_sub": "f",
+        "icon": "nav-icon fas fa-tachometer-alt",
+        "active": "dashboard",
+        "created_at": "29/3/2023 09:40:05",
+        "updated_at": "29/3/2023 09:40:05",
+        "deleted_at": null
+    },
+    {
+        "id": 2,
+        "nama_menu": "Master",
+        "go_to": null,
+        "has_sub": "t",
+        "icon": null,
+        "active": null,
+        "created_at": "29/3/2023 13:11:42",
+        "updated_at": "29/3/2023 13:11:44",
+        "deleted_at": null
+    },
+    {
+        "id": 3,
+        "nama_menu": "Referensi",
+        "go_to": null,
+        "has_sub": "t",
+        "icon": null,
+        "active": null,
+        "created_at": "29/3/2023 13:12:48",
+        "updated_at": "29/3/2023 13:12:50",
+        "deleted_at": null
+    },
+    {
+        "id": 4,
+        "nama_menu": "Informasi",
+        "go_to": null,
+        "has_sub": "t",
+        "icon": null,
+        "active": null,
+        "created_at": "29/3/2023 13:13:28",
+        "updated_at": "29/3/2023 13:13:31",
+        "deleted_at": null
+    },
+    {
+        "id": 5,
+        "nama_menu": "Report",
+        "go_to": null,
+        "has_sub": "t",
+        "icon": null,
+        "active": null,
+        "created_at": "29/3/2023 13:13:46",
+        "updated_at": "29/3/2023 13:13:49",
+        "deleted_at": null
+    },
+    {
+        "id": 6,
+        "nama_menu": "Aktivitas",
+        "go_to": null,
+        "has_sub": "t",
+        "icon": null,
+        "active": null,
+        "created_at": "29/3/2023 13:14:21",
+        "updated_at": "29/3/2023 13:14:25",
+        "deleted_at": null
+    },
+    {
+        "id": 7,
+        "nama_menu": "Pengaturan",
+        "go_to": null,
+        "has_sub": "t",
+        "icon": null,
+        "active": null,
+        "created_at": "29/3/2023 13:14:43",
+        "updated_at": "29/3/2023 13:14:46",
+        "deleted_at": null
+    }
+]

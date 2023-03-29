@@ -1,0 +1,112 @@
+[
+    {
+        "id": 1,
+        "id_menu": 2,
+        "nama_sub_menu": "Kategori",
+        "go_to": "category.index",
+        "icon": "nav-icon fas fa-cube",
+        "active": "category",
+        "created_at": "29/3/2023 09:50:05",
+        "updated_at": "29/3/2023 09:50:07",
+        "deleted_at": null
+    },
+    {
+        "id": 2,
+        "id_menu": 2,
+        "nama_sub_menu": "Projek",
+        "go_to": "campaign.index",
+        "icon": "nav-icon fas fa-project-diagram",
+        "active": "campaign",
+        "created_at": "29/3/2023 09:50:52",
+        "updated_at": "29/3/2023 09:50:54",
+        "deleted_at": null
+    },
+    {
+        "id": 3,
+        "id_menu": 3,
+        "nama_sub_menu": "Donatur",
+        "go_to": "campaign.index",
+        "icon": "nav-icon fas fa-user-plus",
+        "active": "donatur",
+        "created_at": "29/3/2023 11:11:24",
+        "updated_at": "29/3/2023 11:11:24",
+        "deleted_at": null
+    },
+    {
+        "id": 4,
+        "id_menu": 3,
+        "nama_sub_menu": "Daftar Donasi",
+        "go_to": "campaign.index",
+        "icon": "nav-icon fas fa-donate",
+        "active": "donasi",
+        "created_at": "29/3/2023 11:11:24",
+        "updated_at": "29/3/2023 11:11:24",
+        "deleted_at": null
+    },
+    {
+        "id": 5,
+        "id_menu": 4,
+        "nama_sub_menu": "Kontak Masuk",
+        "go_to": "campaign.index",
+        "icon": "nav-icon fas fa-envelope",
+        "active": "contact",
+        "created_at": "29/3/2023 11:11:24",
+        "updated_at": "29/3/2023 11:11:24",
+        "deleted_at": null
+    },
+    {
+        "id": 6,
+        "id_menu": 4,
+        "nama_sub_menu": "Suscriber",
+        "go_to": "campaign.index",
+        "icon": "nav-icon fas fa-user-friends",
+        "active": "subscriber",
+        "created_at": "29/3/2023 11:11:24",
+        "updated_at": "29/3/2023 11:11:24",
+        "deleted_at": null
+    },
+    {
+        "id": 7,
+        "id_menu": 5,
+        "nama_sub_menu": "Laporan",
+        "go_to": "campaign.index",
+        "icon": "nav-icon fas fa-copy",
+        "active": "laporan",
+        "created_at": "29/3/2023 11:11:24",
+        "updated_at": "29/3/2023 11:11:24",
+        "deleted_at": null
+    },
+    {
+        "id": 8,
+        "id_menu": 6,
+        "nama_sub_menu": "Log Aktivitas",
+        "go_to": "campaign.index",
+        "icon": "nav-icon fas fa-info-circle",
+        "active": "aktivitas",
+        "created_at": "29/3/2023 11:11:24",
+        "updated_at": "29/3/2023 11:11:24",
+        "deleted_at": null
+    },
+    {
+        "id": 9,
+        "id_menu": 7,
+        "nama_sub_menu": "Setting",
+        "go_to": "campaign.index",
+        "icon": "nav-icon fas fa-cog",
+        "active": "setting",
+        "created_at": "29/3/2023 11:11:24",
+        "updated_at": "29/3/2023 11:11:24",
+        "deleted_at": null
+    },
+    {
+        "id": 10,
+        "id_menu": 7,
+        "nama_sub_menu": "Profil",
+        "go_to": "campaign.index",
+        "icon": "nav-icon fas fa-user-edit",
+        "active": "profil",
+        "created_at": "29/3/2023 11:11:24",
+        "updated_at": "29/3/2023 11:11:24",
+        "deleted_at": null
+    }
+]

@@ -17,9 +17,9 @@ class CreateMMenuSub extends Migration
             $table->id();
             $table->integer('id_menu');
             $table->string('nama_sub_menu');
-            $table->string('go_to');
-            $table->string('icon');
-            $table->string('active');
+            $table->string('go_to')->nullable();
+            $table->string('icon')->nullable();
+            $table->string('active')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

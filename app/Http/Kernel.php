@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'role' => \App\Http\Middleware\RoleMiddleware::class,
         'Today' => \App\Http\Today::class,
         'XSS' => \App\Http\Middleware\XSS::class,
+        'getUserMenu' => \App\Http\Middleware\GetMenu::class,
     ];
 }

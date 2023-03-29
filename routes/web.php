@@ -4,6 +4,8 @@ use App\Http\Controllers\{
     CategoryController,
     DashboardController,
     CampaignController,
+    DonationController,
+    DonaturController,
     FileUploadController,
 };
 use Illuminate\Support\Facades\Route;
@@ -25,7 +27,7 @@ Route::get('/', function () {
 });
 
 Route::group([
-    'middleware' => ['auth', 'role:admin,donatur']
+    'middleware' => ['auth', 'role:admin,donatur', 'getUserMenu']
 ], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     // route untuk filepond
@@ -33,17 +35,19 @@ Route::group([
     Route::delete('/revert', [FileUploadController::class, 'delete'])->name('revert');
 
     Route::group([
-        'middleware' => ['role:admin']
+        'middleware' => ['role:admin', 'getUserMenu']
     ], function () {
         Route::resource('/category', CategoryController::class);
 
         Route::get('/campaign/data', [CampaignController::class, 'data'])->name('campaign.data');
         Route::get('/campaign/detail/{id}', [CampaignController::class, 'detail'])->name('campaign.detail');
         Route::resource('/campaign', CampaignController::class)->except(['create', 'edit']);
+        Route::resource('/donation', DonationController::class);
+        Route::resource('/donatur', DonaturController::class);
     });
 
     Route::group([
-        'middleware' => 'role:donatur'
+        'middleware' => 'role:donatur', 'getUserMenu'
     ], function () {
         //
     });
