@@ -37,8 +37,16 @@ class CampaignController extends Controller
                     $query->whereBetween('publish_date', $request->only('filter_start_date', 'filter_end_date'));
                 }
             )
+            ->leftJoin('users', 'users.id', 'campaigns.user_id')
+            ->join('roles', 'roles.id', 'users.role_id')
+            ->join('m_role_menu', 'm_role_menu.id_role', 'roles.id')
+            ->join('m_role_menu_sub', 'm_role_menu_sub.id_role_menu', 'm_role_menu.id')
+            ->select('campaigns.*', 'users.id', 'roles.id', 'm_role_menu.id as role_menu', 'm_role_menu_sub.id as m_role_menu_sub', 'm_role_menu_sub.c_update', 'm_role_menu_sub.c_delete')
+            ->Where('m_role_menu_sub.id', '2')
             ->orderBy('publish_date', 'desc')
             ->get();
+
+        // dd($query);
 
         return datatables($query)
             ->addIndexColumn()
@@ -54,11 +62,24 @@ class CampaignController extends Controller
             ->addColumn('author', function ($query) {
                 return $query->user->name;
             })->addColumn('action', function ($query) {
+                if ($query->c_update == 't') {
+                    $update = '<button type="button" class="btn btn-link text-success" onclick="editForm(`' . route('campaign.show', encrypt($query->id)) . '`, `Edit data projek ' . $query->title . '`)" title="Edit- `' . $query->title . '`"><i class="fas fa-edit"></i></button>';
+                } else {
+                    $update = '';
+                }
+
+                if ($query->c_delete == 't') {
+                    $delete = ' <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('campaign.destroy', encrypt($query->id)) . '`)" title="Hapus- `' . $query->title . '`"><i class="fas fa-trash-alt"></i></button>';
+                } else {
+                    $delete = '';
+                }
+
+
                 $aksi =  '
                 <div class="text-center">
                     <a href="' . route('campaign.detail', encrypt($query->id)) . '" class="btn btn-link text-primary" title="Detail- `' . $query->title . '`"><i class="fas fa-search-plus"></i></a>
-                    <button type="button" class="btn btn-link text-success" onclick="editForm(`' . route('campaign.show', encrypt($query->id)) . '`, `Edit data projek ' . $query->title . '`)" title="Edit- `' . $query->title . '`"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('campaign.destroy', encrypt($query->id)) . '`)" title="Hapus- `' . $query->title . '`"><i class="fas fa-trash-alt"></i></button>
+                    ' . $update . '
+                   ' . $delete . '
                 </div>
             ';
                 return $aksi;
