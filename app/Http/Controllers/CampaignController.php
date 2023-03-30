@@ -18,13 +18,15 @@ class CampaignController extends Controller
      */
     public function index()
     {
+
         $category = Category::orderBy('name')->get()->pluck('name', 'id');
         return view('campaign.index', compact('category'));
     }
 
     public function data(Request $request)
     {
-        $query = Campaign::orderBy('publish_date', 'desc')
+        dd(auth()->user()->role_id);
+        $query = Campaign::distinct()
             ->when($request->has('filter_status') && $request->filter_status != "", function ($query) use ($request) {
                 $query->where('status', $request->filter_status);
             })
@@ -41,9 +43,27 @@ class CampaignController extends Controller
             ->join('roles', 'roles.id', 'users.role_id')
             ->join('m_role_menu', 'm_role_menu.id_role', 'roles.id')
             ->join('m_role_menu_sub', 'm_role_menu_sub.id_role_menu', 'm_role_menu.id')
-            ->select('campaigns.*', 'campaigns.id as campaigns_id', 'users.id', 'roles.id', 'm_role_menu.id as role_menu', 'm_role_menu_sub.id as m_role_menu_sub', 'm_role_menu_sub.c_update', 'm_role_menu_sub.c_delete')
-            ->Where('m_role_menu_sub.id', '2')
-            ->orderBy('publish_date', 'desc')
+            ->select(
+                'campaigns.*',
+                'campaigns.id as campaigns_id',
+                'users.id',
+                'roles.id',
+                'm_role_menu.id',
+                'm_role_menu.id_role as id_role',
+                'm_role_menu.id_menu',
+                'm_role_menu_sub.id',
+                'm_role_menu_sub.id_sub_menu',
+                'm_role_menu_sub.c_update',
+                'm_role_menu_sub.c_delete'
+            )
+            ->where('m_role_menu_sub.id_sub_menu', '2');
+        if (auth()->user()->role_id == 1) {
+            $query = $query->where('m_role_menu.id_role', auth()->user()->role_id);
+        }
+        if (auth()->user()->role_id != 1) {
+            $query = $query->orwhere('m_role_menu.id_role', auth()->user()->role_id);
+        }
+        $query = $query->orderBy('publish_date', 'desc')
             ->get();
 
         // dd($query);
@@ -62,6 +82,7 @@ class CampaignController extends Controller
             ->addColumn('author', function ($query) {
                 return $query->user->name;
             })->addColumn('action', function ($query) {
+                dd($query->id_role);
                 if ($query->c_update == 't') {
                     $update = '<button type="button" class="btn btn-link text-success" onclick="editForm(`' . route('campaign.show', encrypt($query->campaigns_id)) . '`, `Edit data projek ' . $query->title . '`)" title="Edit- `' . $query->title . '`"><i class="fas fa-edit"></i></button>';
                 } else {

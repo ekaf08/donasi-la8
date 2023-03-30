@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\{
+    AppController,
     CategoryController,
     DashboardController,
     CampaignController,
@@ -35,7 +36,7 @@ Route::group([
     Route::delete('/revert', [FileUploadController::class, 'delete'])->name('revert');
 
     Route::group([
-        'middleware' => ['role:admin', 'getUserMenu']
+        'middleware' => ['role:admin,donatur', 'getUserMenu']
     ], function () {
         Route::resource('/category', CategoryController::class);
 
@@ -44,11 +45,15 @@ Route::group([
         Route::resource('/campaign', CampaignController::class)->except(['create', 'edit']);
         Route::resource('/donation', DonationController::class);
         Route::resource('/donatur', DonaturController::class);
+
+        // route untuk menu web management
+        Route::get('/setup/data', [AppController::class, 'data'])->name('setup.data');
+        Route::resource('/setup', AppController::class);
     });
 
-    Route::group([
-        'middleware' => 'role:donatur', 'getUserMenu'
-    ], function () {
-        //
-    });
+    // Route::group([
+    //     'middleware' => 'role:donatur', 'getUserMenu'
+    // ], function () {
+    //     //
+    // });
 });
