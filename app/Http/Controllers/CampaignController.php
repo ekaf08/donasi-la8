@@ -41,7 +41,7 @@ class CampaignController extends Controller
             ->join('roles', 'roles.id', 'users.role_id')
             ->join('m_role_menu', 'm_role_menu.id_role', 'roles.id')
             ->join('m_role_menu_sub', 'm_role_menu_sub.id_role_menu', 'm_role_menu.id')
-            ->select('campaigns.*', 'users.id', 'roles.id', 'm_role_menu.id as role_menu', 'm_role_menu_sub.id as m_role_menu_sub', 'm_role_menu_sub.c_update', 'm_role_menu_sub.c_delete')
+            ->select('campaigns.*', 'campaigns.id as campaigns_id', 'users.id', 'roles.id', 'm_role_menu.id as role_menu', 'm_role_menu_sub.id as m_role_menu_sub', 'm_role_menu_sub.c_update', 'm_role_menu_sub.c_delete')
             ->Where('m_role_menu_sub.id', '2')
             ->orderBy('publish_date', 'desc')
             ->get();
@@ -63,13 +63,13 @@ class CampaignController extends Controller
                 return $query->user->name;
             })->addColumn('action', function ($query) {
                 if ($query->c_update == 't') {
-                    $update = '<button type="button" class="btn btn-link text-success" onclick="editForm(`' . route('campaign.show', encrypt($query->id)) . '`, `Edit data projek ' . $query->title . '`)" title="Edit- `' . $query->title . '`"><i class="fas fa-edit"></i></button>';
+                    $update = '<button type="button" class="btn btn-link text-success" onclick="editForm(`' . route('campaign.show', encrypt($query->campaigns_id)) . '`, `Edit data projek ' . $query->title . '`)" title="Edit- `' . $query->title . '`"><i class="fas fa-edit"></i></button>';
                 } else {
                     $update = '';
                 }
 
                 if ($query->c_delete == 't') {
-                    $delete = ' <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('campaign.destroy', encrypt($query->id)) . '`)" title="Hapus- `' . $query->title . '`"><i class="fas fa-trash-alt"></i></button>';
+                    $delete = ' <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('campaign.destroy', encrypt($query->campaigns_id)) . '`)" title="Hapus- `' . $query->title . '`"><i class="fas fa-trash-alt"></i></button>';
                 } else {
                     $delete = '';
                 }
@@ -77,7 +77,7 @@ class CampaignController extends Controller
 
                 $aksi =  '
                 <div class="text-center">
-                    <a href="' . route('campaign.detail', encrypt($query->id)) . '" class="btn btn-link text-primary" title="Detail- `' . $query->title . '`"><i class="fas fa-search-plus"></i></a>
+                    <a href="' . route('campaign.detail', encrypt($query->campaigns_id)) . '" class="btn btn-link text-primary" title="Detail- `' . $query->title . '`"><i class="fas fa-search-plus"></i></a>
                     ' . $update . '
                    ' . $delete . '
                 </div>
