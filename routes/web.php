@@ -43,17 +43,13 @@ Route::group([
         Route::get('/campaign/data', [CampaignController::class, 'data'])->name('campaign.data');
         Route::get('/campaign/detail/{id}', [CampaignController::class, 'detail'])->name('campaign.detail');
         Route::resource('/campaign', CampaignController::class)->except(['create', 'edit']);
+
         Route::resource('/donation', DonationController::class);
+
         Route::resource('/donatur', DonaturController::class);
 
         // route untuk menu web management
         Route::get('/setup/data', [AppController::class, 'data'])->name('setup.data');
         Route::resource('/setup', AppController::class);
     });
-
-    // Route::group([
-    //     'middleware' => 'role:donatur', 'getUserMenu'
-    // ], function () {
-    //     //
-    // });
 });
