@@ -19,7 +19,7 @@ class M_Role_Menu extends Model
 
     public function sub_menu()
     {
-        return $this->hasMany(M_Role_Menu_sub::class, 'id_role_menu');
+        return $this->hasMany(M_Role_Menu_sub::class, 'id_role_menu')->orderBy('id_sub_menu', 'asc');
     }
 
     public function menu_detail()

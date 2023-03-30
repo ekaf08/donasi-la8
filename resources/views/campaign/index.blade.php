@@ -9,58 +9,68 @@
     <div class="row">
         <div class="col-lg-12">
             <x-card>
-                <x-slot name="header">
-                    <button onclick="addForm(`{{ route('campaign.store') }}`, 'Tambah Data Projek / Campaign')"
-                        class="btn btn-primary"><i class="fas fa-plus-circle"></i>
-                        Tambah</button>
-                </x-slot>
+                @foreach ($role->menu as $menu)
+                    @foreach ($menu->sub_menu as $sub_menu)
+                        @if ($sub_menu->id_sub_menu == 2 && $sub_menu->c_insert == 't')
+                            <x-slot name="header">
+                                <button onclick="addForm(`{{ route('campaign.store') }}`, 'Tambah Data Projek / Campaign')"
+                                    class="btn btn-primary"><i class="fas fa-plus-circle"></i>
+                                    Tambah</button>
+                            </x-slot>
+                        @endif
 
-                <div class="d-flex justify-content-between">
-                    <div class="form-group">
-                        <label for="status2">Status</label>
-                        <select name="status2" class="custom-select" id="status2">
-                            <option disabled selected>Pilih salah satu</option>
-                            <option value="publish">Publish</option>
-                            <option value="archived">Diarsipkan</option>
-                            <option value="pending">Pending</option>
-                            <option value="">Semua</option>
-                        </select>
-                    </div>
-                    <div class="d-flex">
-                        <div class="form-group mx-3">
-                            <label for="start_date2">Tanggal Awal</label>
-                            <div class="input-group datepicker" id="start_date2" data-target-input="nearest">
-                                <input type="text" name="start_date2" class="form-control datetimepicker-input"
-                                    data-target="#start_date2" />
-                                <div class="input-group-append" data-target="#start_date2" data-toggle="datetimepicker">
-                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        @if ($sub_menu->id_sub_menu == 2 && $sub_menu->c_select == 't')
+                            <div class="d-flex justify-content-between">
+                                <div class="form-group">
+                                    <label for="status2">Status</label>
+                                    <select name="status2" class="custom-select" id="status2">
+                                        <option disabled selected>Pilih salah satu</option>
+                                        <option value="publish">Publish</option>
+                                        <option value="archived">Diarsipkan</option>
+                                        <option value="pending">Pending</option>
+                                        <option value="">Semua</option>
+                                    </select>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="form-group mx-3">
+                                        <label for="start_date2">Tanggal Awal</label>
+                                        <div class="input-group datepicker" id="start_date2" data-target-input="nearest">
+                                            <input type="text" name="start_date2"
+                                                class="form-control datetimepicker-input" data-target="#start_date2" />
+                                            <div class="input-group-append" data-target="#start_date2"
+                                                data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="end_date2">Tanggal akhir</label>
+                                        <div class="input-group datepicker" id="end_date2" data-target-input="nearest">
+                                            <input type="text" name="end_date2" class="form-control datetimepicker-input"
+                                                data-target="#end_date2" />
+                                            <div class="input-group-append" data-target="#end_date2"
+                                                data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="end_date2">Tanggal akhir</label>
-                            <div class="input-group datepicker" id="end_date2" data-target-input="nearest">
-                                <input type="text" name="end_date2" class="form-control datetimepicker-input"
-                                    data-target="#end_date2" />
-                                <div class="input-group-append" data-target="#end_date2" data-toggle="datetimepicker">
-                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <x-table>
-                    <x-slot name="thead">
-                        <th class="border" width=3%>No</th>
-                        <th class="border" width=10%>Gambar</th>
-                        <th class="border" width=30%>Deskripsi</th>
-                        <th class="border" width=10%>Tgl Publish</th>
-                        <th class="border text-center" width=3%>Status</th>
-                        <th class="border text-center" width=3%>Penulis</th>
-                        <th class="border text-center" width=10%><i class="fas fa-cog"></i></th>
-                    </x-slot>
-                </x-table>
+                            <x-table>
+                                <x-slot name="thead">
+                                    <th class="border" width=3%>No</th>
+                                    <th class="border" width=10%>Gambar</th>
+                                    <th class="border" width=30%>Deskripsi</th>
+                                    <th class="border" width=10%>Tgl Publish</th>
+                                    <th class="border text-center" width=3%>Status</th>
+                                    <th class="border text-center" width=3%>Penulis</th>
+                                    <th class="border text-center" width=10%><i class="fas fa-cog"></i></th>
+                                </x-slot>
+                            </x-table>
+                        @endif
+                    @endforeach
+                @endforeach
             </x-card>
         </div>
     </div>

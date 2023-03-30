@@ -18,6 +18,6 @@ class M_Role_Menu_sub extends Model
 
     public function sub_menu_detail()
     {
-        return $this->belongsTo(M_Menu_Sub::class, 'id_sub_menu');
+        return $this->belongsTo(M_Menu_Sub::class, 'id_sub_menu')->orderBy('id', 'asc');
     }
 }

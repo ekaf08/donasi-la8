@@ -54,14 +54,14 @@ class CampaignController extends Controller
             ->addColumn('author', function ($query) {
                 return $query->user->name;
             })->addColumn('action', function ($query) {
-                return
-                    '
-                    <div class="text-center">
-                        <a href="' . route('campaign.detail', encrypt($query->id)) . '" class="btn btn-link text-primary" title="Detail- `' . $query->title . '`"><i class="fas fa-search-plus"></i></a>
-                        <button type="button" class="btn btn-link text-success" onclick="editForm(`' . route('campaign.show', encrypt($query->id)) . '`, `Edit data projek ' . $query->title . '`)" title="Edit- `' . $query->title . '`"><i class="fas fa-edit"></i></button>
-                        <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('campaign.destroy', encrypt($query->id)) . '`)" title="Hapus- `' . $query->title . '`"><i class="fas fa-trash-alt"></i></button>
-                    </div>
-                ';
+                $aksi =  '
+                <div class="text-center">
+                    <a href="' . route('campaign.detail', encrypt($query->id)) . '" class="btn btn-link text-primary" title="Detail- `' . $query->title . '`"><i class="fas fa-search-plus"></i></a>
+                    <button type="button" class="btn btn-link text-success" onclick="editForm(`' . route('campaign.show', encrypt($query->id)) . '`, `Edit data projek ' . $query->title . '`)" title="Edit- `' . $query->title . '`"><i class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('campaign.destroy', encrypt($query->id)) . '`)" title="Hapus- `' . $query->title . '`"><i class="fas fa-trash-alt"></i></button>
+                </div>
+            ';
+                return $aksi;
             })
             ->rawColumns(['short_description', 'path_image', 'author', 'action', 'status'])
             ->escapeColumns([])
