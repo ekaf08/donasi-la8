@@ -123,7 +123,6 @@ class CampaignController extends Controller
                     $delete = '';
                 }
 
-
                 $aksi =  '
                 <div class="text-center">
                     <a href="' . route('campaign.detail', encrypt($query->campaigns_id)) . '" class="btn btn-link text-primary" title="Detail- `' . $query->title . '`"><i class="fas fa-search-plus"></i></a>

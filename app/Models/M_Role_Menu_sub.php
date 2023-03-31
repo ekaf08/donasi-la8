@@ -14,7 +14,7 @@ class M_Role_Menu_sub extends Model
     use HasFactory;
 
     protected $table = 'm_role_menu_sub';
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
     public function sub_menu_detail()
     {

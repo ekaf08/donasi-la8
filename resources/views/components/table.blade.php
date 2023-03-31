@@ -1,4 +1,5 @@
-<table id="data-table" {{ $attributes->merge(['class' => 'table table-striped table-hover mt-3']) }}>
+<table {{ $attributes->merge(['class' => 'table table-striped table-hover mt-3']) }}
+    {{ $attributes->merge(['id' => '']) }}>
     @isset($thead)
         <thead class="bg-navy text-center">
             {{ $thead }}

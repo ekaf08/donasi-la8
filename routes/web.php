@@ -54,6 +54,7 @@ Route::group([
 
         // route untuk menu web management
         Route::get('/setup/data', [AppController::class, 'data'])->name('setup.data');
+        Route::post('/setup/menu', [AppController::class, 'menu'])->name('setup.menu');
         Route::resource('/setup', AppController::class);
     });
 });
