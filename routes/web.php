@@ -28,7 +28,7 @@ Route::get('/', function () {
 });
 
 Route::group([
-    'middleware' => ['auth', 'role:admin,donatur', 'getUserMenu']
+    'middleware' => ['auth', 'getUserMenu']
 ], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     // route untuk filepond
@@ -36,16 +36,20 @@ Route::group([
     Route::delete('/revert', [FileUploadController::class, 'delete'])->name('revert');
 
     Route::group([
-        'middleware' => ['role:admin,donatur', 'getUserMenu']
+        'middleware' => ['getUserMenu']
     ], function () {
+        // route untuk menu kategori
         Route::resource('/category', CategoryController::class);
 
+        // route untuk menu campaign/projek
         Route::get('/campaign/data', [CampaignController::class, 'data'])->name('campaign.data');
         Route::get('/campaign/detail/{id}', [CampaignController::class, 'detail'])->name('campaign.detail');
         Route::resource('/campaign', CampaignController::class)->except(['create', 'edit']);
 
+        // route untuk donasi
         Route::resource('/donation', DonationController::class);
 
+        // route untuk donatur
         Route::resource('/donatur', DonaturController::class);
 
         // route untuk menu web management

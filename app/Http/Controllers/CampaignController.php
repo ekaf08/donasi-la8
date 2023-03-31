@@ -8,6 +8,8 @@ use App\Models\Campaign;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use App\Models\Role;
+use Illuminate\Support\Facades\Auth;
 
 class CampaignController extends Controller
 {
@@ -25,8 +27,7 @@ class CampaignController extends Controller
 
     public function data(Request $request)
     {
-        dd(auth()->user()->role_id);
-        $query = Campaign::distinct()
+        $query = Campaign::orderBy('publish_date', 'desc')
             ->when($request->has('filter_status') && $request->filter_status != "", function ($query) use ($request) {
                 $query->where('status', $request->filter_status);
             })
@@ -39,32 +40,59 @@ class CampaignController extends Controller
                     $query->whereBetween('publish_date', $request->only('filter_start_date', 'filter_end_date'));
                 }
             )
-            ->leftJoin('users', 'users.id', 'campaigns.user_id')
-            ->join('roles', 'roles.id', 'users.role_id')
-            ->join('m_role_menu', 'm_role_menu.id_role', 'roles.id')
-            ->join('m_role_menu_sub', 'm_role_menu_sub.id_role_menu', 'm_role_menu.id')
-            ->select(
-                'campaigns.*',
-                'campaigns.id as campaigns_id',
-                'users.id',
-                'roles.id',
-                'm_role_menu.id',
-                'm_role_menu.id_role as id_role',
-                'm_role_menu.id_menu',
-                'm_role_menu_sub.id',
-                'm_role_menu_sub.id_sub_menu',
-                'm_role_menu_sub.c_update',
-                'm_role_menu_sub.c_delete'
-            )
-            ->where('m_role_menu_sub.id_sub_menu', '2');
-        if (auth()->user()->role_id == 1) {
-            $query = $query->where('m_role_menu.id_role', auth()->user()->role_id);
-        }
-        if (auth()->user()->role_id != 1) {
-            $query = $query->orwhere('m_role_menu.id_role', auth()->user()->role_id);
-        }
-        $query = $query->orderBy('publish_date', 'desc')
+            ->orderBy('publish_date', 'desc')
             ->get();
+
+        return datatables($query)
+            ->addIndexColumn()
+            ->editColumn('short_description', function ($query) {
+                return '<strong>' . $query->title . '</strong><br><small>' . Str::limit($query->short_description, 500) . '</small>';
+            })
+            ->editColumn('status', function ($query) {
+                return '<span class="badge badge-pill badge-' . $query->StatusColor() . '">' . $query->status . '</span>';
+            })
+            ->editColumn('path_image', function ($query) {
+                return '<img src="' . Storage::disk('local')->url($query->path_image) . '" class="img-thumbnail mx-auto d-block">';
+            })
+            ->addColumn('author', function ($query) {
+                return $query->user->name;
+            })->addColumn('action', function ($query) {
+                $role = Role::with(['menu' => function ($query) {
+                    $query->with('menu_detail');
+                    $query->with('sub_menu.sub_menu_detail');
+                }])->where('id', Auth::user()->role_id)->first();
+
+                foreach ($role->menu as $menu) {
+                    foreach ($menu->sub_menu as $sub_menu) {
+                        // dd($sub_menu);
+                        if ($sub_menu->id_sub_menu == 2 && $sub_menu->c_update == 't') {
+                            $update = '<button type="button" class="btn btn-link text-success" onclick="editForm(`' . route('campaign.show', encrypt($query->id)) . '`, `Edit data projek ' . $query->title . '`)" title="Edit- `' . $query->title . '`"><i class="fas fa-edit"></i></button>';
+                        } elseif ($sub_menu->id_sub_menu == 2 && $sub_menu->c_update != 't') {
+                            $update = '';
+                        }
+
+                        if ($sub_menu->id_sub_menu == 2 && $sub_menu->c_delete == 't') {
+                            $delete = ' <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('campaign.destroy', encrypt($query->id)) . '`)" title="Hapus- `' . $query->title . '`"><i class="fas fa-trash-alt"></i></button>';
+                        } elseif ($sub_menu->id_sub_menu == 2 && $sub_menu->c_delete != 't') {
+                            $delete = '';
+                        }
+                    }
+                }
+
+                $action = '
+                <div class="text-center">
+                    <a href="' . route('campaign.detail', encrypt($query->id)) . '" class="btn btn-link text-primary" title="Detail- `' . $query->title . '`"><i class="fas fa-search-plus"></i></a>
+                    ' . $update . '
+                   ' . $delete . '
+                </div>
+            ';
+
+
+                return $action;
+            })
+            ->rawColumns(['short_description', 'path_image', 'author', 'action', 'status'])
+            ->escapeColumns([])
+            ->make(true);
 
         // dd($query);
 
