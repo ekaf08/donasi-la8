@@ -80,7 +80,7 @@
 
             <!--Start Detail Donasi-->
             <x-card>
-                h3 class="font-weight-bold">Rp. {{ format_uang(300000) }}</h3>
+                <h3 class="font-weight-bold">Rp. {{ format_uang(300000) }}</h3>
                 <p class="font-weight-bold"> Terkumpul dari Rp. {{ format_uang(10000000) }}</p>
                 <div class="progress" style="height: 0.3rem;">
                     <div class="progress-bar" role="progressbar" style="width: 7%" aria-valuenow="7" aria-valuemin="0"

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
 
 use App\Models\M_Menu;
 use App\Models\M_Role_Menu;
