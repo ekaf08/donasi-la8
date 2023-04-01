@@ -14,10 +14,10 @@ class M_Role_Menu_sub extends Model
     use HasFactory;
 
     protected $table = 'm_role_menu_sub';
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
     public function sub_menu_detail()
     {
-        return $this->belongsTo(M_Menu_Sub::class, 'id_sub_menu');
+        return $this->belongsTo(M_Menu_Sub::class, 'id_sub_menu')->orderBy('id', 'asc');
     }
 }

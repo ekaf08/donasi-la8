@@ -30,6 +30,7 @@
                     @if (count($menu->sub_menu))
                         <li class="nav-header text-bold text-uppercase">{{ $menu->menu_detail->nama_menu }}</li>
                         @foreach ($menu->sub_menu as $sub_menu)
+                            {{-- @dd($sub_menu) --}}
                             <li class="nav-item">
                                 <a href="{{ route($sub_menu->sub_menu_detail?->go_to) }}"
                                     class="nav-link {{ request()->is($sub_menu->sub_menu_detail?->active) ? 'active' : '' }}">
@@ -53,7 +54,14 @@
                         </li>
                     @endif
                 @endforeach
-
+                {{-- <li class="nav-item">
+                    <a href="#" class="nav-link ">
+                        <i class="nav-icon fas fa-cogs"></i>
+                        <p>
+                            untuk coba icon
+                        </p>
+                    </a>
+                </li> --}}
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

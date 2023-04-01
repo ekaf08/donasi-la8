@@ -8,6 +8,8 @@ use App\Models\Campaign;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use App\Models\Role;
+use Illuminate\Support\Facades\Auth;
 
 class CampaignController extends Controller
 {
@@ -18,6 +20,7 @@ class CampaignController extends Controller
      */
     public function index()
     {
+
         $category = Category::orderBy('name')->get()->pluck('name', 'id');
         return view('campaign.index', compact('category'));
     }
@@ -54,14 +57,80 @@ class CampaignController extends Controller
             ->addColumn('author', function ($query) {
                 return $query->user->name;
             })->addColumn('action', function ($query) {
-                return
-                    '
-                    <div class="text-center">
-                        <a href="' . route('campaign.detail', encrypt($query->id)) . '" class="btn btn-link text-primary" title="Detail- `' . $query->title . '`"><i class="fas fa-search-plus"></i></a>
-                        <button type="button" class="btn btn-link text-success" onclick="editForm(`' . route('campaign.show', encrypt($query->id)) . '`, `Edit data projek ' . $query->title . '`)" title="Edit- `' . $query->title . '`"><i class="fas fa-edit"></i></button>
-                        <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('campaign.destroy', encrypt($query->id)) . '`)" title="Hapus- `' . $query->title . '`"><i class="fas fa-trash-alt"></i></button>
-                    </div>
-                ';
+                $role = Role::with(['menu' => function ($query) {
+                    $query->with('menu_detail');
+                    $query->with('sub_menu.sub_menu_detail');
+                }])->where('id', Auth::user()->role_id)->first();
+
+                foreach ($role->menu as $menu) {
+                    foreach ($menu->sub_menu as $sub_menu) {
+                        // dd($sub_menu);
+                        if ($sub_menu->id_sub_menu == 2 && $sub_menu->c_update == 't') {
+                            $update = '<button type="button" class="btn btn-link text-success" onclick="editForm(`' . route('campaign.show', encrypt($query->id)) . '`, `Edit data projek ' . $query->title . '`)" title="Edit- `' . $query->title . '`"><i class="fas fa-edit"></i></button>';
+                        } elseif ($sub_menu->id_sub_menu == 2 && $sub_menu->c_update != 't') {
+                            $update = '';
+                        }
+
+                        if ($sub_menu->id_sub_menu == 2 && $sub_menu->c_delete == 't') {
+                            $delete = ' <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('campaign.destroy', encrypt($query->id)) . '`)" title="Hapus- `' . $query->title . '`"><i class="fas fa-trash-alt"></i></button>';
+                        } elseif ($sub_menu->id_sub_menu == 2 && $sub_menu->c_delete != 't') {
+                            $delete = '';
+                        }
+                    }
+                }
+
+                $action = '
+                <div class="text-center">
+                    <a href="' . route('campaign.detail', encrypt($query->id)) . '" class="btn btn-link text-primary" title="Detail- `' . $query->title . '`"><i class="fas fa-search-plus"></i></a>
+                    ' . $update . '
+                   ' . $delete . '
+                </div>
+            ';
+
+
+                return $action;
+            })
+            ->rawColumns(['short_description', 'path_image', 'author', 'action', 'status'])
+            ->escapeColumns([])
+            ->make(true);
+
+        // dd($query);
+
+        return datatables($query)
+            ->addIndexColumn()
+            ->editColumn('short_description', function ($query) {
+                return '<strong>' . $query->title . '</strong><br><small>' . Str::limit($query->short_description, 500) . '</small>';
+            })
+            ->editColumn('status', function ($query) {
+                return '<span class="badge badge-pill badge-' . $query->StatusColor() . '">' . $query->status . '</span>';
+            })
+            ->editColumn('path_image', function ($query) {
+                return '<img src="' . Storage::disk('local')->url($query->path_image) . '" class="img-thumbnail mx-auto d-block">';
+            })
+            ->addColumn('author', function ($query) {
+                return $query->user->name;
+            })->addColumn('action', function ($query) {
+                dd($query->id_role);
+                if ($query->c_update == 't') {
+                    $update = '<button type="button" class="btn btn-link text-success" onclick="editForm(`' . route('campaign.show', encrypt($query->campaigns_id)) . '`, `Edit data projek ' . $query->title . '`)" title="Edit- `' . $query->title . '`"><i class="fas fa-edit"></i></button>';
+                } else {
+                    $update = '';
+                }
+
+                if ($query->c_delete == 't') {
+                    $delete = ' <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('campaign.destroy', encrypt($query->campaigns_id)) . '`)" title="Hapus- `' . $query->title . '`"><i class="fas fa-trash-alt"></i></button>';
+                } else {
+                    $delete = '';
+                }
+
+                $aksi =  '
+                <div class="text-center">
+                    <a href="' . route('campaign.detail', encrypt($query->campaigns_id)) . '" class="btn btn-link text-primary" title="Detail- `' . $query->title . '`"><i class="fas fa-search-plus"></i></a>
+                    ' . $update . '
+                   ' . $delete . '
+                </div>
+            ';
+                return $aksi;
             })
             ->rawColumns(['short_description', 'path_image', 'author', 'action', 'status'])
             ->escapeColumns([])
