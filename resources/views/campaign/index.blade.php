@@ -221,7 +221,6 @@
                         icon: 'error',
                         title: 'Mohon maaf !!...',
                         text: 'Data tidak dapat di tampilkan',
-                        // footer: '<a href="">Why do I have this issue?</a>'
                     })
                 });
         }
@@ -253,12 +252,11 @@
                         loopErrors(errors.responseJSON.errors);
                         return;
                     }
-                    // showAlert(errors.responseJSON.message, 'danger');
+
                     Swal.fire({
                         icon: 'error',
                         title: 'Mohon maaf ..',
                         text: 'Data gagal disimpan !!',
-                        // footer: '<a href="">Why do I have this issue?</a>'
                     })
                 });
         }

@@ -18,12 +18,12 @@ class CreateMRoleMenuSub extends Migration
             $table->integer('id_role_menu');
             $table->integer('id_sub_menu');
             $table->string('alias_sub_menu')->nullable();
-            $table->boolean('c_select')->default('t');
-            $table->boolean('c_insert')->default('t');
-            $table->boolean('c_update')->default('t');
-            $table->boolean('c_delete')->default('t');
-            $table->boolean('c_import')->default('t');
-            $table->boolean('c_export')->default('t');
+            $table->boolean('c_select')->default('f');
+            $table->boolean('c_insert')->default('f');
+            $table->boolean('c_update')->default('f');
+            $table->boolean('c_delete')->default('f');
+            $table->boolean('c_import')->default('f');
+            $table->boolean('c_export')->default('f');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Role;
 use Illuminate\Support\Facades\Auth;
 use App\Models\M_Role_Menu_sub;
+use Dotenv\Validator;
 
 class AppController extends Controller
 {
@@ -95,36 +96,52 @@ class AppController extends Controller
             ->addIndexColumn()
             ->editColumn('c_select', function ($query) {
                 $checked = $query->c_select ? 'checked' : '';
-                return '<input type="checkbox" onclick="ceklis(`' . $query->id . '`)" name="c_select" ' . $checked . '>';
+                $up_menu = '<input type="checkbox" name="is_active[]" id="is_active" onclick="ceklis(' .  $query->id . ', `c_select`, )" value="" ' . $checked . '>';
+                return $up_menu;
             })
             ->editColumn('c_insert', function ($query) {
                 $checked = $query->c_insert ? 'checked' : '';
-                return '<input type="checkbox" name="c_insert" ' . $checked . '>';
+                $up_menu = '<input type="checkbox" name="is_active[]" id="is_active" onclick="ceklis(`' .  $query->id . '`, `c_insert`)" value="" ' . $checked . '>';
+                return $up_menu;
             })
             ->editColumn('c_update', function ($query) {
                 $checked = $query->c_update ? 'checked' : '';
-                return '<input type="checkbox" name="c_update" ' . $checked . '>';
+                return '<input type="checkbox" name="is_active[]" id="is_active" onclick="ceklis(`' .  $query->id . '`, `c_update`)" value="1"  ' . $checked . '>';
             })
             ->editColumn('c_delete', function ($query) {
                 $checked = $query->c_delete ? 'checked' : '';
-                return '<input type="checkbox" name="c_delete" ' . $checked . '>';
+                return '<input type="checkbox" name="is_active[]" id="is_active" onclick="ceklis(`' .  $query->id . '`, `c_delete`)" value="1"  ' . $checked . '>';
             })
             ->editColumn('c_export', function ($query) {
-                $checked = $query->c_export ? 'checked' : '';
-                return '<input type="checkbox" name="c_export" ' . $checked . '>';
+                $checked = $query->c_export ? 'checked' : ':not(:checked)';
+                return '<input type="checkbox" name="is_active[]" id="is_active" onclick="ceklis(`' .  $query->id . '`, `c_export`)" value=""  ' . $checked . '>';
             })
             ->editColumn('c_import', function ($query) {
                 $checked = $query->c_import ? 'checked' : '';
-                return '<input type="checkbox" name="c_import" ' . $checked . '>';
+                return '<input type="checkbox" name="is_active[]" id="is_active" onclick="ceklis(`' .  $query->id . '`, `c_import`)" value=""  ' . $checked . '>';
+            })
+            ->addColumn('action', function ($query) {
+                return ' <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('setup.hapus_menu', encrypt($query->id)) . '`)" title="Hapus- `' . $query->nama_sub_menu . '`"><i class="fas fa-trash-alt"></i></button>';
             })
             ->rawColumns(['c_select', 'c_insert', 'c_update', 'c_delete', 'c_export', 'c_import'])
             ->escapeColumns([])
             ->make(true);
     }
 
-    public function updateMenu($id)
+    public function configMenu(Request $request)
     {
-        //
+        // dd($request->all());
+        $this->validate($request, [
+            'is_active' => 'boolean'
+        ]);
+        $menu = M_Role_Menu_sub::where('id', $request->id)->first();
+        $kolom = $request->kolom;
+        $menu->$kolom = $request->boolean('check');
+        // $menu->$kolom = $request->input('is_active') === '1' ? true : false;
+        // dd($menu);
+        $menu->save();
+
+        return response()->json(['data' => $menu, 'message' => 'Menu Berhasil Diperbarui', 'success' => true]);
     }
 
     /**
@@ -145,7 +162,7 @@ class AppController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
@@ -157,19 +174,12 @@ class AppController extends Controller
     public function show($id)
     {
         $id = decrypt($id);
-        // dd('show ' . $id . ', ok');
+
+        $role = Role::where('id', $id)->first();
+
+        return response()->json(['data' => $role]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -180,7 +190,7 @@ class AppController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd($request->all());
     }
 
     /**

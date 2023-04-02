@@ -36,35 +36,35 @@
     <x-modal size='modal-xl'>
         <x-slot name="title"></x-slot>
         @method('post')
-        <x-card>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="form-group">
-                        <label for="title">Role</label>
-                        <input type="text" class="form-control" name="role" id="role">
-                    </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label for="title">Role</label>
+                    <input type="text" class="form-control" name="name" id="name">
                 </div>
             </div>
+        </div>
 
-            <x-slot name="footer">
+        <x-table id="table-menu">
+            <x-slot name="thead">
+                <th class="border text-center" width=3%>No</th>
+                <th class="border text-center">Menu</th>
+                <th class="border text-center" width=10%>Table</th>
+                <th class="border text-center" width=10%>Tambah</th>
+                <th class="border text-center" width=10%>Update</th>
+                <th class="border text-center" width=10%>Delete</th>
+                <th class="border text-center" width=10%>Export</th>
+                <th class="border text-center" width=10%>Import</th>
+            </x-slot>
+        </x-table>
+        <x-slot name="footer">
+            <div class="text-right">
                 <button type="button" class="btn btn-secondary" data-dismis="modal">Batal</button>
                 <button type="button" class="btn btn-primary" onclick="submitForm(this.form)">Simpan</button>
-            </x-slot>
-        </x-card>
-        <x-card>
-            <x-table id="table-menu">
-                <x-slot name="thead">
-                    <th class="border text-center" width=3%>No</th>
-                    <th class="border text-center">Menu</th>
-                    <th class="border text-center" width=10%>Table</th>
-                    <th class="border text-center" width=10%>Tambah</th>
-                    <th class="border text-center" width=10%>Update</th>
-                    <th class="border text-center" width=10%>Delete</th>
-                    <th class="border text-center" width=10%>Export</th>
-                    <th class="border text-center" width=10%>Import</th>
-                </x-slot>
-            </x-table>
-        </x-card>
+            </div>
+        </x-slot>
+
     </x-modal>
 @endsection
 
@@ -135,13 +135,16 @@
 
         function addForm(url, title) {
             $(modal).modal('show');
+            $("#table-menu").hide();
             $(`${modal} .modal-title`).text(title);
             $(`${modal} form`).attr('action', url);
+            resetForm(`${modal} form`);
         }
 
         function editForm(route, title, id_role) {
-            // console.log('disini', id_role);
+            // console.log(id_role);
             $(modal).modal('show');
+            $('#table-menu').show();
 
             let table_menu;
             table_menu = $('#table-menu').DataTable({
@@ -255,12 +258,188 @@
             })
 
             $(`${modal} .modal-title`).text(title);
-            // $(`${modal} form`).attr('action', url);
-            // $(`${modal} [name=_method]`).val('put');
+            $(`${modal} form`).attr('action', route);
+            $(`${modal} [name=_method]`).val('put');
+            $.get(route).done(response => {
+                    resetForm(`${modal} form`);
+                    loopForm(response.data);
+                    // console.log(loopForm(response.data));
+                })
+                .fail(errors => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Mohon maaf !!...',
+                        text: 'Data tidak dapat di tampilkan',
+                    })
+                });
+
         }
 
-        function ceklis(route) {
-            // console.log('ceklis pilih', route);
+        function submitForm(originalForm) {
+            $.post({
+                    url: $(originalForm).attr('action'),
+                    data: new FormData(originalForm),
+                    dataType: 'json',
+                    contentType: false,
+                    cache: false,
+                    processData: false
+                })
+                .done(response => {
+                    $(modal).modal(hide);
+                    showAlert(response.message, 'success');
+                    table_role.ajax.reload();
+                })
+                .fail(errors => {
+                    // console.log(errors.responseJSON.errors);
+                    // return;
+                    if (errors.status == 422) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Mohon maaf ..',
+                            text: 'Data gagal disimpan !!',
+                            footer: 'Silahkan cek isian anda'
+                        })
+                        loopErrors(errors.responseJSON.errors);
+                        return;
+                    }
+
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Mohon maaf ..',
+                        text: 'Data gagal disimpan !!',
+                    })
+                });
+        }
+
+        function resetForm(selector) {
+            $(selector)[0].reset();
+            $('.form-control')
+                .removeClass('is-invalid');
+            $('.invalid-feedback').remove();
+        }
+
+        function loopForm(originalForm) {
+            // console.log(originalForm);
+            for (field in originalForm) {
+                if ($(`[name=${field}]`).attr('type') != 'file') {
+                    if ($(`[name=${field}]`).hasClass('summernote')) {
+                        $(`[name=${field}]`).summernote('code', originalForm[field])
+                    } else if ($(`[name=${field}]`).attr('type') == 'radio') {
+                        $(`[name=${field}]`).filter(`[value="${originalForm[field]}"]`).prop('checked', true);
+                    } else {
+                        $(`[name=${field}]`).val(originalForm[field]);
+                        // console.log($(`[name=${field}]`).val(originalForm[field]));
+                    }
+                    $('select').trigger('change');
+                } else {
+                    $(`.preview-${field}`).attr('src', '/storage/' +
+                        originalForm[field]).show();
+                }
+            }
+        }
+
+        function loopErrors(errors, message = true) {
+            $('.invalid-feedback').remove();
+
+            if (errors == undefined) {
+                return;
+            }
+
+            for (error in errors) {
+                $(`[name=${error}]`).addClass('is-invalid');
+
+                if ($(`[name=${error}]`).hasClass('select2')) {
+                    $(`<span class="error invalid-feedback">${errors[error][0]}</span>`)
+                        .insertAfter($(`[name=${error}]`).next());
+                } else if ($(`[name=${error}]`).hasClass('summernote')) {
+                    $('.note-editor').addClass('is-invalid');
+                    $(`<span class="error invalid-feedback">${errors[error][0]}</span>`)
+                        .insertAfter($(`[name=${error}]`).next());
+                } else if ($(`[name=${error}]`).hasClass('custom-control-input')) {
+                    $(`<span class="error invalid-feedback">${errors[error][0]}</span>`)
+                        .insertAfter($(`[name=${error}]`).next());
+                } else {
+                    if ($(`[name=${error}]`).length == 0) {
+                        $(`[name="${error}[]"]`).addClass('is-invalid');
+                        $(`<span class="error invalid-feedback">${errors[error][0]}</span>`)
+                            .insertAfter($(`[name="${error}[]"]`).next());
+                    } else {
+                        $(`<span class="error invalid-feedback">${errors[error][0]}</span>`)
+                            .insertAfter($(`[name=${error}]`));
+                    }
+                }
+            }
+        }
+
+        function showAlert(message, type) {
+            $(function() {
+                var Toast = Swal.mixin({
+                    toast: true,
+                    position: 'center',
+                    showConfirmButton: false,
+                    timer: 1000
+                });
+                switch (type) {
+                    case 'success':
+                        Toast.fire({
+                            icon: 'success',
+                            title: message
+                        })
+                        break;
+                    case 'error':
+                        Toast.fire({
+                            icon: 'error',
+                            title: message
+                        })
+                        break;
+
+                    default:
+                        break;
+                }
+
+
+            })
+        }
+
+        $('.form-control').keypress(function(event) {
+            var keyCode = event.which;
+            if (!((keyCode >= 48 && keyCode <= 57) ||
+                    (keyCode >= 65 && keyCode <= 90) ||
+                    (keyCode >= 97 && keyCode <= 122)) &&
+                keyCode != 8 && keyCode != 32) {
+                event.preventDefault();
+            }
+        });
+
+        function ceklis(id, kolom) {
+            console.log('ceklis pilih', id, kolom, );
+
+            var check = $('#is_active').prop('checked');
+            if ($('#is_active').is(':checked')) {
+                console.log('Checkbox tidak di-check!');
+                var check = $('#is_active').is(':checked') === false;
+                // Lakukan sesuatu jika checkbox tidak di-check
+            }
+            var check = $('#is_active').is(':checked') === true;
+            console.log('ceklis pilih', id, kolom, check, );
+
+            $.ajax({
+                url: "{{ route('setup.configMenu') }}",
+                method: 'POST',
+                data: {
+                    // data yang ingin dikirim ke server
+                    id: id,
+                    kolom: kolom,
+                    check: check,
+                    _token: $('[name=csrf-token]').attr('content'),
+                },
+                success: function(response) {
+                    showAlert(response.message, 'success');
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    // kode yang dijalankan jika request gagal
+                }
+            });
         }
     </script>
 @endpush
