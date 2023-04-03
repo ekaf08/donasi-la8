@@ -415,11 +415,21 @@
             })
         }
 
+        function gagal() {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Mohon maaf telah terjadi kesalahan.',
+                showConfirmButton: false,
+                timer: 1000
+            })
+        }
+
         function deleteData(url, judul) {
             console.log(url, judul);
             Swal.fire({
                 title: 'Yakin ?',
-                text: "Menghapus Data " + judul + " ?",
+                text: "Menghapus " + judul + " ?",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -434,10 +444,11 @@
                         })
                         .done((response) => {
                             showAlert(response.message, 'success');
-                            table_menu.ajax.reload();
+                            $(modal).modal('hide');
+                            table_role.ajax.reload();
                         })
                         .fail((errors) => {
-                            showAlert(response.message, 'error');
+                            gagal();
                             return;
                         })
                 }
@@ -480,7 +491,7 @@
                     showAlert(response.message, 'success');
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-                    showAlert(response.message, 'error');
+                    gagal();
                 }
             });
         });

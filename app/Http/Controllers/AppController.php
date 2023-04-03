@@ -7,6 +7,7 @@ use App\Models\Role;
 use Illuminate\Support\Facades\Auth;
 use App\Models\M_Role_Menu_sub;
 use Dotenv\Validator;
+use Exception;
 
 class AppController extends Controller
 {
@@ -54,7 +55,7 @@ class AppController extends Controller
                         }
 
                         if ($sub_menu->id_sub_menu == 11 && $sub_menu->c_delete == 't') {
-                            $delete = ' <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('setup.destroy', encrypt($query->id)) . '`)" title="Hapus- `' . $query->name . '`"><i class="fas fa-trash-alt"></i></button>';
+                            $delete = ' <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('setup.destroy', encrypt($query->id)) . '`, `Role ' . $query->name . '`)" title="Hapus- `' . $query->name . '`"><i class="fas fa-trash-alt"></i></button>';
                         } elseif ($sub_menu->id_sub_menu == 11 && $sub_menu->c_delete != 't') {
                             $delete = '';
                         }
@@ -119,7 +120,7 @@ class AppController extends Controller
                 return '<input type="checkbox" name="is_active[]" id="is_active" data-id="' .  encrypt($query->id) . '" data-kolom="c_import" value=""  ' . $checked . '>';
             })
             ->addColumn('action', function ($query) {
-                return ' <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('setup.hapus_menu', encrypt($query->id)) . '`, `' . $query->nama_sub_menu . '`)" title="Hapus- `' . $query->nama_sub_menu . '`"><i class="fas fa-trash-alt"></i></button>';
+                return ' <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('setup.hapus_menu', encrypt($query->id)) . '`, `Menu ' . $query->nama_sub_menu . '`)" title="Hapus- `' . $query->nama_sub_menu . '`"><i class="fas fa-trash-alt"></i></button>';
             })
             ->rawColumns(['c_select', 'c_insert', 'c_update', 'c_delete', 'c_export', 'c_import', 'action'])
             ->escapeColumns([])
@@ -132,18 +133,30 @@ class AppController extends Controller
         $this->validate($request, [
             'is_active' => 'boolean'
         ]);
-        $menu = M_Role_Menu_sub::where('id', decrypt($request->id))->first();
-        $kolom = $request->kolom;
-        $menu->$kolom = $request->boolean('value');
-        $menu->save();
+        try {
+            $menu = M_Role_Menu_sub::where('idw', decrypt($request->id))->first();
+            $kolom = $request->kolom;
+            $menu->$kolom = $request->boolean('value');
+            $menu->save();
 
-        return response()->json(['data' => $menu, 'message' => 'Menu Berhasil Diperbarui', 'success' => true]);
+            return response()->json(['data' => $menu, 'message' => 'Menu Berhasil Diperbarui', 'success' => true]);
+        } catch (Exception $e) {
+            return response()->json(['message' => 'Mohon maaf telah terjadi kesalahan.'], 500);
+            //throw $th;
+        }
     }
 
     public function hapus_menu($id)
     {
         $id = decrypt($id);
         $menu = M_Role_Menu_sub::where('id', $id)->first();
+        $menu->c_select = 'false';
+        $menu->c_insert = 'false';
+        $menu->c_update = 'false';
+        $menu->c_delete = 'false';
+        $menu->c_import = 'false';
+        $menu->c_export = 'false';
+        $menu->save();
         $menu->delete();
         return response()->json(['data' => null, 'message' => 'Menu Berhasil Dihapus', 'success' => true]);
     }
@@ -206,6 +219,9 @@ class AppController extends Controller
     public function destroy($id)
     {
         $id = decrypt($id);
-        // dd('destroy ' . $id . ', ok');
+        // dd($id);
+        $role = Role::where('id', $id)->first();
+        $role->delete();
+        return response()->json(['data' => null, 'message' => 'Role Berhasil Dihapus', 'success' => true]);
     }
 }
