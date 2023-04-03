@@ -25,7 +25,7 @@
                     <x-slot name="thead">
                         <th class="border text-center" width=3%>No</th>
                         <th class="border text-center">Role</th>
-                        <th class="border text-center" width=20%><i class="fas fa-cog"></i></th>
+                        <th class="border text-center" width=15%><i class="fas fa-cog"></i></th>
                     </x-slot>
                 </x-table>
             </x-card>
@@ -39,13 +39,18 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <div class="form-group">
+                <div class="form-group" id="tambahRole">
                     <label for="title">Role</label>
                     <input type="text" class="form-control" name="name" id="name">
                 </div>
             </div>
         </div>
-
+        <x-slot name="footer">
+            <div class="text-right">
+                <button type="button" class="btn btn-secondary" data-dismis="modal">Batal</button>
+                <button type="button" class="btn btn-primary" onclick="submitForm(this.form)">Simpan</button>
+            </div>
+        </x-slot>
         <x-table id="table-menu">
             <x-slot name="thead">
                 <th class="border text-center" width=3%>No</th>
@@ -56,19 +61,13 @@
                 <th class="border text-center" width=10%>Delete</th>
                 <th class="border text-center" width=10%>Export</th>
                 <th class="border text-center" width=10%>Import</th>
+                <th class="border text-center" width=10%><i class="fas fa-cog"></th>
             </x-slot>
         </x-table>
-        <x-slot name="footer">
-            <div class="text-right">
-                <button type="button" class="btn btn-secondary" data-dismis="modal">Batal</button>
-                <button type="button" class="btn btn-primary" onclick="submitForm(this.form)">Simpan</button>
-            </div>
-        </x-slot>
-
     </x-modal>
 @endsection
 
-<x-swal />
+{{-- <x-swal /> --}}
 @includeIf('includes.datatable')
 
 @push('scripts')
@@ -135,6 +134,8 @@
 
         function addForm(url, title) {
             $(modal).modal('show');
+            $('.modal-footer').show();
+            $('#tambahRole').show();
             $("#table-menu").hide();
             $("#table-menu_wrapper").hide();
             $(`${modal} .modal-title`).text(title);
@@ -145,6 +146,8 @@
         function editForm(route, title, id_role) {
             // console.log(id_role);
             $(modal).modal('show');
+            $('.modal-footer').hide();
+            $('#tambahRole').hide();
             $('#table-menu').show();
 
             let table_menu;
@@ -228,6 +231,16 @@
                     },
                     {
                         data: 'c_import',
+                        render: function(data, type, row) {
+                            if (data == null) {
+                                return "Tidak Ada";
+                            } else {
+                                return data
+                            }
+                        }
+                    },
+                    {
+                        data: 'action',
                         render: function(data, type, row) {
                             if (data == null) {
                                 return "Tidak Ada";
@@ -402,6 +415,35 @@
             })
         }
 
+        function deleteData(url, judul) {
+            console.log(url, judul);
+            Swal.fire({
+                title: 'Yakin ?',
+                text: "Menghapus Data " + judul + " ?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya',
+                cancelButtonText: 'Tidak',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.post(url, {
+                            '_token': $('[name=csrf-token]').attr('content'),
+                            '_method': 'delete'
+                        })
+                        .done((response) => {
+                            showAlert(response.message, 'success');
+                            table_menu.ajax.reload();
+                        })
+                        .fail((errors) => {
+                            showAlert(response.message, 'error');
+                            return;
+                        })
+                }
+            })
+        }
+
         $('.form-control').keypress(function(event) {
             var keyCode = event.which;
             if (!((keyCode >= 48 && keyCode <= 57) ||
@@ -412,9 +454,6 @@
             }
         });
 
-
-
-
         $('#table-menu').on('change', 'input[type="checkbox"]', function(e) {
             var id = $(this).data('id');
             var kolom = $(this).data('kolom')
@@ -422,14 +461,10 @@
             if ($(this).is(":checked")) {
                 // var value = $('#is_active').is(':checked') === true;
                 var value = 'true'
-                // console.log('1. Checkbox telah dicek', value);
             } else {
                 // var value = $('#is_active').is(':checked') === false;
                 var value = 'false'
-                // console.log('2. Checkbox tidak dicek', value);
             }
-
-            // console.log('NANG KENE', id, kolom, value);
 
             $.ajax({
                 url: "{{ route('setup.configMenu') }}",
@@ -445,7 +480,7 @@
                     showAlert(response.message, 'success');
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-                    // kode yang dijalankan jika request gagal
+                    showAlert(response.message, 'error');
                 }
             });
         });

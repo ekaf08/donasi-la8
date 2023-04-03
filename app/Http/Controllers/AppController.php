@@ -48,7 +48,7 @@ class AppController extends Controller
                     foreach ($menu->sub_menu as $sub_menu) {
                         // dd($sub_menu);
                         if ($sub_menu->id_sub_menu == 11 && $sub_menu->c_update == 't') {
-                            $update = '<button type="button" class="btn btn-link text-success" onclick="editForm(`' . route('setup.show', encrypt($query->id)) . '`, `Edit role ' . $query->name . '`, `' . encrypt($query->id) . '`)" title="Edit- `' . $query->name . '`"><i class="fas fa-edit"></i></button>';
+                            $update = '<button type="button" class="btn btn-link text-primary" onclick="editForm(`' . route('setup.show', encrypt($query->id)) . '`, `Edit role ' . $query->name . '`, `' . encrypt($query->id) . '`)" title="Edit- `' . $query->name . '`"><i class="nav-icon fas fa-cogs"></i></button>';
                         } elseif ($sub_menu->id_sub_menu == 11 && $sub_menu->c_update != 't') {
                             $update = '';
                         }
@@ -96,32 +96,32 @@ class AppController extends Controller
             ->addIndexColumn()
             ->editColumn('c_select', function ($query) {
                 $checked = $query->c_select ? 'checked' : '';
-                return '<input type="checkbox" name="is_active[]" id="is_active" data-id="' .  $query->id . '" data-kolom="c_select" value=""  ' . $checked . '>';
+                return '<input type="checkbox" name="is_active[]" id="is_active" data-id="' .  encrypt($query->id) . '" data-kolom="c_select" value=""  ' . $checked . '>';
             })
             ->editColumn('c_insert', function ($query) {
                 $checked = $query->c_insert ? 'checked' : '';
-                return '<input type="checkbox" name="is_active[]" id="is_active" data-id="' .  $query->id . '" data-kolom="c_insert" value="" ' . $checked . '>';
+                return '<input type="checkbox" name="is_active[]" id="is_active" data-id="' .  encrypt($query->id) . '" data-kolom="c_insert" value="" ' . $checked . '>';
             })
             ->editColumn('c_update', function ($query) {
                 $checked = $query->c_update ? 'checked' : '';
-                return '<input type="checkbox" name="is_active[]" id="is_active" data-id="' .  $query->id . '" data-kolom="c_update" value=""  ' . $checked . '>';
+                return '<input type="checkbox" name="is_active[]" id="is_active" data-id="' .  encrypt($query->id) . '" data-kolom="c_update" value=""  ' . $checked . '>';
             })
             ->editColumn('c_delete', function ($query) {
                 $checked = $query->c_delete ? 'checked' : '';
-                return '<input type="checkbox" name="is_active[]" id="is_active" data-id="' .  $query->id . '" data-kolom="c_delete" value=""  ' . $checked . '>';
+                return '<input type="checkbox" name="is_active[]" id="is_active" data-id="' .  encrypt($query->id) . '" data-kolom="c_delete" value=""  ' . $checked . '>';
             })
             ->editColumn('c_export', function ($query) {
                 $checked = $query->c_export ? 'checked' : ':not(:checked)';
-                return '<input type="checkbox" name="is_active[]" id="is_active" data-id="' .  $query->id . '" data-kolom="c_export" value=""  ' . $checked . '>';
+                return '<input type="checkbox" name="is_active[]" id="is_active" data-id="' .  encrypt($query->id) . '" data-kolom="c_export" value=""  ' . $checked . '>';
             })
             ->editColumn('c_import', function ($query) {
                 $checked = $query->c_import ? 'checked' : '';
-                return '<input type="checkbox" name="is_active[]" id="is_active" data-id="' .  $query->id . '" data-kolom="c_import" value=""  ' . $checked . '>';
+                return '<input type="checkbox" name="is_active[]" id="is_active" data-id="' .  encrypt($query->id) . '" data-kolom="c_import" value=""  ' . $checked . '>';
             })
             ->addColumn('action', function ($query) {
-                return ' <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('setup.hapus_menu', encrypt($query->id)) . '`)" title="Hapus- `' . $query->nama_sub_menu . '`"><i class="fas fa-trash-alt"></i></button>';
+                return ' <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('setup.hapus_menu', encrypt($query->id)) . '`, `' . $query->nama_sub_menu . '`)" title="Hapus- `' . $query->nama_sub_menu . '`"><i class="fas fa-trash-alt"></i></button>';
             })
-            ->rawColumns(['c_select', 'c_insert', 'c_update', 'c_delete', 'c_export', 'c_import'])
+            ->rawColumns(['c_select', 'c_insert', 'c_update', 'c_delete', 'c_export', 'c_import', 'action'])
             ->escapeColumns([])
             ->make(true);
     }
@@ -132,14 +132,20 @@ class AppController extends Controller
         $this->validate($request, [
             'is_active' => 'boolean'
         ]);
-        $menu = M_Role_Menu_sub::where('id', $request->id)->first();
+        $menu = M_Role_Menu_sub::where('id', decrypt($request->id))->first();
         $kolom = $request->kolom;
         $menu->$kolom = $request->boolean('value');
-        // $menu->$kolom = $request->input('is_active') === '1' ? true : false;
-        // dd($menu);
         $menu->save();
 
         return response()->json(['data' => $menu, 'message' => 'Menu Berhasil Diperbarui', 'success' => true]);
+    }
+
+    public function hapus_menu($id)
+    {
+        $id = decrypt($id);
+        $menu = M_Role_Menu_sub::where('id', $id)->first();
+        $menu->delete();
+        return response()->json(['data' => null, 'message' => 'Menu Berhasil Dihapus', 'success' => true]);
     }
 
     /**
@@ -160,7 +166,7 @@ class AppController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        dd($request->all(), $request->id);
     }
 
     /**

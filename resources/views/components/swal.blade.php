@@ -50,22 +50,6 @@
                             '_token': $('[name=csrf-token]').attr('content'),
                             '_method': 'delete'
                         })
-
-                        // .done((response) => {
-                        //     var Toast = Swal.mixin({
-                        //         toast: true,
-                        //         position: 'center',
-                        //         showConfirmButton: true,
-                        //         timer: 2000
-                        //     });
-
-                        //     Toast.fire({
-                        //         icon: 'success',
-                        //         title: '{{ session('message') }}'
-                        //     })
-                        //     location.reload();
-                        // })
-
                         .done((response) => {
                             Swal.fire(
                                 'Berhasil',
