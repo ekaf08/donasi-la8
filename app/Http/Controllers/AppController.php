@@ -96,29 +96,27 @@ class AppController extends Controller
             ->addIndexColumn()
             ->editColumn('c_select', function ($query) {
                 $checked = $query->c_select ? 'checked' : '';
-                $up_menu = '<input type="checkbox" name="is_active[]" id="is_active" onclick="ceklis(' .  $query->id . ', `c_select`, )" value="" ' . $checked . '>';
-                return $up_menu;
+                return '<input type="checkbox" name="is_active[]" id="is_active" data-id="' .  $query->id . '" data-kolom="c_select" value=""  ' . $checked . '>';
             })
             ->editColumn('c_insert', function ($query) {
                 $checked = $query->c_insert ? 'checked' : '';
-                $up_menu = '<input type="checkbox" name="is_active[]" id="is_active" onclick="ceklis(`' .  $query->id . '`, `c_insert`)" value="" ' . $checked . '>';
-                return $up_menu;
+                return '<input type="checkbox" name="is_active[]" id="is_active" data-id="' .  $query->id . '" data-kolom="c_insert" value="" ' . $checked . '>';
             })
             ->editColumn('c_update', function ($query) {
                 $checked = $query->c_update ? 'checked' : '';
-                return '<input type="checkbox" name="is_active[]" id="is_active" onclick="ceklis(`' .  $query->id . '`, `c_update`)" value="1"  ' . $checked . '>';
+                return '<input type="checkbox" name="is_active[]" id="is_active" data-id="' .  $query->id . '" data-kolom="c_update" value=""  ' . $checked . '>';
             })
             ->editColumn('c_delete', function ($query) {
                 $checked = $query->c_delete ? 'checked' : '';
-                return '<input type="checkbox" name="is_active[]" id="is_active" onclick="ceklis(`' .  $query->id . '`, `c_delete`)" value="1"  ' . $checked . '>';
+                return '<input type="checkbox" name="is_active[]" id="is_active" data-id="' .  $query->id . '" data-kolom="c_delete" value=""  ' . $checked . '>';
             })
             ->editColumn('c_export', function ($query) {
                 $checked = $query->c_export ? 'checked' : ':not(:checked)';
-                return '<input type="checkbox" name="is_active[]" id="is_active" onclick="ceklis(`' .  $query->id . '`, `c_export`)" value=""  ' . $checked . '>';
+                return '<input type="checkbox" name="is_active[]" id="is_active" data-id="' .  $query->id . '" data-kolom="c_export" value=""  ' . $checked . '>';
             })
             ->editColumn('c_import', function ($query) {
                 $checked = $query->c_import ? 'checked' : '';
-                return '<input type="checkbox" name="is_active[]" id="is_active" onclick="ceklis(`' .  $query->id . '`, `c_import`)" value=""  ' . $checked . '>';
+                return '<input type="checkbox" name="is_active[]" id="is_active" data-id="' .  $query->id . '" data-kolom="c_import" value=""  ' . $checked . '>';
             })
             ->addColumn('action', function ($query) {
                 return ' <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('setup.hapus_menu', encrypt($query->id)) . '`)" title="Hapus- `' . $query->nama_sub_menu . '`"><i class="fas fa-trash-alt"></i></button>';
@@ -136,7 +134,7 @@ class AppController extends Controller
         ]);
         $menu = M_Role_Menu_sub::where('id', $request->id)->first();
         $kolom = $request->kolom;
-        $menu->$kolom = $request->boolean('check');
+        $menu->$kolom = $request->boolean('value');
         // $menu->$kolom = $request->input('is_active') === '1' ? true : false;
         // dd($menu);
         $menu->save();

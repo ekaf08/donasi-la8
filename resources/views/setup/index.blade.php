@@ -25,7 +25,7 @@
                     <x-slot name="thead">
                         <th class="border text-center" width=3%>No</th>
                         <th class="border text-center">Role</th>
-                        <th class="border text-center" width=10%><i class="fas fa-cog"></i></th>
+                        <th class="border text-center" width=20%><i class="fas fa-cog"></i></th>
                     </x-slot>
                 </x-table>
             </x-card>
@@ -136,6 +136,7 @@
         function addForm(url, title) {
             $(modal).modal('show');
             $("#table-menu").hide();
+            $("#table-menu_wrapper").hide();
             $(`${modal} .modal-title`).text(title);
             $(`${modal} form`).attr('action', url);
             resetForm(`${modal} form`);
@@ -411,17 +412,24 @@
             }
         });
 
-        function ceklis(id, kolom) {
-            console.log('ceklis pilih', id, kolom, );
 
-            var check = $('#is_active').prop('checked');
-            if ($('#is_active').is(':checked')) {
-                console.log('Checkbox tidak di-check!');
-                var check = $('#is_active').is(':checked') === false;
-                // Lakukan sesuatu jika checkbox tidak di-check
+
+
+        $('#table-menu').on('change', 'input[type="checkbox"]', function(e) {
+            var id = $(this).data('id');
+            var kolom = $(this).data('kolom')
+
+            if ($(this).is(":checked")) {
+                // var value = $('#is_active').is(':checked') === true;
+                var value = 'true'
+                // console.log('1. Checkbox telah dicek', value);
+            } else {
+                // var value = $('#is_active').is(':checked') === false;
+                var value = 'false'
+                // console.log('2. Checkbox tidak dicek', value);
             }
-            var check = $('#is_active').is(':checked') === true;
-            console.log('ceklis pilih', id, kolom, check, );
+
+            // console.log('NANG KENE', id, kolom, value);
 
             $.ajax({
                 url: "{{ route('setup.configMenu') }}",
@@ -430,7 +438,7 @@
                     // data yang ingin dikirim ke server
                     id: id,
                     kolom: kolom,
-                    check: check,
+                    value: value,
                     _token: $('[name=csrf-token]').attr('content'),
                 },
                 success: function(response) {
@@ -440,6 +448,6 @@
                     // kode yang dijalankan jika request gagal
                 }
             });
-        }
+        });
     </script>
 @endpush
