@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\M_Menu;
 use Illuminate\Http\Request;
 use App\Models\Role;
 use Illuminate\Support\Facades\Auth;
@@ -20,15 +21,43 @@ class AppController extends Controller
      */
     public function index()
     {
-        // $query = M_Role_Menu::leftJoin('m_role_menu_sub', 'm_role_menu.id', 'm_role_menu_sub.id_role_menu')
-        //     ->where('m_role_menu.id_role', 2)
-        //     ->get();
+        $menu = M_Menu::all();
+        if ($menu[1]->nama_menu == 'Master') {
+            $nama_menu = 'Master';
+        }
+        if ($menu[2]->nama_menu == 'Referensi') {
+            $nama_menu = 'Referensi';
+        }
+        if ($menu[3]->nama_menu == 'Informasi') {
+            $nama_menu = 'Informasi';
+        }
+        if ($menu[4]->nama_menu == 'Report') {
+            $nama_menu = 'Report';
+        }
+        if ($menu[5]->nama_menu == 'Aktivitas') {
+            $nama_menu = 'Aktivitas';
+        }
+        if ($menu[6]->nama_menu == 'Pengaturan') {
+            $nama_menu = 'Pengaturan';
+        }
 
-        // foreach ($query as $key => $value) {
-        //     # code...
-        // }
+        $sub_menu = Role::join('m_role_menu', 'roles.id', 'm_role_menu.id_role')
+            ->join('m_menu', 'm_menu.id', 'm_role_menu.id_menu')
+            ->join('m_menu_sub', 'm_menu_sub.id_menu', 'm_menu.id')
+            ->select('roles.id as id', 'm_role_menu.id as id_m_role_menu', 'm_role_menu.id_menu as id_menu', 'm_role_menu.id_role as id_role', 'm_menu.id as id_m_menu', 'm_menu.nama_menu', 'm_menu_sub.nama_sub_menu', 'm_menu_sub.id as id_sub_menu', 'm_menu_sub.id_menu as id_m_menu_sub')
+            ->where('roles.id', '3')
+            ->orderBy('m_menu_sub.id', 'asc')->where('m_menu.nama_menu', $nama_menu)->get();
+        // dd($sub_menu);
 
-        // dd($value->alias_sub_menu);
+        //     $master = $sub_menu->where('m_menu.nama_menu', 'Master')->get();
+        //     $referensi = $sub_menu->where('m_menu.nama_menu', 'Referensi')->toSql();
+        //     $informasi = $sub_menu->where('m_menu.nama_menu', 'Informasi')->get();
+        //     $report = $sub_menu->where('m_menu.nama_menu', 'Report')->get();
+        //     $aktivitas = $sub_menu->where('m_menu.nama_menu', 'Aktivitas')->get();
+        //     $pengaturan = $sub_menu->where('m_menu.nama_menu', 'Pengaturan')->get();
+        // dd($master, $referensi, $informasi, $report, $aktivitas, $pengaturan);
+
+
         return view('setup.index');
     }
 
@@ -196,19 +225,15 @@ class AppController extends Controller
             $data['id_role'] = $role_id;
             $data['id_menu'] = $value->id_menu;
             $data['alias_menu'] = $value->alias_menu;
-            $data['c_select'] = 'f';
-            $data['c_insert'] = 'f';
-            $data['c_update'] = 'f';
-            $data['c_delete'] = 'f';
-            $data['c_import'] = 'f';
-            $data['c_export'] = 'f';
+            // $data['c_select'] = 'f';
+            // $data['c_insert'] = 'f';
+            // $data['c_update'] = 'f';
+            // $data['c_delete'] = 'f';
+            // $data['c_import'] = 'f';
+            // $data['c_export'] = 'f';
             $data->save();
             $m_role_id = $data->id;
         }
-
-        // $query = M_Role_Menu::leftJoin('m_role_menu_sub', 'm_role_menu.id', 'm_role_menu_sub.id_role_menu')
-        //     ->where('m_role_menu.id_role', 2)
-        //     ->get();
 
         $query = Role::distinct()
             ->select(
@@ -242,6 +267,13 @@ class AppController extends Controller
             $data2->save();
         }
         // dd($data2);
+
+        $sub_menu = Role::join('m_role_menu', 'roles.id', ' m_role_menu.id_role')
+            ->join('m_menu', 'm_menu.id', 'm_role_menu.id_menu')
+            ->join('m_menu_sub', 'm_menu_sub.id_menu', 'm_menu.id')
+            ->selec('roles.id as id', 'm_role_menu.id as id_m_role_menu', 'm_role_menu.id_menu as id_menu', 'm_role_menu.id_role as id_role', 'm_menu.id as id_m_menu', 'm_menu.nama_menu', 'm_menu_sub.nama_sub_menu', 'm_menu_sub.id as id_sub_menu', 'm_menu_sub.id_menu as id_m_menu_sub')
+            ->where('roles.id', '3');
+        $master = $sub_menu->where('m_menu.nama_menu', 'Master')->orderBy('m_menu_sub.id', 'asc')->get();
 
 
         return response()->json(['data' => null, 'message' => 'Role Berhasil Ditambahkan', 'success' => true]);
