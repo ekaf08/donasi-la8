@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Role;
 use Illuminate\Support\Facades\Auth;
+use App\Models\M_Role_Menu;
 use App\Models\M_Role_Menu_sub;
 use Dotenv\Validator;
 use Exception;
+use Faker\Guesser\Name;
 
 class AppController extends Controller
 {
@@ -18,17 +20,15 @@ class AppController extends Controller
      */
     public function index()
     {
-        // $role = Role::with(['menu' => function ($query) {
-        //     $query->with('menu_detail');
-        //     $query->with('sub_menu.sub_menu_detail');
-        // }])->where('id', Auth::user()->role_id)->first();
+        // $query = M_Role_Menu::leftJoin('m_role_menu_sub', 'm_role_menu.id', 'm_role_menu_sub.id_role_menu')
+        //     ->where('m_role_menu.id_role', 2)
+        //     ->get();
 
-        // foreach ($role->menu as $menu) {
-        //     foreach ($menu->sub_menu as $sub_menu) {
-        //         dd($sub_menu->alias_sub_menu);
-        //         $query = $sub_menu;
-        //     }
+        // foreach ($query as $key => $value) {
+        //     # code...
         // }
+
+        // dd($value->alias_sub_menu);
         return view('setup.index');
     }
 
@@ -134,7 +134,7 @@ class AppController extends Controller
             'is_active' => 'boolean'
         ]);
         try {
-            $menu = M_Role_Menu_sub::where('idw', decrypt($request->id))->first();
+            $menu = M_Role_Menu_sub::where('id', decrypt($request->id))->first();
             $kolom = $request->kolom;
             $menu->$kolom = $request->boolean('value');
             $menu->save();
@@ -179,7 +179,72 @@ class AppController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all(), $request->id);
+        $this->validate($request, [
+            'name' => 'required'
+        ]);
+
+        $role = new Role;
+        $role['name'] = $request->name;
+        $role->save();
+        $role_id = $role->id;
+
+
+        $role_menu = M_Role_Menu::where('id_role', '2')->orderBy('id', 'asc')->get();
+        foreach ($role_menu as $key => $value) {
+            $data = new M_Role_Menu;
+
+            $data['id_role'] = $role_id;
+            $data['id_menu'] = $value->id_menu;
+            $data['alias_menu'] = $value->alias_menu;
+            $data['c_select'] = 'f';
+            $data['c_insert'] = 'f';
+            $data['c_update'] = 'f';
+            $data['c_delete'] = 'f';
+            $data['c_import'] = 'f';
+            $data['c_export'] = 'f';
+            $data->save();
+            $m_role_id = $data->id;
+        }
+
+        // $query = M_Role_Menu::leftJoin('m_role_menu_sub', 'm_role_menu.id', 'm_role_menu_sub.id_role_menu')
+        //     ->where('m_role_menu.id_role', 2)
+        //     ->get();
+
+        $query = Role::distinct()
+            ->select(
+                'roles.name',
+                'm_menu.id as id_menu',
+                'm_menu.nama_menu',
+                'roles.id',
+                'm_menu_sub.nama_sub_menu',
+                'm_role_menu_sub.*'
+            )
+            ->leftJoin('m_role_menu', 'roles.id', 'm_role_menu.id_role')
+            ->join('m_role_menu_sub', 'm_role_menu.id', 'm_role_menu_sub.id_role_menu')
+            ->leftJoin('m_menu_sub', 'm_menu_sub.id', 'm_role_menu_sub.id_sub_menu')
+            ->join('m_menu', 'm_menu.id', 'm_role_menu.id_menu')
+            ->where('roles.id', 1)
+            ->orderBy('m_role_menu_sub.id_sub_menu', 'asc')
+            ->get();
+
+        foreach ($query as $key => $value) {
+            $data2 = new M_Role_Menu_sub;
+
+            $data2['id_role_menu'] = $m_role_id;
+            $data2['id_sub_menu'] = $value->id_sub_menu;
+            $data2['alias_sub_menu'] = $value->alias_sub_menu;
+            $data2['c_select'] = 'f';
+            $data2['c_insert'] = 'f';
+            $data2['c_update'] = 'f';
+            $data2['c_delete'] = 'f';
+            $data2['c_import'] = 'f';
+            $data2['c_export'] = 'f';
+            $data2->save();
+        }
+        // dd($data2);
+
+
+        return response()->json(['data' => null, 'message' => 'Role Berhasil Ditambahkan', 'success' => true]);
     }
 
     /**

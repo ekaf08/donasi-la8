@@ -141,6 +141,7 @@
             $(`${modal} .modal-title`).text(title);
             $(`${modal} form`).attr('action', url);
             resetForm(`${modal} form`);
+            $(`${modal} [name=_method]`).val('post');
         }
 
         function editForm(route, title, id_role) {
@@ -307,12 +308,7 @@
                     // console.log(errors.responseJSON.errors);
                     // return;
                     if (errors.status == 422) {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Mohon maaf ..',
-                            text: 'Data gagal disimpan !!',
-                            footer: 'Silahkan cek isian anda'
-                        })
+                        gagal();
                         loopErrors(errors.responseJSON.errors);
                         return;
                     }
