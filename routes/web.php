@@ -55,8 +55,10 @@ Route::group([
         // route untuk menu web management
         Route::get('/setup/data', [AppController::class, 'data'])->name('setup.data');
         Route::post('/setup/menu', [AppController::class, 'menu'])->name('setup.menu');
+        Route::post('/setup/subMenu', [AppController::class, 'subMenu'])->name('setup.subMenu');
         Route::post('/setup/configMenu', [AppController::class, 'configMenu'])->name('setup.configMenu');
         Route::delete('/setup/hapus_menu/{id}', [AppController::class, 'hapus_menu'])->name('setup.hapus_menu');
+        Route::delete('/setup/hapus_subMenu/{id}', [AppController::class, 'hapus_subMenu'])->name('setup.hapus_subMenu');
         Route::resource('/setup', AppController::class)->except('create', 'edit');
     });
 });

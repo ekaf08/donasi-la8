@@ -79,6 +79,26 @@ class AppController extends Controller
 
     public function menu(Request $request)
     {
+        $menu = Role::leftJoin('m_role_menu', 'roles.id', 'm_role_menu.id_role')
+            ->leftJoin('m_menu', 'm_menu.id', 'm_role_menu.id_menu')
+            ->where('roles.id', decrypt($request->id_role))->get();
+
+        return datatables($menu)
+            ->addIndexColumn()
+            ->editColumn('c_select', function ($menu) {
+                $checked = $menu->c_select ? 'checked' : '';
+                return '<input type="checkbox" name="is_active[]" id="is_active" data-id="' .  encrypt($menu->id) . '" data-kolom="c_select" value=""  ' . $checked . '>';
+            })
+            ->addColumn('action', function ($menu) {
+                return ' <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('setup.hapus_menu', encrypt($menu->id)) . '`, `Menu ' . $menu->nama_menu . '`)" title="Hapus- `' . $menu->nama_menu . '`"><i class="fas fa-trash-alt"></i></button>';
+            })
+            ->rawColumns(['c_select', 'action'])
+            ->escapeColumns([])
+            ->make(true);
+    }
+
+    public function subMenu(Request $request)
+    {
         $query = Role::distinct()
             ->select(
                 'roles.name',
@@ -122,7 +142,7 @@ class AppController extends Controller
                 return '<input type="checkbox" name="is_active[]" id="is_active" data-id="' .  encrypt($query->id) . '" data-kolom="c_import" value=""  ' . $checked . '>';
             })
             ->addColumn('action', function ($query) {
-                return ' <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('setup.hapus_menu', encrypt($query->id)) . '`, `Menu ' . $query->nama_sub_menu . '`)" title="Hapus- `' . $query->nama_sub_menu . '`"><i class="fas fa-trash-alt"></i></button>';
+                return ' <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('setup.hapus_subMenu', encrypt($query->id)) . '`, `Menu ' . $query->nama_sub_menu . '`)" title="Hapus- `' . $query->nama_sub_menu . '`"><i class="fas fa-trash-alt"></i></button>';
             })
             ->rawColumns(['c_select', 'c_insert', 'c_update', 'c_delete', 'c_export', 'c_import', 'action'])
             ->escapeColumns([])
@@ -148,7 +168,7 @@ class AppController extends Controller
         }
     }
 
-    public function hapus_menu($id)
+    public function hapus_subMenu($id)
     {
         $id = decrypt($id);
         $menu = M_Role_Menu_sub::where('id', $id)->first();
@@ -163,22 +183,6 @@ class AppController extends Controller
         return response()->json(['data' => null, 'message' => 'Menu Berhasil Dihapus', 'success' => true]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -197,6 +201,7 @@ class AppController extends Controller
             $data['id_role'] = $role_id;
             $data['id_menu'] = $value->id_menu;
             $data['alias_menu'] = $value->alias_menu;
+            $data['urutan'] = $value->urutan;
             $data->save();
         }
 

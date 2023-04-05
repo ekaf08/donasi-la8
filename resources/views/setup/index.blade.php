@@ -5,6 +5,27 @@
     <li class="breadcrumb-item active">Setup</li>
 @endsection
 
+@push('css')
+    <style>
+        .img-thumbnail {
+            /* border-color: #6610F2; */
+        }
+
+        .tombol-nav.nav-pills .nav-link.active,
+        .tombol-nav.nav-pills .show>.nav-link {
+            background: transparent;
+            color: var(--dark);
+            border-bottom: 3px solid;
+            border-bottom-color: #001F3F;
+            border-radius: 0;
+        }
+
+        .progress-bar {
+            background-color: #001F3F;
+        }
+    </style>
+@endpush
+
 @section('content')
     <div class="row">
         <div class="col-lg-12">
@@ -57,19 +78,56 @@
                 <button type="button" class="btn btn-primary" onclick="submitForm(this.form)">Simpan</button>
             </div>
         </x-slot>
-        <x-table id="table-menu">
-            <x-slot name="thead">
-                <th class="border text-center" width=3%>No</th>
-                <th class="border text-center">Menu</th>
-                <th class="border text-center" width=10%>Table</th>
-                <th class="border text-center" width=10%>Tambah</th>
-                <th class="border text-center" width=10%>Update</th>
-                <th class="border text-center" width=10%>Delete</th>
-                <th class="border text-center" width=10%>Export</th>
-                <th class="border text-center" width=10%>Import</th>
-                <th class="border text-center" width=10%><i class="fas fa-cog"></th>
-            </x-slot>
-        </x-table>
+
+        <ul class="nav nav-pills mb-3 tombol-nav" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link @if (request('pills') != 'submenu') active @endif" id="pills-menu-tab" data-toggle="pill"
+                    data-target="#pills-menu" type="button" role="tab" aria-controls="pills-menu"
+                    aria-selected="true">Menu</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link @if (request('pills') == 'submenu') active @endif" id="pills-submenu-tab"
+                    data-toggle="pill" data-target="#pills-submenu" type="button" role="tab"
+                    aria-controls="pills-submenu" aria-selected="false">Sub Menu</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show @if (request('pills') != 'password') active @endif" id="pills-menu" role="tabpanel"
+                aria-labelledby="pills-menu-tab">
+                <x-card>
+                    <x-table id="table-menu">
+                        <x-slot name="thead">
+                            <th class="border text-center" width=3%>No</th>
+                            <th class="border text-center">Menu</th>
+                            <th class="border text-center" width=10%>Tampil</th>
+                            {{-- <th class="border text-center" width=10%>Tambah</th>
+                            <th class="border text-center" width=10%>Update</th>
+                            <th class="border text-center" width=10%>Delete</th>
+                            <th class="border text-center" width=10%>Export</th>
+                            <th class="border text-center" width=10%>Import</th> --}}
+                            <th class="border text-center" width=10%><i class="fas fa-cog"></th>
+                        </x-slot>
+                    </x-table>
+                </x-card>
+            </div>
+            <div class="tab-pane fade" id="pills-submenu" role="tabpanel" aria-labelledby="pills-submenu-tab">
+                <x-card>
+                    <x-table id="table-subMenu">
+                        <x-slot name="thead">
+                            <th class="border text-center" width=3%>No</th>
+                            <th class="border text-center">Sub Menu</th>
+                            <th class="border text-center" width=10%>Table</th>
+                            <th class="border text-center" width=10%>Tambah</th>
+                            <th class="border text-center" width=10%>Update</th>
+                            <th class="border text-center" width=10%>Delete</th>
+                            <th class="border text-center" width=10%>Export</th>
+                            <th class="border text-center" width=10%>Import</th>
+                            <th class="border text-center" width=10%><i class="fas fa-cog"></th>
+                        </x-slot>
+                    </x-table>
+                </x-card>
+            </div>
+        </div>
     </x-modal>
 @endsection
 
@@ -143,8 +201,11 @@
             $(modal).modal('show');
             $('.modal-footer').show();
             $('#tambahRole').show();
-            $("#table-menu").hide();
-            $("#table-menu_wrapper").hide();
+            $("#table-subMenu").hide();
+            $("#table-subMenu_wrapper").hide();
+            $('#pills-tab').hide();
+            $('#pills-tabContent').hide()
+
             $(`${modal} .modal-title`).text(title);
             $(`${modal} form`).attr('action', url);
             $(`${modal} [name=_method]`).val('post');
@@ -162,7 +223,9 @@
             $(modal).modal('show');
             $('.modal-footer').hide();
             $('#tambahRole').hide();
-            $('#table-menu').show();
+            $('#pills-tab').show();
+            $('#pills-tabContent').show()
+            $('#table-subMenu').show();
 
             let table_menu;
             table_menu = $('#table-menu').DataTable({
@@ -171,6 +234,77 @@
                 serverside: true,
                 ajax: {
                     url: '{{ route('setup.menu') }}',
+                    type: 'POST',
+                    'data': {
+                        id_role: id_role,
+                    }
+                },
+                columns: [{
+                        data: 'DT_RowIndex',
+                        searchable: false,
+                        sortable: false
+                    },
+                    {
+                        data: 'nama_menu',
+                        searchable: false,
+                        sortable: false,
+                        render: function(data, type, row) {
+                            if (data == null) {
+                                return "Tidak Ada";
+                            } else {
+                                return data
+                            }
+                        }
+                    },
+                    {
+                        data: 'c_select',
+                        render: function(data, type, row) {
+                            if (data == null) {
+                                return "Tidak Ada";
+                            } else {
+                                return data
+                            }
+                        }
+                    },
+                    {
+                        data: 'action',
+                        render: function(data, type, row) {
+                            if (data == null) {
+                                return "Tidak Ada";
+                            } else {
+                                return data
+                            }
+                        }
+                    },
+                ],
+                'columnDefs': [{
+                    "targets": [0, 2, 3],
+                    "className": "text-center",
+                    "width": "4%"
+                }],
+                "language": {
+                    "info": "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
+                    "infoEmpty": "Menampilkan 0 sampai 0 dari 0 data",
+                    "infoFiltered": "(disaring dari _MAX_ total data)",
+                    "lengthMenu": "Menampilkan _MENU_ data",
+                    "search": "Cari:",
+                    "zeroRecords": "Tidak ada data yang sesuai",
+                    /* Kostum pagination dengan element baru */
+                    "paginate": {
+                        "previous": "<i class='fas fa-angle-left'></i>",
+                        "next": "<i class='fas fa-angle-right'></i>"
+                    }
+                },
+                "bDestroy": true
+            })
+
+            let table_subMenu;
+            table_subMenu = $('#table-subMenu').DataTable({
+                processing: true,
+                autoWidth: false,
+                serverside: true,
+                ajax: {
+                    url: '{{ route('setup.subMenu') }}',
                     type: 'POST',
                     'data': {
                         id_role: id_role,
