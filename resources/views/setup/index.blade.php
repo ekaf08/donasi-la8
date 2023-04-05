@@ -105,7 +105,7 @@
                             <th class="border text-center" width=10%>Delete</th>
                             <th class="border text-center" width=10%>Export</th>
                             <th class="border text-center" width=10%>Import</th> --}}
-                            <th class="border text-center" width=10%><i class="fas fa-cog"></th>
+                            {{-- <th class="border text-center" width=10%><i class="fas fa-cog"></th> --}}
                         </x-slot>
                     </x-table>
                 </x-card>
@@ -266,19 +266,19 @@
                             }
                         }
                     },
-                    {
-                        data: 'action',
-                        render: function(data, type, row) {
-                            if (data == null) {
-                                return "Tidak Ada";
-                            } else {
-                                return data
-                            }
-                        }
-                    },
+                    // {
+                    //     data: 'action',
+                    //     render: function(data, type, row) {
+                    //         if (data == null) {
+                    //             return "Tidak Ada";
+                    //         } else {
+                    //             return data
+                    //         }
+                    //     }
+                    // },
                 ],
                 'columnDefs': [{
-                    "targets": [0, 2, 3],
+                    "targets": [0, 2],
                     "className": "text-center",
                     "width": "4%"
                 }],
@@ -608,7 +608,7 @@
             }
         });
 
-        $('#table-menu').on('change', 'input[type="checkbox"]', function(e) {
+        $('#table-subMenu').on('change', 'input[type="checkbox"]', function(e) {
             var id = $(this).data('id');
             var kolom = $(this).data('kolom')
 
@@ -638,5 +638,12 @@
                 }
             });
         });
+
+        $('#table-menu').on('change', 'input[type="checkbox"]', function(e) {
+            var id = $(this).data('id');
+            var kolom = $(this).data('kolom')
+
+            console.log('TABEL MENU', id, kolom);
+        })
     </script>
 @endpush

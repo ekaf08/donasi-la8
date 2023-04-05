@@ -36,7 +36,7 @@ class AppController extends Controller
 
     public function data()
     {
-        $query = Role::orderBy('name', 'asc')
+        $query = Role::orderBy('id', 'asc')
             ->get();
         // dd($query);
         return datatables($query)
@@ -79,15 +79,20 @@ class AppController extends Controller
 
     public function menu(Request $request)
     {
-        $menu = Role::leftJoin('m_role_menu', 'roles.id', 'm_role_menu.id_role')
+        $menu = M_Role_Menu::leftJoin('roles', 'roles.id', 'm_role_menu.id_role')
             ->leftJoin('m_menu', 'm_menu.id', 'm_role_menu.id_menu')
-            ->where('roles.id', decrypt($request->id_role))->get();
+            ->where('roles.id', decrypt($request->id_role))
+            ->orderBy('m_menu.id', 'asc')
+            ->select('roles.id as role_id', 'm_menu.id as m_menu_id', 'm_menu.nama_menu', 'm_role_menu.*')
+            ->get();
+
+        // dd($menu);
 
         return datatables($menu)
             ->addIndexColumn()
             ->editColumn('c_select', function ($menu) {
                 $checked = $menu->c_select ? 'checked' : '';
-                return '<input type="checkbox" name="is_active[]" id="is_active" data-id="' .  encrypt($menu->id) . '" data-kolom="c_select" value=""  ' . $checked . '>';
+                return '<input type="checkbox" name="is_active_menu[]" id="is_active_menu" data-id="' .  $menu->id . '" data-kolom="c_select" value=""  ' . $checked . '>';
             })
             ->addColumn('action', function ($menu) {
                 return ' <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('setup.hapus_menu', encrypt($menu->id)) . '`, `Menu ' . $menu->nama_menu . '`)" title="Hapus- `' . $menu->nama_menu . '`"><i class="fas fa-trash-alt"></i></button>';

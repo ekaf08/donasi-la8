@@ -43,15 +43,17 @@
                             </li>
                         @endforeach
                     @else
-                        <li class="nav-item">
-                            <a href="{{ route($menu->menu_detail->go_to) }}"
-                                class="nav-link {{ request()->is($menu->menu_detail->active) ? 'active' : '' }}">
-                                <i class="{{ $menu->menu_detail->icon }}"></i>
-                                <p>
-                                    {{ $menu->menu_detail->nama_menu }}
-                                </p>
-                            </a>
-                        </li>
+                        @if ($menu->c_select == 'true')
+                            <li class="nav-item">
+                                <a href="{{ route($menu->menu_detail->go_to) }}"
+                                    class="nav-link {{ request()->is($menu->menu_detail->active) ? 'active' : '' }}">
+                                    <i class="{{ $menu->menu_detail->icon }}"></i>
+                                    <p>
+                                        {{ $menu->menu_detail->nama_menu }}
+                                    </p>
+                                </a>
+                            </li>
+                        @endif
                     @endif
                 @endforeach
                 {{-- <li class="nav-item">
