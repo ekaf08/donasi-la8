@@ -42,6 +42,12 @@
                 <div class="form-group" id="tambahRole">
                     <label for="title">Role</label>
                     <input type="text" class="form-control" name="name" id="name">
+                    <input type="text" class="form-control" name="master" id="master" hidden>
+                    <input type="text" class="form-control" name="referensi" id="referensi" hidden>
+                    <input type="text" class="form-control" name="informasi" id="informasi" hidden>
+                    <input type="text" class="form-control" name="report" id="report" hidden>
+                    <input type="text" class="form-control" name="aktivitas" id="aktivitas" hidden>
+                    <input type="text" class="form-control" name="pengaturan" id="pengaturan" hidden>
                 </div>
             </div>
         </div>
@@ -133,6 +139,7 @@
         });
 
         function addForm(url, title) {
+            resetForm(`${modal} form`);
             $(modal).modal('show');
             $('.modal-footer').show();
             $('#tambahRole').show();
@@ -140,8 +147,14 @@
             $("#table-menu_wrapper").hide();
             $(`${modal} .modal-title`).text(title);
             $(`${modal} form`).attr('action', url);
-            resetForm(`${modal} form`);
             $(`${modal} [name=_method]`).val('post');
+
+            $(`${modal} [name=master]`).val('Master');
+            $(`${modal} [name=referensi]`).val('Referensi');
+            $(`${modal} [name=informasi]`).val('Informasi');
+            $(`${modal} [name=report]`).val('Report');
+            $(`${modal} [name=aktivitas]`).val('Aktivitas');
+            $(`${modal} [name=pengaturan]`).val('Pengaturan');
         }
 
         function editForm(route, title, id_role) {
@@ -300,7 +313,7 @@
                     processData: false
                 })
                 .done(response => {
-                    $(modal).modal(hide);
+                    $(modal).modal('hide');
                     showAlert(response.message, 'success');
                     table_role.ajax.reload();
                 })
