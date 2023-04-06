@@ -23,6 +23,75 @@
         .progress-bar {
             background-color: #001F3F;
         }
+
+        .container {
+            display: inline;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 22px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Hide the browser's default checkbox */
+        .container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        /* Create a custom checkbox */
+        .checkmark {
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            background-color: #bdbaba;
+            /* border-style: groove; */
+        }
+
+        /* On mouse-over, add a grey background color */
+        .container:hover input~.checkmark {
+            background-color: #ccc;
+        }
+
+        /* When the checkbox is checked, add a blue background */
+        .container input:checked~.checkmark {
+            background-color: #2196F3;
+        }
+
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        /* Show the checkmark when checked */
+        .container input:checked~.checkmark:after {
+            display: block;
+        }
+
+        /* Style the checkmark/indicator */
+        .container .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
     </style>
 @endpush
 
@@ -74,7 +143,7 @@
         </div>
         <x-slot name="footer">
             <div class="text-right">
-                <button type="button" class="btn btn-secondary" data-dismis="modal">Batal</button>
+                <button type="button" class="btn btn-secondary" id="batal" data-dismis="modal">Batal</button>
                 <button type="button" class="btn btn-primary" onclick="submitForm(this.form)">Simpan</button>
             </div>
         </x-slot>
@@ -99,9 +168,9 @@
                         <x-slot name="thead">
                             <th class="border text-center" width=3%>No</th>
                             <th class="border text-center">Menu</th>
-                            <th class="border text-center" width=10%>Tampil</th>
+                            <th class="border text-center" width=10%>Konfigurasi</th>
+                            <th class="border text-center" width=15%>Urutan</th>
                             {{-- <th class="border text-center" width=10%>Tambah</th>
-                            <th class="border text-center" width=10%>Update</th>
                             <th class="border text-center" width=10%>Delete</th>
                             <th class="border text-center" width=10%>Export</th>
                             <th class="border text-center" width=10%>Import</th> --}}
@@ -266,11 +335,23 @@
                             }
                         }
                     },
+                    {
+                        data: 'action',
+                        searchable: false,
+                        sortable: false,
+                        render: function(data, type, row) {
+                            if (data == null) {
+                                return "Tidak Ada";
+                            } else {
+                                return data
+                            }
+                        }
+                    },
                 ],
                 'columnDefs': [{
-                    "targets": [0, 2],
+                    "targets": [0, 2, 3],
                     "className": "text-center",
-                    "width": "4%"
+                    // "width": "4%"
                 }],
                 "language": {
                     "info": "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
@@ -669,6 +750,12 @@
         })
 
         $('.close').on('click', function(e) {
+            location.reload();
+        })
+
+        $('#batal').on('click', function(e) {
+            $(modal).modal('hide');
+            table_role.ajax.reload();
             location.reload();
         })
     </script>
