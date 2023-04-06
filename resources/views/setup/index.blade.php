@@ -257,7 +257,7 @@
                         }
                     },
                     {
-                        data: 'c_select',
+                        data: 'deleted_at',
                         render: function(data, type, row) {
                             if (data == null) {
                                 return "Tidak Ada";
@@ -266,16 +266,6 @@
                             }
                         }
                     },
-                    // {
-                    //     data: 'action',
-                    //     render: function(data, type, row) {
-                    //         if (data == null) {
-                    //             return "Tidak Ada";
-                    //         } else {
-                    //             return data
-                    //         }
-                    //     }
-                    // },
                 ],
                 'columnDefs': [{
                     "targets": [0, 2],
@@ -643,7 +633,43 @@
             var id = $(this).data('id');
             var kolom = $(this).data('kolom')
 
-            console.log('TABEL MENU', id, kolom);
+            if ($(this).is(":checked")) {
+                $.ajax({
+                    url: "{{ route('setup.restore_menu') }}",
+                    method: 'POST',
+                    data: {
+                        // data yang ingin dikirim ke server
+                        id: id,
+                        _token: $('[name=csrf-token]').attr('content'),
+                    },
+                    success: function(response) {
+                        showAlert(response.message, 'success');
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        gagal();
+                    }
+                });
+            } else {
+                $.ajax({
+                    url: "{{ route('setup.hapus_menu') }}",
+                    method: 'DELETE',
+                    data: {
+                        // data yang ingin dikirim ke server
+                        id: id,
+                        _token: $('[name=csrf-token]').attr('content'),
+                    },
+                    success: function(response) {
+                        showAlert(response.message, 'success');
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        gagal();
+                    }
+                });
+            }
+        })
+
+        $('.close').on('click', function(e) {
+            location.reload();
         })
     </script>
 @endpush

@@ -21,16 +21,6 @@ class AppController extends Controller
      */
     public function index()
     {
-        $sub_menu = Role::join('m_role_menu', 'roles.id', 'm_role_menu.id_role')
-            ->join('m_menu', 'm_menu.id', 'm_role_menu.id_menu')
-            ->join('m_menu_sub', 'm_menu_sub.id_menu', 'm_menu.id')
-            ->select('roles.id as id', 'm_role_menu.id as id_m_role_menu', 'm_role_menu.id_menu as id_menu', 'm_role_menu.id_role as id_role', 'm_menu.id as id_m_menu', 'm_menu.nama_menu', 'm_menu_sub.nama_sub_menu', 'm_menu_sub.id as id_sub_menu', 'm_menu_sub.id_menu as id_m_menu_sub')
-            ->where('roles.id', 3)
-            ->orderBy('m_menu_sub.id', 'asc')
-            ->where('m_menu.nama_menu', 'Master')->get();
-
-        // dd($sub_menu);
-
         return view('setup.index');
     }
 
@@ -84,22 +74,43 @@ class AppController extends Controller
             ->where('roles.id', decrypt($request->id_role))
             ->orderBy('m_menu.id', 'asc')
             ->select('roles.id as role_id', 'm_menu.id as m_menu_id', 'm_menu.nama_menu', 'm_role_menu.*')
+            ->withTrashed()
             ->get();
 
         // dd($menu);
 
         return datatables($menu)
             ->addIndexColumn()
-            ->editColumn('c_select', function ($menu) {
-                $checked = $menu->c_select ? 'checked' : '';
-                return '<input type="checkbox" name="is_active_menu[]" id="is_active_menu" data-id="' .  $menu->id . '" data-kolom="c_select" value=""  ' . $checked . '>';
+            ->editColumn('deleted_at', function ($menu) {
+                $checked = $menu->deleted_at ? '' : 'checked';
+                return '<input type="checkbox" name="is_active_menu[]" id="is_active_menu" data-id="' . encrypt($menu->id) . '" value=""  ' . $checked . '>';
             })
             ->addColumn('action', function ($menu) {
                 return ' <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('setup.hapus_menu', encrypt($menu->id)) . '`, `Menu ' . $menu->nama_menu . '`)" title="Hapus- `' . $menu->nama_menu . '`"><i class="fas fa-trash-alt"></i></button>';
             })
-            ->rawColumns(['c_select', 'action'])
+            ->rawColumns(['deleted_at', 'action'])
             ->escapeColumns([])
             ->make(true);
+    }
+
+    public function hapus_menu(Request $request)
+    {
+        $id = decrypt($request->id);
+        // dd($id);
+        $data = M_Role_Menu::find($id);
+        $data->delete();
+
+        return response()->json(['data' => null, 'message' => 'Menu Berhasil Di Non Aktifkan', 'success' => true]);
+    }
+
+    public function restore_menu(Request $request)
+    {
+        $id = decrypt($request->id);
+        // dd($id);
+        $data = M_Role_Menu::withTrashed()->find($id);
+        $data->restore();
+
+        return response()->json(['data' => null, 'message' => 'Menu Berhasil Di Aktifkan', 'success' => true]);
     }
 
     public function subMenu(Request $request)
@@ -185,7 +196,7 @@ class AppController extends Controller
         $menu->c_export = 'false';
         $menu->save();
         $menu->delete();
-        return response()->json(['data' => null, 'message' => 'Menu Berhasil Dihapus', 'success' => true]);
+        return response()->json(['data' => null, 'message' => 'Sub Menu Berhasil Dihapus', 'success' => true]);
     }
 
     public function store(Request $request)
