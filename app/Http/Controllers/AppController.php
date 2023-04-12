@@ -72,7 +72,7 @@ class AppController extends Controller
         $menu = M_Role_Menu::leftJoin('roles', 'roles.id', 'm_role_menu.id_role')
             ->leftJoin('m_menu', 'm_menu.id', 'm_role_menu.id_menu')
             ->where('roles.id', decrypt($request->id_role))
-            ->orderBy('m_menu.id', 'asc')
+            ->orderBy('m_role_menu.urutan', 'asc')
             ->select('roles.id as role_id', 'm_menu.id as m_menu_id', 'm_menu.nama_menu', 'm_role_menu.*')
             ->withTrashed()
             ->get();
@@ -93,15 +93,29 @@ class AppController extends Controller
             })
             ->addColumn('action', function ($menu) {
                 $panah = '
-                    <button class="btn btn-link text-success"><i class="fas fa-arrow-alt-circle-up"></i></button>
-                    <button class="btn btn-link text-success"><i class="fas fa-arrow-alt-circle-down"></i></button>
+                    <button type="button" class="btn btn-link text-success" id="atas" data-urutan="' . $menu->urutan . '" data-id="' . $menu->id . '" data-jumlah="7"><i class="fas fa-arrow-alt-circle-up"></i></button>
+                    <button type="button" class="btn btn-link text-success" id="bawah" data-urutan="' . $menu->urutan . '" data-id="' . $menu->id . '" data-jumlah="7"><i class="fas fa-arrow-alt-circle-down"></i></button>
                 ';
-                $bawah = '<button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('setup.hapus_menu', encrypt($menu->id)) . '`, `Menu ' . $menu->nama_menu . '`)" title="Hapus- `' . $menu->nama_menu . '`"><i class="fas fa-trash-alt"></i></button>';
+                $urutan = '<input type="text" class="form-control text-center" name="urutan" id="urutan" value="' . $menu->urutan . '" data-id="' . $menu->id . '">';
                 return $panah;
             })
             ->rawColumns(['deleted_at', 'action'])
             ->escapeColumns([])
             ->make(true);
+    }
+
+    public function urutanMenu(Request $request)
+    {
+        // dd($request->all());
+        $naik = M_Role_Menu::find($request->id);
+        $naik->urutan = $request->urutan_up;
+        $naik->save();
+
+        $turun = M_Role_Menu::find($request->id_down);
+        $turun->urutan = $request->urutan_down;
+        $turun->save();
+
+        return response()->json(['message' => 'Menu Berhasil Diperbarui', 'success' => true]);
     }
 
     public function hapus_menu(Request $request)
@@ -392,7 +406,7 @@ class AppController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request->all());
+        // dd($request->all());
     }
 
     /**

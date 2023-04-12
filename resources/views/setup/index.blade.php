@@ -669,15 +669,15 @@
             })
         }
 
-        $('.form-control').keypress(function(event) {
-            var keyCode = event.which;
-            if (!((keyCode >= 48 && keyCode <= 57) ||
-                    (keyCode >= 65 && keyCode <= 90) ||
-                    (keyCode >= 97 && keyCode <= 122)) &&
-                keyCode != 8 && keyCode != 32) {
-                event.preventDefault();
-            }
-        });
+        // $('.form-control').keypress(function(event) {
+        //     var keyCode = event.which;
+        //     if (!((keyCode >= 48 && keyCode <= 57) ||
+        //             (keyCode >= 65 && keyCode <= 90) ||
+        //             (keyCode >= 97 && keyCode <= 122)) &&
+        //         keyCode != 8 && keyCode != 32) {
+        //         event.preventDefault();
+        //     }
+        // });
 
         $('#table-subMenu').on('change', 'input[type="checkbox"]', function(e) {
             var id = $(this).data('id');
@@ -748,6 +748,102 @@
                 });
             }
         })
+
+        $('#table-menu').on('click', 'button[id="atas"]', function(e) {
+            var id = $(this).data('id');
+            var urutan = $(this).data('urutan');
+            var jumlah = $(this).data('jumlah');
+
+            if (urutan === 1) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Data sudah di urutan pertama.',
+                    showConfirmButton: false,
+                    timer: 1000
+                })
+                return;
+            } else {
+                // untuk id yang di naikan
+                var urutan_up = urutan - 1;
+                // untuk id yang di turunkan
+                if (id === 1) {
+                    var id_down = id + 1;
+                } else {
+                    var id_down = id - 1;
+                }
+                var urutan_down = urutan;
+
+                $.ajax({
+                    url: "{{ route('setup.urutanMenu') }}",
+                    method: 'POST',
+                    data: {
+                        // data yang ingin dikirim ke server
+                        id: id,
+                        urutan_up: urutan_up,
+                        id_down: id_down,
+                        urutan_down: urutan_down,
+                        _token: $('[name=csrf-token]').attr('content'),
+                    },
+                    success: function(response) {
+                        showAlert(response.message, 'success');
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        gagal();
+                    }
+                });
+            }
+        })
+
+        $('#table-menu').on('click', 'button[id="bawah"]', function(e) {
+            var id = $(this).data('id');
+            var urutan = $(this).data('urutan');
+            var jumlah = $(this).data('jumlah');
+
+            if (urutan === jumlah) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Data sudah di urutan terakhir.',
+                    showConfirmButton: false,
+                    timer: 1000
+                })
+                return;
+            } else {
+                // untuk id yang di naikan
+                var urutan_up = urutan + 1;
+                // untuk id yang di turunkan
+                var id_down = id + 1;
+                var urutan_down = urutan;
+
+                $.ajax({
+                    url: "{{ route('setup.urutanMenu') }}",
+                    method: 'POST',
+                    data: {
+                        // data yang ingin dikirim ke server
+                        id: id,
+                        urutan_up: urutan_up,
+                        id_down: id_down,
+                        urutan_down: urutan_down,
+                        _token: $('[name=csrf-token]').attr('content'),
+                    },
+                    success: function(response) {
+                        showAlert(response.message, 'success');
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        gagal();
+                    }
+                });
+            }
+
+            console.log(id, urutan, id_up, urutan_up, jumlah);
+        })
+
+        // $('#table-menu').on('keyup', 'input[id="urutan"]', function(e) {
+        //     var id = $(this).data('id');
+
+        //     console.log(id);
+        // })
 
         $('.close').on('click', function(e) {
             location.reload();

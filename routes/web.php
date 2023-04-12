@@ -57,6 +57,7 @@ Route::group([
         Route::post('/setup/menu', [AppController::class, 'menu'])->name('setup.menu');
         Route::post('/setup/subMenu', [AppController::class, 'subMenu'])->name('setup.subMenu');
         Route::post('/setup/configMenu', [AppController::class, 'configMenu'])->name('setup.configMenu');
+        Route::post('/setup/urutanMenu', [AppController::class, 'urutanMenu'])->name('setup.urutanMenu');
         Route::delete('/setup/hapus_menu', [AppController::class, 'hapus_menu'])->name('setup.hapus_menu');
         Route::post('/setup/restore_menu', [AppController::class, 'restore_menu'])->name('setup.restore_menu');
         Route::delete('/setup/hapus_subMenu/{id}', [AppController::class, 'hapus_subMenu'])->name('setup.hapus_subMenu');
