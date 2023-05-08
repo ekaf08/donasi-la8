@@ -76,8 +76,10 @@
                     <select class="form-control @error('gender') is-invalid @enderror" name="gender" id="gender"
                         value="{{ old('gender') ?? auth()->user()->gender }}">
                         <option seleceted disabled>Pilih salah satu</option>
-                        <option value="laki-laki">Laki-laki</option>
-                        <option value="perempuan">Perempuan</option>
+                        <option value="laki-laki" {{ auth()->user()->gender == 'laki-laki' ? 'selected' : '' }}>
+                            Laki-laki</option>
+                        <option value="perempuan" {{ auth()->user()->gender == 'perempuan' ? 'selected' : '' }}>
+                            Perempuan</option>
                     </select>
                     @error('gender')
                         <span class="invalid-feedback">{{ $message }}</span>
