@@ -35,7 +35,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
 
         $user->update($input);
 
-        return response()->json(['input' => $user, 'message' => 'Profil Berhasil Diperbarui', 'success' => true]);
+        return response()->json(['data' => $user, 'message' => 'Profil Berhasil Diperbarui', 'success' => true]);
     }
 
     /**

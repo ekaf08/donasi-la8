@@ -8,6 +8,7 @@ use App\Http\Controllers\{
     DonationController,
     DonaturController,
     FileUploadController,
+    SettingController,
 };
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\XSS;
@@ -45,6 +46,10 @@ Route::group([
         Route::get('/campaign/data', [CampaignController::class, 'data'])->name('campaign.data');
         Route::get('/campaign/detail/{id}', [CampaignController::class, 'detail'])->name('campaign.detail');
         Route::resource('/campaign', CampaignController::class)->except(['create', 'edit']);
+
+        // route untuk setting
+        Route::get('/setting', [SettingController::class, 'index'])->name('setting.index');
+        Route::get('/setting/{id}', [SettingController::class, 'update'])->name('setting.update');
 
         // route untuk donasi
         Route::resource('/donation', DonationController::class);
