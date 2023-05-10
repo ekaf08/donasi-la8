@@ -18,7 +18,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      */
     public function update($user, array $input)
     {
-        dd($input);
+        // dd($input);
         $validated = Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
@@ -34,6 +34,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         }
 
         $user->update($input);
+
+        return response()->json(['input' => $user, 'message' => 'Profil Berhasil Diperbarui', 'success' => true]);
     }
 
     /**

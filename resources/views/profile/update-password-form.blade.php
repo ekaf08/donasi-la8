@@ -4,8 +4,8 @@
 
     <x-card>
 
-        <div class="row ">
-            <div class="col-lg-3">
+        <div class="row">
+            <div class="col-lg-6">
                 <div class="">
                     {{-- <img src="{{  asset('storage' .auth()->user()->path_image ?? '../img/user2.png') }}" alt="" class="img-thumbnail preview-path_image" width="200" height="200"> --}}
                     {{-- <img src="{{ url('storage/'.auth()->user()->path_image ?? 'storage/user/user2.png') }}" alt="" class="img-thumbnail preview-path_image" width="200" height="200"> --}}
@@ -19,7 +19,7 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-6">
                 <div class="form-group">
                     <label for="current_password">Password Aktif</label>
                     <input type="password" class="form-control @error('current_password') is-invalid @enderror"
@@ -32,7 +32,7 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-6">
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" class="form-control @error('password') is-invalid @enderror" name="password"
@@ -45,7 +45,7 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-6">
                 <div class="form-group">
                     <label for="password_confirmation">Konfirmasi Password</label>
                     <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror"
