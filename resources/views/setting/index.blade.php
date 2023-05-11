@@ -31,15 +31,25 @@
     <div class="row">
         <div class="col-lg-12">
             <ul class="nav nav-pills mb-3 tombol-nav" id="pills-tab" role="tablist">
-                {{-- general --}}
+                {{-- Identitas --}}
                 <li class="nav-item" role="presentation">
                     <a class="nav-link @if (request('pills') == '') active @endif"
-                        href="{{ route('setting.index') }}">General</a>
+                        href="{{ route('setting.index') }}">Identitas</a>
                 </li>
                 {{-- logo --}}
                 <li class="nav-item" role="presentation">
                     <a class="nav-link @if (request('pills') == 'logo') active @endif"
                         href="{{ route('setting.index') }}?pills=logo">logo</a>
+                </li>
+                {{-- Sosial Media --}}
+                <li class="nav-item">
+                    <a href="{{ route('setting.index') }}?pills=sosial-media"
+                        class="nav-link @if (request('pills') == 'sosial-media') active @endif">Sosial Media</a>
+                </li>
+                {{-- Bank --}}
+                <li class="nav-item">
+                    <a class="nav-link @if (request('pills') == 'bank') active @endif"
+                        href="{{ route('setting.index') }}?pills=bank">Bank</a>
                 </li>
             </ul>
             <div class="tab-content" id="pills-tabContent">
@@ -52,6 +62,16 @@
                 <div class="tab-pane fade @if (request('pills') == 'logo') show active @endif" id="pills-logo"
                     role="tabpanel" aria-labelledby="pills-logo-tab">
                     @includeIf('setting.logo')
+                </div>
+                {{-- sosial media --}}
+                <div class="tab-pane fade @if (request('pills') == 'sosial-media') show active @endif" id="pills-sosial-media"
+                    role="tabpanel" aria-labelledby="pills-sosial-media-tab">
+                    @includeIf('setting.sosial_media')
+                </div>
+                {{-- BANK --}}
+                <div class="tab-pane fade @if (request('pills') == 'bank') show active @endif" id="pills-bank"
+                    role="tabpanel" aria-labelledby="pills-bank-tab">
+                    @includeIf('setting.bank')
                 </div>
             </div>
         </div>
