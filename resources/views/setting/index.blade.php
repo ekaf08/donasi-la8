@@ -77,3 +77,5 @@
         </div>
     </div>
 @endsection
+
+@includeIf('indcludes.summernote')
