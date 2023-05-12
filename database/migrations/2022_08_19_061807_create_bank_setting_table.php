@@ -19,7 +19,6 @@ class CreateBankSettingTable extends Migration
             $table->unsignedBigInteger('setting_id');
             $table->string('account');
             $table->string('name');
-            $table->boolean('f_status');
             $table->timestamps();
             $table->softDeletes();
         });

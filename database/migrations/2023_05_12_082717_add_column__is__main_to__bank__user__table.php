@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBankTable extends Migration
+class AddColumnIsMainToBankUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CreateBankTable extends Migration
      */
     public function up()
     {
-        Schema::create('bank', function (Blueprint $table) {
-            $table->id();
-            $table->string('code')->unique();
-            $table->string('name');
-            $table->string('path_image');
-            $table->timestamps();
-            $table->softDeletes();
+        Schema::table('bank_user', function (Blueprint $table) {
+            $table->boolean('is_main')->default(0);
         });
     }
 
@@ -30,6 +25,8 @@ class CreateBankTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bank');
+        Schema::table('bank_user', function (Blueprint $table) {
+            $table->dropColumn('is_main');
+        });
     }
 }

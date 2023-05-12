@@ -22,7 +22,6 @@ class CreateDonationsTable extends Migration
             $table->integer('nominal');
             $table->text('support')->nullable();
             $table->enum('status', ['confirmed', 'not confirmed']);
-            $table->boolean('f_status');
             $table->timestamps();
             $table->softDeletes();
         });

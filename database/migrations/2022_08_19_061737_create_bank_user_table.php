@@ -19,7 +19,6 @@ class CreateBankUserTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('account');
             $table->string('name');
-            $table->boolean('f_status');
             $table->timestamps();
             $table->softDeletes();
         });
