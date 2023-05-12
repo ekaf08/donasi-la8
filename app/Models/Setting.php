@@ -13,4 +13,9 @@ class Setting extends Model
 
     protected $table = 'settings';
     protected $guarded = [];
+
+    public function bank_setting()
+    {
+        return $this->belongsToMany(Bank::class, 'bank_setting', 'setting_id')->withPivot('account', 'name', 'is_main')->withTimestamps();
+    }
 }

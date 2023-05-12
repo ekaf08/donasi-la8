@@ -22,58 +22,10 @@ class SettingController extends Controller
         return view('setting.index', compact('setting', 'bank'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function update(Request $request)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Setting  $setting
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Setting $setting)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Setting  $setting
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Setting $setting)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Setting  $setting
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Setting $setting)
-    {
+        $setting = Setting::where('id', $request->id)->first();
+        // dd($setting);
         $rules = [
             'owner_name'    => 'requiered',
             'email'         => 'required|email',
@@ -150,6 +102,8 @@ class SettingController extends Controller
             $data['path_image_footer'] = upload('setting', $request->file('path_image_footer'), 'setting');
         }
 
+        $data = $request->except(['pills']);
+        // dd($setting, $data);
         $setting->update($data);
 
         if ($request->has('pills') && $request->pills == 'bank') {
@@ -162,12 +116,6 @@ class SettingController extends Controller
         ]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Setting  $setting
-     * @return \Illuminate\Http\Response
-     */
     public function bankDestroy(Setting $setting, $id)
     {
         $setting->bank_setting()->detach($id);
@@ -177,4 +125,63 @@ class SettingController extends Controller
             'success' => true
         ]);
     }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Setting  $setting
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Setting $setting)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Setting  $setting
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Setting $setting)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Setting  $setting
+     * @return \Illuminate\Http\Response
+     */
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Setting  $setting
+     * @return \Illuminate\Http\Response
+     */
 }

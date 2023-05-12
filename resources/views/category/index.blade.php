@@ -26,10 +26,10 @@
                             </form>
                             <x-table>
                                 <x-slot name="thead" class="bg-gradient-indigo text-center">
-                                    <th width="5%">No</th>
-                                    <th>Nama</th>
+                                    <th class="text-left" width="5%">No</th>
+                                    <th class="text-left">Nama Kategori</th>
                                     <th width="12%">Jumlah Projek</th>
-                                    <th width="10%">Flag</th>
+                                    {{-- <th width="10%">Flag</th> --}}
                                     <th width="10%"><i class="fas fa-cog"></i></th>
                                 </x-slot>
                                 @foreach ($category as $key => $item)
@@ -39,13 +39,13 @@
                                         </td>
                                         <td>{{ strip_tags($item->name) }}</td>
                                         <td class="text-center">0</td>
-                                        <td class="text-center">
+                                        {{-- <td class="text-center">
                                             @if ($item->f_status == 't')
                                                 <span class="badge text-link text-success text-bold">Aktif</span>
                                             @else
                                                 <span class="badge text-link text-danger text-bold">Non Aktif</span>
                                             @endif
-                                        </td>
+                                        </td> --}}
                                         <td class="text-center">
                                             @if ($sub_menu->id_sub_menu == 1 && $sub_menu->c_update == 't')
                                                 <a href="{{ route('category.edit', Crypt::encryptString($item->id)) }}"

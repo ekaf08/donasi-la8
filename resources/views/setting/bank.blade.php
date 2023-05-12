@@ -89,7 +89,7 @@
             <th width="15%"><i class="fas fa-cog"></i></th>
         </x-slot>
 
-        {{-- @foreach ($setting->bank_setting as $key => $item)
+        @foreach ($setting->bank_setting as $key => $item)
             <tr>
                 <td>{{ $key + 1 }}</td>
                 <td>{{ $key->pivot->name }}</td>
@@ -107,7 +107,7 @@
                     </form>
                 </td>
             </tr>
-        @endforeach --}}
+        @endforeach
     </x-table>
 </x-card>
 @includeIf('includes.datepicker')
