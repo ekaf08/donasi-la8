@@ -27,7 +27,7 @@ class SettingController extends Controller
         $setting = Setting::where('id', $request->id)->first();
         // dd($setting);
         $rules = [
-            'owner_name'    => 'requiered',
+            'owner_name'    => 'required',
             'email'         => 'required|email',
             'phone'         => 'required|string|min:8|max:13',
             'phone_hours'   => 'required',
