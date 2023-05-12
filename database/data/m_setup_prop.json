@@ -1,0 +1,242 @@
+{
+  "RECORDS": [
+    {
+      "id_m_setup_prop": 76.0,
+      "nm_prop": "SULAWESI BARAT",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 33.0,
+      "nm_prop": "JAWA TENGAH",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 36.0,
+      "nm_prop": "BANTEN",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 31.0,
+      "nm_prop": "DKI JAKARTA",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 19.0,
+      "nm_prop": "KEPULAUAN BANGKA BELITUNG",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 34.0,
+      "nm_prop": "DAERAH ISTIMEWA YOGYAKARTA",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 71.0,
+      "nm_prop": "SULAWESI UTARA",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 16.0,
+      "nm_prop": "SUMATERA SELATAN",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 14.0,
+      "nm_prop": "RIAU",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 64.0,
+      "nm_prop": "KALIMANTAN TIMUR",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 32.0,
+      "nm_prop": "JAWA BARAT",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 13.0,
+      "nm_prop": "SUMATERA BARAT",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 17.0,
+      "nm_prop": "BENGKULU",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 52.0,
+      "nm_prop": "NUSA TENGGARA BARAT",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 82.0,
+      "nm_prop": "MALUKU UTARA",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 62.0,
+      "nm_prop": "KALIMANTAN TENGAH",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 75.0,
+      "nm_prop": "GORONTALO",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 15.0,
+      "nm_prop": "JAMBI",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 74.0,
+      "nm_prop": "SULAWESI TENGGARA",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 11.0,
+      "nm_prop": "NANGGROE ACEH DARUSSALAM",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 61.0,
+      "nm_prop": "KALIMANTAN BARAT",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 73.0,
+      "nm_prop": "SULAWESI SELATAN",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 91.0,
+      "nm_prop": "PAPUA",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 53.0,
+      "nm_prop": "NUSA TENGGARA TIMUR",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 18.0,
+      "nm_prop": "LAMPUNG",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 63.0,
+      "nm_prop": "KALIMANTAN SELATAN",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 81.0,
+      "nm_prop": "MALUKU",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 12.0,
+      "nm_prop": "SUMATERA UTARA",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 51.0,
+      "nm_prop": "BALI",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 35.0,
+      "nm_prop": "JAWA TIMUR",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 21.0,
+      "nm_prop": "KEPULAUAN RIAU",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 72.0,
+      "nm_prop": "SULAWESI TENGAH",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 92.0,
+      "nm_prop": "PAPUA BARAT",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_prop": 65.0,
+      "nm_prop": "KALIMANTAN UTARA",
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    }
+  ]
+}

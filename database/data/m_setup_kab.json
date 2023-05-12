@@ -1,0 +1,3980 @@
+{
+  "RECORDS": [
+    {
+      "id_m_setup_kab": 13.0,
+      "nm_kab": "BARITO TIMUR",
+      "id_m_setup_prop": 62.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA PALANGKARAYA",
+      "id_m_setup_prop": 62.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 10.0,
+      "nm_kab": "BOLAANG MONGONDOW TIMUR",
+      "id_m_setup_prop": 71.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 11.0,
+      "nm_kab": "BOLAANG MONGONDOW SELATAN",
+      "id_m_setup_prop": 71.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 10.0,
+      "nm_kab": "SIGI",
+      "id_m_setup_prop": 72.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 26.0,
+      "nm_kab": "TORAJA UTARA",
+      "id_m_setup_prop": 73.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "MALUKU TENGAH",
+      "id_m_setup_prop": 81.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "MALUKU TENGGARA",
+      "id_m_setup_prop": 81.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "KAB MALUKU TENGGARA BARAT",
+      "id_m_setup_prop": 81.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "BURU",
+      "id_m_setup_prop": 81.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "SERAM BAGIAN TIMUR",
+      "id_m_setup_prop": 81.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 6.0,
+      "nm_kab": "SERAM BAGIAN BARAT",
+      "id_m_setup_prop": 81.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 7.0,
+      "nm_kab": "KEPULAUAN ARU",
+      "id_m_setup_prop": 81.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 8.0,
+      "nm_kab": "MALUKU BARAT DAYA",
+      "id_m_setup_prop": 81.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 9.0,
+      "nm_kab": "BURU SELATAN",
+      "id_m_setup_prop": 81.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA AMBON",
+      "id_m_setup_prop": 81.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 72.0,
+      "nm_kab": "KOTA TUAL",
+      "id_m_setup_prop": 81.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 7.0,
+      "nm_kab": "PULAU MOROTAI",
+      "id_m_setup_prop": 82.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "MERAUKE",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "JAYAWIJAYA",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "JAYAPURA",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "NABIRE",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "KEPULAUAN YAPEN",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 6.0,
+      "nm_kab": "BIAK NUMFOR",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 7.0,
+      "nm_kab": "PUNCAK JAYA",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 8.0,
+      "nm_kab": "PANIAI",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 9.0,
+      "nm_kab": "MIMIKA",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 10.0,
+      "nm_kab": "SARMI",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 11.0,
+      "nm_kab": "KEEROM",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 12.0,
+      "nm_kab": "KAB PEGUNUNGAN BINTANG",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 13.0,
+      "nm_kab": "YAHUKIMO",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 14.0,
+      "nm_kab": "TOLIKARA",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 15.0,
+      "nm_kab": "WAROPEN",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 16.0,
+      "nm_kab": "BOVEN DIGOEL",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 17.0,
+      "nm_kab": "MAPPI",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 18.0,
+      "nm_kab": "ASMAT",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 19.0,
+      "nm_kab": "SUPIORI",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 20.0,
+      "nm_kab": "MAMBERAMO RAYA",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 21.0,
+      "nm_kab": "MAMBERAMO TENGAH",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 22.0,
+      "nm_kab": "YALIMO",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 23.0,
+      "nm_kab": "LANNY JAYA",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 24.0,
+      "nm_kab": "NDUGA",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 25.0,
+      "nm_kab": "PUNCAK",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 26.0,
+      "nm_kab": "DOGIYAI",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 27.0,
+      "nm_kab": "INTAN JAYA",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 28.0,
+      "nm_kab": "DEIYAI",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA JAYAPURA",
+      "id_m_setup_prop": 91.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 9.0,
+      "nm_kab": "TAMBRAUW",
+      "id_m_setup_prop": 92.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 10.0,
+      "nm_kab": "MAYBRAT",
+      "id_m_setup_prop": 92.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "SOLOK",
+      "id_m_setup_prop": 13.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "TANA TIDUNG",
+      "id_m_setup_prop": 65.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "MALINAU",
+      "id_m_setup_prop": 65.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "BULUNGAN",
+      "id_m_setup_prop": 65.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "NUNUKAN",
+      "id_m_setup_prop": 65.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA TARAKAN",
+      "id_m_setup_prop": 65.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "KEPULAUAN SANGIHE",
+      "id_m_setup_prop": 71.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "MINAHASA SELATAN",
+      "id_m_setup_prop": 71.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 72.0,
+      "nm_kab": "KOTA BITUNG",
+      "id_m_setup_prop": 71.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "BANGGAI",
+      "id_m_setup_prop": 72.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "DONGGALA",
+      "id_m_setup_prop": 72.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "BUOL",
+      "id_m_setup_prop": 72.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 7.0,
+      "nm_kab": "BANGGAI KEPULAUAN",
+      "id_m_setup_prop": 72.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA PALU",
+      "id_m_setup_prop": 72.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 72.0,
+      "nm_kab": "KOTA SUKABUMI",
+      "id_m_setup_prop": 32.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 10.0,
+      "nm_kab": "MAJALENGKA",
+      "id_m_setup_prop": 32.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 16.0,
+      "nm_kab": "BEKASI",
+      "id_m_setup_prop": 32.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "BOGOR",
+      "id_m_setup_prop": 32.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "GARUT",
+      "id_m_setup_prop": 32.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 7.0,
+      "nm_kab": "CIAMIS",
+      "id_m_setup_prop": 32.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 8.0,
+      "nm_kab": "KUNINGAN",
+      "id_m_setup_prop": 32.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 11.0,
+      "nm_kab": "SUMEDANG",
+      "id_m_setup_prop": 32.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 13.0,
+      "nm_kab": "SUBANG",
+      "id_m_setup_prop": 32.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 14.0,
+      "nm_kab": "PURWAKARTA",
+      "id_m_setup_prop": 32.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA BOGOR",
+      "id_m_setup_prop": 32.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 74.0,
+      "nm_kab": "KOTA CIREBON",
+      "id_m_setup_prop": 32.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 78.0,
+      "nm_kab": "KOTA TASIKMALAYA",
+      "id_m_setup_prop": 32.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 79.0,
+      "nm_kab": "KOTA BANJAR",
+      "id_m_setup_prop": 32.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 26.0,
+      "nm_kab": "PEKALONGAN",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 72.0,
+      "nm_kab": "KOTA SURAKARTA",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 14.0,
+      "nm_kab": "SRAGEN",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 18.0,
+      "nm_kab": "PATI",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KODYA JAKARTA PUSAT",
+      "id_m_setup_prop": 31.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 72.0,
+      "nm_kab": "KODYA JAKARTA UTARA",
+      "id_m_setup_prop": 31.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 73.0,
+      "nm_kab": "KODYA JAKARTA BARAT",
+      "id_m_setup_prop": 31.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 74.0,
+      "nm_kab": "KODYA JAKARTA SELATAN",
+      "id_m_setup_prop": 31.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 75.0,
+      "nm_kab": "KODYA JAKARTA TIMUR",
+      "id_m_setup_prop": 31.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "BLITAR",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 6.0,
+      "nm_kab": "KEDIRI",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 8.0,
+      "nm_kab": "LUMAJANG",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 10.0,
+      "nm_kab": "BANYUWANGI",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 12.0,
+      "nm_kab": "SITUBONDO",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 14.0,
+      "nm_kab": "PASURUAN",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 16.0,
+      "nm_kab": "MOJOKERTO",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 19.0,
+      "nm_kab": "MADIUN",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 20.0,
+      "nm_kab": "MAGETAN",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 22.0,
+      "nm_kab": "BOJONEGORO",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 24.0,
+      "nm_kab": "LAMONGAN",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 26.0,
+      "nm_kab": "BANGKALAN",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "PONOROGO",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 29.0,
+      "nm_kab": "SUMENEP",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA KEDIRI",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 74.0,
+      "nm_kab": "KOTA PROBOLINGGO",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 77.0,
+      "nm_kab": "KOTA MADIUN",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 79.0,
+      "nm_kab": "KOTA BATU",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "KARIMUN",
+      "id_m_setup_prop": 21.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 72.0,
+      "nm_kab": "KOTA TANJUNG PINANG",
+      "id_m_setup_prop": 21.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "BERAU",
+      "id_m_setup_prop": 64.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 8.0,
+      "nm_kab": "KUTAI TIMUR",
+      "id_m_setup_prop": 64.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "BOLAANG MONGONDO",
+      "id_m_setup_prop": 71.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "KEPULAUAN TALAUD",
+      "id_m_setup_prop": 71.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 73.0,
+      "nm_kab": "KOTA TOMOHON",
+      "id_m_setup_prop": 71.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "POSO",
+      "id_m_setup_prop": 72.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 6.0,
+      "nm_kab": "MOROWALI",
+      "id_m_setup_prop": 72.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 8.0,
+      "nm_kab": "PARIGI MOUTONG",
+      "id_m_setup_prop": 72.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 73.0,
+      "nm_kab": "KOTA BANDUNG",
+      "id_m_setup_prop": 32.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "CIANJUR",
+      "id_m_setup_prop": 32.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 6.0,
+      "nm_kab": "TASIKMALAYA",
+      "id_m_setup_prop": 32.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 15.0,
+      "nm_kab": "GROBOGAN",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 6.0,
+      "nm_kab": "KAPUAS HULU",
+      "id_m_setup_prop": 61.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 9.0,
+      "nm_kab": "SEKADAU",
+      "id_m_setup_prop": 61.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 10.0,
+      "nm_kab": "MELAWI",
+      "id_m_setup_prop": 61.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA PONTIANAK",
+      "id_m_setup_prop": 61.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 72.0,
+      "nm_kab": "KOTA SINGKAWANG",
+      "id_m_setup_prop": 61.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "BULUKUMBA",
+      "id_m_setup_prop": 73.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 7.0,
+      "nm_kab": "BENGKAYANG",
+      "id_m_setup_prop": 61.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "JENEPONTO",
+      "id_m_setup_prop": 73.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "TAKALAR",
+      "id_m_setup_prop": 73.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 7.0,
+      "nm_kab": "SINJAI",
+      "id_m_setup_prop": 73.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 9.0,
+      "nm_kab": "MAROS",
+      "id_m_setup_prop": 73.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 11.0,
+      "nm_kab": "BARRU",
+      "id_m_setup_prop": 73.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 12.0,
+      "nm_kab": "SOPPENG",
+      "id_m_setup_prop": 73.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 14.0,
+      "nm_kab": "SIDENRENG RAPPANG",
+      "id_m_setup_prop": 73.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 16.0,
+      "nm_kab": "ENREKANG",
+      "id_m_setup_prop": 73.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 18.0,
+      "nm_kab": "TANA TORAJA",
+      "id_m_setup_prop": 73.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 24.0,
+      "nm_kab": "LUWU TIMUR",
+      "id_m_setup_prop": 73.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA MAKASSAR",
+      "id_m_setup_prop": 73.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 73.0,
+      "nm_kab": "KOTA PALOPO",
+      "id_m_setup_prop": 73.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "BANGKA BARAT",
+      "id_m_setup_prop": 19.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "BANGKA TENGAH",
+      "id_m_setup_prop": 19.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 6.0,
+      "nm_kab": "BELITUNG TIMUR",
+      "id_m_setup_prop": 19.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA PANGKAL PINANG",
+      "id_m_setup_prop": 19.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "BELITUNG",
+      "id_m_setup_prop": 19.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "BELU",
+      "id_m_setup_prop": 53.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 6.0,
+      "nm_kab": "FLORES TIMUR",
+      "id_m_setup_prop": 53.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 8.0,
+      "nm_kab": "ENDE",
+      "id_m_setup_prop": 53.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 10.0,
+      "nm_kab": "MANGGARAI",
+      "id_m_setup_prop": 53.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 12.0,
+      "nm_kab": "SUMBA BARAT",
+      "id_m_setup_prop": 53.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 14.0,
+      "nm_kab": "ROTE NDAO",
+      "id_m_setup_prop": 53.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 15.0,
+      "nm_kab": "MANGGARAI BARAT",
+      "id_m_setup_prop": 53.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "FAKFAK",
+      "id_m_setup_prop": 92.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "KUPANG",
+      "id_m_setup_prop": 53.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "TIMOR TENGAH SELATAN",
+      "id_m_setup_prop": 53.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 6.0,
+      "nm_kab": "TELUK BINTUNI",
+      "id_m_setup_prop": 92.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 8.0,
+      "nm_kab": "KAIMANA",
+      "id_m_setup_prop": 92.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA SORONG",
+      "id_m_setup_prop": 92.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "MANOKWARI",
+      "id_m_setup_prop": 92.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "BARITO KUALA",
+      "id_m_setup_prop": 63.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 6.0,
+      "nm_kab": "HULU SUNGAI SELATAN",
+      "id_m_setup_prop": 63.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 9.0,
+      "nm_kab": "TABALONG",
+      "id_m_setup_prop": 63.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 11.0,
+      "nm_kab": "BALANGAN",
+      "id_m_setup_prop": 63.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "MAMUJU",
+      "id_m_setup_prop": 76.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "MAJENE",
+      "id_m_setup_prop": 76.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "BANDUNG",
+      "id_m_setup_prop": 32.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "OGAN KOMERING ULU",
+      "id_m_setup_prop": 16.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "MUARA ENIM",
+      "id_m_setup_prop": 16.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 7.0,
+      "nm_kab": "BANYUASIN",
+      "id_m_setup_prop": 16.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 10.0,
+      "nm_kab": "OGAN ILIR",
+      "id_m_setup_prop": 16.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA PALEMBANG",
+      "id_m_setup_prop": 16.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 78.0,
+      "nm_kab": "KOTA SURABAYA",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "JEMBRANA",
+      "id_m_setup_prop": 51.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "TABANAN",
+      "id_m_setup_prop": 51.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "BADUNG",
+      "id_m_setup_prop": 51.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "GIANYAR",
+      "id_m_setup_prop": 51.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "KLUNGKUNG",
+      "id_m_setup_prop": 51.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 6.0,
+      "nm_kab": "BANGLI",
+      "id_m_setup_prop": 51.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 7.0,
+      "nm_kab": "KARANGASEM",
+      "id_m_setup_prop": 51.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 8.0,
+      "nm_kab": "BULELENG",
+      "id_m_setup_prop": 51.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA DENPASAR",
+      "id_m_setup_prop": 51.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "TRENGGALEK",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "TULUNGAGUNG",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 7.0,
+      "nm_kab": "MALANG",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 9.0,
+      "nm_kab": "JEMBER",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 11.0,
+      "nm_kab": "BONDOWOSO",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 13.0,
+      "nm_kab": "PROBOLINGGO",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 15.0,
+      "nm_kab": "SIDOARJO",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 17.0,
+      "nm_kab": "JOMBANG",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 18.0,
+      "nm_kab": "NGANJUK",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 21.0,
+      "nm_kab": "NGAWI",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 23.0,
+      "nm_kab": "TUBAN",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 25.0,
+      "nm_kab": "GRESIK",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 27.0,
+      "nm_kab": "SAMPANG",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "PACITAN",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 28.0,
+      "nm_kab": "PAMEKASAN",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 72.0,
+      "nm_kab": "KOTA BLITAR",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 73.0,
+      "nm_kab": "KOTA MALANG",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 75.0,
+      "nm_kab": "KOTA PASURUAN",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 76.0,
+      "nm_kab": "KOTA MOJOKERTO",
+      "id_m_setup_prop": 35.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "NATUNA",
+      "id_m_setup_prop": 21.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "BINTAN",
+      "id_m_setup_prop": 21.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA BATAM",
+      "id_m_setup_prop": 21.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "PASIR",
+      "id_m_setup_prop": 64.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "KUTAI KERTANEGARA",
+      "id_m_setup_prop": 64.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 7.0,
+      "nm_kab": "KUTAI BARAT",
+      "id_m_setup_prop": 64.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 9.0,
+      "nm_kab": "PENAJAM PASER UTARA",
+      "id_m_setup_prop": 64.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 72.0,
+      "nm_kab": "KOTA SAMARINDA",
+      "id_m_setup_prop": 64.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 74.0,
+      "nm_kab": "KOTA BONTANG",
+      "id_m_setup_prop": 64.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "MINAHASA",
+      "id_m_setup_prop": 71.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "BANGKA",
+      "id_m_setup_prop": 19.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "KULON PROGO",
+      "id_m_setup_prop": 34.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA MANADO",
+      "id_m_setup_prop": 71.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 27.0,
+      "nm_kab": "PEMALANG",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "MUSI RAWAS",
+      "id_m_setup_prop": 16.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 73.0,
+      "nm_kab": "KOTA LUBUK LINGGAU",
+      "id_m_setup_prop": 16.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA BALIKPAPAN",
+      "id_m_setup_prop": 64.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 76.0,
+      "nm_kab": "KOTA DEPOK",
+      "id_m_setup_prop": 32.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "PESISIR SELATAN",
+      "id_m_setup_prop": 13.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 12.0,
+      "nm_kab": "KUBU RAYA",
+      "id_m_setup_prop": 61.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "SAWAHLUNTO/SIJUNJUNG",
+      "id_m_setup_prop": 13.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "PADANG PARIAMAN",
+      "id_m_setup_prop": 13.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 7.0,
+      "nm_kab": "LIMA PULUH KOTO",
+      "id_m_setup_prop": 13.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 8.0,
+      "nm_kab": "PASAMAN",
+      "id_m_setup_prop": 13.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 10.0,
+      "nm_kab": "DHARMASRAYA",
+      "id_m_setup_prop": 13.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 11.0,
+      "nm_kab": "SOLOK SELATAN",
+      "id_m_setup_prop": 13.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA PADANG",
+      "id_m_setup_prop": 13.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 72.0,
+      "nm_kab": "KOTA SOLOK",
+      "id_m_setup_prop": 13.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 74.0,
+      "nm_kab": "KOTA PADANG PANJANG",
+      "id_m_setup_prop": 13.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 75.0,
+      "nm_kab": "KOTA BUKITTINGGI",
+      "id_m_setup_prop": 13.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 77.0,
+      "nm_kab": "KOTA PARIAMAN",
+      "id_m_setup_prop": 13.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "ACEH TENGGARA",
+      "id_m_setup_prop": 11.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "ACEH TIMUR",
+      "id_m_setup_prop": 11.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "ACEH BARAT",
+      "id_m_setup_prop": 11.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 7.0,
+      "nm_kab": "PIDIE",
+      "id_m_setup_prop": 11.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 8.0,
+      "nm_kab": "ACEH UTARA",
+      "id_m_setup_prop": 11.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 10.0,
+      "nm_kab": "ACEH SINGKIL",
+      "id_m_setup_prop": 11.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 12.0,
+      "nm_kab": "ACEH BARAT DAYA",
+      "id_m_setup_prop": 11.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 14.0,
+      "nm_kab": "ACEH JAYA",
+      "id_m_setup_prop": 11.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 15.0,
+      "nm_kab": "NAGAN RAYA",
+      "id_m_setup_prop": 11.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 17.0,
+      "nm_kab": "BENER MERAH",
+      "id_m_setup_prop": 11.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 72.0,
+      "nm_kab": "KOTA SABANG",
+      "id_m_setup_prop": 11.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 73.0,
+      "nm_kab": "KOTA LHOKSEUMAWE",
+      "id_m_setup_prop": 11.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "BUTON",
+      "id_m_setup_prop": 74.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "MUNA",
+      "id_m_setup_prop": 74.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "KOLAKA",
+      "id_m_setup_prop": 74.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "HALMAHERA BARAT",
+      "id_m_setup_prop": 82.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "HALMAHERA TENGAH",
+      "id_m_setup_prop": 82.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "HALMAHERA SELATAN",
+      "id_m_setup_prop": 82.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 6.0,
+      "nm_kab": "HALMAHERA TIMUR",
+      "id_m_setup_prop": 82.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA TERNATE",
+      "id_m_setup_prop": 82.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "BOALEMO",
+      "id_m_setup_prop": 75.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "BONE BOLANGO",
+      "id_m_setup_prop": 75.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA GORONTALO",
+      "id_m_setup_prop": 75.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "GUNUNG KIDUL",
+      "id_m_setup_prop": 34.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA YOGYAKARTA",
+      "id_m_setup_prop": 34.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "BANYUMAS",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "BANJARNEGARA",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "KEBUMEN",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "GORONTALO UTARA",
+      "id_m_setup_prop": 75.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 10.0,
+      "nm_kab": "BUTON UTARA",
+      "id_m_setup_prop": 74.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 16.0,
+      "nm_kab": "NAGEKEO",
+      "id_m_setup_prop": 53.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 18.0,
+      "nm_kab": "SUMBA BARAT DAYA",
+      "id_m_setup_prop": 53.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 7.0,
+      "nm_kab": "MINAHASA TENGGARA",
+      "id_m_setup_prop": 71.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 8.0,
+      "nm_kab": "BOLAANG MONGONDOW UTARA",
+      "id_m_setup_prop": 71.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 74.0,
+      "nm_kab": "KOTA KOTAMOBAGU",
+      "id_m_setup_prop": 71.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 11.0,
+      "nm_kab": "KAYONG UTARA",
+      "id_m_setup_prop": 61.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 18.0,
+      "nm_kab": "PIDIE JAYA",
+      "id_m_setup_prop": 11.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "LINGGA",
+      "id_m_setup_prop": 21.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 11.0,
+      "nm_kab": "EMPAT LAWANG",
+      "id_m_setup_prop": 16.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 7.0,
+      "nm_kab": "WONOSOBO",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 9.0,
+      "nm_kab": "BOYOLALI",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 11.0,
+      "nm_kab": "SUKOHARJO",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 13.0,
+      "nm_kab": "KARANGANYAR",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 17.0,
+      "nm_kab": "REMBANG",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 20.0,
+      "nm_kab": "JEPARA",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 21.0,
+      "nm_kab": "DEMAK",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 23.0,
+      "nm_kab": "TEMANGGUNG",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 25.0,
+      "nm_kab": "BATANG",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 29.0,
+      "nm_kab": "BREBES",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 74.0,
+      "nm_kab": "KOTA SEMARANG",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 75.0,
+      "nm_kab": "KOTA PEKALONGAN",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "KERINCI",
+      "id_m_setup_prop": 15.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "SAROLANGUN",
+      "id_m_setup_prop": 15.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "MUARO JAMBI",
+      "id_m_setup_prop": 15.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 10.0,
+      "nm_kab": "PRINGSEWU",
+      "id_m_setup_prop": 18.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 11.0,
+      "nm_kab": "MESUJI",
+      "id_m_setup_prop": 18.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 12.0,
+      "nm_kab": "TULANG BAWANG BARAT",
+      "id_m_setup_prop": 18.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA BANDAR LAMPUNG",
+      "id_m_setup_prop": 18.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 72.0,
+      "nm_kab": "KOTA METRO",
+      "id_m_setup_prop": 18.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "PANDEGLANG",
+      "id_m_setup_prop": 36.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "LEBAK",
+      "id_m_setup_prop": 36.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "TANGERANG",
+      "id_m_setup_prop": 36.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "SERANG",
+      "id_m_setup_prop": 36.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA TANGERANG",
+      "id_m_setup_prop": 36.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 72.0,
+      "nm_kab": "KOTA CILEGON",
+      "id_m_setup_prop": 36.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 73.0,
+      "nm_kab": "KOTA SERANG",
+      "id_m_setup_prop": 36.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 74.0,
+      "nm_kab": "KOTA TANGERANG SELATAN",
+      "id_m_setup_prop": 36.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 8.0,
+      "nm_kab": "LOMBOK UTARA",
+      "id_m_setup_prop": 52.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 19.0,
+      "nm_kab": "MANGGARAI TIMUR",
+      "id_m_setup_prop": 53.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "TAPANULI TENGAH",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "TAPANULI UTARA",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "TAPANULI SELATAN",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "NIAS",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "LANGKAT",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 6.0,
+      "nm_kab": "KARO",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 7.0,
+      "nm_kab": "DELI SERDANG",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 8.0,
+      "nm_kab": "SIMALUNGUN",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 9.0,
+      "nm_kab": "ASAHAN",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 10.0,
+      "nm_kab": "LABUHANBATU",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 11.0,
+      "nm_kab": "DAIRI",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 12.0,
+      "nm_kab": "TOBA SAMOSIR",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 13.0,
+      "nm_kab": "MANDAILING NATAL",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 14.0,
+      "nm_kab": "NIAS SELATAN",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 15.0,
+      "nm_kab": "PAKPAK BHARAT",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 16.0,
+      "nm_kab": "HUMBANG HASUNDUTAN",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 17.0,
+      "nm_kab": "SAMOSIR",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 18.0,
+      "nm_kab": "SERDANG BEDAGAI",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 19.0,
+      "nm_kab": "BATU BARA",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 20.0,
+      "nm_kab": "PADANG LAWAS UTARA",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 21.0,
+      "nm_kab": "PADANG LAWAS",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 22.0,
+      "nm_kab": "LABUHANBATU SELATAN",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 23.0,
+      "nm_kab": "LABUHANBATU UTARA",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 24.0,
+      "nm_kab": "NIAS UTARA",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 25.0,
+      "nm_kab": "NIAS BARAT",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA MEDAN",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 72.0,
+      "nm_kab": "KOTA PEMATANG SIANTAR",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 73.0,
+      "nm_kab": "KOTA SIBOLGA",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 74.0,
+      "nm_kab": "KOTA TANJUNG BALAI",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 75.0,
+      "nm_kab": "KOTA BINJAI",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 76.0,
+      "nm_kab": "KOTA TEBING TINGGI",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 77.0,
+      "nm_kab": "KOTA PADANGSIDIMPUAN",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 78.0,
+      "nm_kab": "KOTA GUNUNGSITOLI",
+      "id_m_setup_prop": 12.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 72.0,
+      "nm_kab": "KOTA SUNGAI PENUH",
+      "id_m_setup_prop": 15.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "BENGKULU SELATAN",
+      "id_m_setup_prop": 17.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "KOTAWARINGIN BARAT",
+      "id_m_setup_prop": 62.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "KOTAWARINGIN TIMUR",
+      "id_m_setup_prop": 62.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "KAPUAS",
+      "id_m_setup_prop": 62.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "BARITO SELATAN",
+      "id_m_setup_prop": 62.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "BARITO UTARA",
+      "id_m_setup_prop": 62.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 6.0,
+      "nm_kab": "KATINGAN",
+      "id_m_setup_prop": 62.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 7.0,
+      "nm_kab": "SERUYAN",
+      "id_m_setup_prop": 62.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 8.0,
+      "nm_kab": "SUKAMARA",
+      "id_m_setup_prop": 62.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 9.0,
+      "nm_kab": "LAMANDAU",
+      "id_m_setup_prop": 62.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 10.0,
+      "nm_kab": "GUNUNG MAS",
+      "id_m_setup_prop": 62.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 11.0,
+      "nm_kab": "PULANG PISAU",
+      "id_m_setup_prop": 62.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 12.0,
+      "nm_kab": "MURUNG RAYA",
+      "id_m_setup_prop": 62.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 6.0,
+      "nm_kab": "TANJUNG JABUNG BARAT",
+      "id_m_setup_prop": 15.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 8.0,
+      "nm_kab": "BUNGO",
+      "id_m_setup_prop": 15.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 9.0,
+      "nm_kab": "TEBO",
+      "id_m_setup_prop": 15.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 6.0,
+      "nm_kab": "BOMBANA",
+      "id_m_setup_prop": 74.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 7.0,
+      "nm_kab": "WAKATOBI",
+      "id_m_setup_prop": 74.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 8.0,
+      "nm_kab": "KOLAKA UTARA",
+      "id_m_setup_prop": 74.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA KENDARI",
+      "id_m_setup_prop": 74.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 72.0,
+      "nm_kab": "KOTA BAU-BAU",
+      "id_m_setup_prop": 74.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "LOMBOK TIMUR",
+      "id_m_setup_prop": 52.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "SUMBAWA",
+      "id_m_setup_prop": 52.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "TOLI-TOLI",
+      "id_m_setup_prop": 72.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 9.0,
+      "nm_kab": "TOJO UNA-UNA",
+      "id_m_setup_prop": 72.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 7.0,
+      "nm_kab": "SUMBAWA BARAT",
+      "id_m_setup_prop": 52.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "DOMPU",
+      "id_m_setup_prop": 52.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 6.0,
+      "nm_kab": "BIMA",
+      "id_m_setup_prop": 52.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA MATARAM",
+      "id_m_setup_prop": 52.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 72.0,
+      "nm_kab": "KOTA BIMA",
+      "id_m_setup_prop": 52.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "LOMBOK BARAT",
+      "id_m_setup_prop": 52.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 8.0,
+      "nm_kab": "LANDAK",
+      "id_m_setup_prop": 61.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "MEMPAWAH",
+      "id_m_setup_prop": 61.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "LOMBOK TENGAH",
+      "id_m_setup_prop": 52.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "SANGGAU",
+      "id_m_setup_prop": 61.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "KETAPANG",
+      "id_m_setup_prop": 61.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "SINTANG",
+      "id_m_setup_prop": 61.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "TANAH LAUT",
+      "id_m_setup_prop": 63.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "BANJAR",
+      "id_m_setup_prop": 63.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "TAPIN",
+      "id_m_setup_prop": 63.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 7.0,
+      "nm_kab": "HULU SUNGAI TENGAH",
+      "id_m_setup_prop": 63.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 10.0,
+      "nm_kab": "TANAH BUMBU",
+      "id_m_setup_prop": 63.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA BANJARMASIN",
+      "id_m_setup_prop": 63.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "POLEWALI MANDAR",
+      "id_m_setup_prop": 76.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 17.0,
+      "nm_kab": "BANDUNG BARAT",
+      "id_m_setup_prop": 32.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "SUKABUMI",
+      "id_m_setup_prop": 32.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 15.0,
+      "nm_kab": "KARAWANG",
+      "id_m_setup_prop": 32.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "OGAN KOMERING ILIR",
+      "id_m_setup_prop": 16.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 6.0,
+      "nm_kab": "MUSI BANYUASIN",
+      "id_m_setup_prop": 16.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 9.0,
+      "nm_kab": "OGAN KOMERING ULU SELATAN",
+      "id_m_setup_prop": 16.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 77.0,
+      "nm_kab": "KOTA CIMAHI",
+      "id_m_setup_prop": 32.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 75.0,
+      "nm_kab": "KOTA BEKASI",
+      "id_m_setup_prop": 32.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 9.0,
+      "nm_kab": "CIREBON",
+      "id_m_setup_prop": 32.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "KEPULAUAN SELAYAR",
+      "id_m_setup_prop": 73.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "SAMBAS",
+      "id_m_setup_prop": 61.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "BANTAENG",
+      "id_m_setup_prop": 73.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 6.0,
+      "nm_kab": "GOWA",
+      "id_m_setup_prop": 73.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 8.0,
+      "nm_kab": "BONE",
+      "id_m_setup_prop": 73.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 10.0,
+      "nm_kab": "PANGKAJENE DAN KEPULAUAN",
+      "id_m_setup_prop": 73.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 13.0,
+      "nm_kab": "WAJO",
+      "id_m_setup_prop": 73.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 15.0,
+      "nm_kab": "PINRANG",
+      "id_m_setup_prop": 73.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 17.0,
+      "nm_kab": "LUWU",
+      "id_m_setup_prop": 73.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 22.0,
+      "nm_kab": "LUWU UTARA",
+      "id_m_setup_prop": 73.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 72.0,
+      "nm_kab": "KOTA PARE-PARE",
+      "id_m_setup_prop": 73.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA MAGELANG",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "BANGKA SELATAN",
+      "id_m_setup_prop": 19.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "TIMOR TENGAH UTARA",
+      "id_m_setup_prop": 53.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "ALOR",
+      "id_m_setup_prop": 53.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 7.0,
+      "nm_kab": "SIKKA",
+      "id_m_setup_prop": 53.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 9.0,
+      "nm_kab": "NGADA",
+      "id_m_setup_prop": 53.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 11.0,
+      "nm_kab": "SUMBA TIMUR",
+      "id_m_setup_prop": 53.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 13.0,
+      "nm_kab": "LEMBATA",
+      "id_m_setup_prop": 53.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA KUPANG",
+      "id_m_setup_prop": 53.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "SORONG SELATAN",
+      "id_m_setup_prop": 92.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "RAJA AMPAT",
+      "id_m_setup_prop": 92.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 7.0,
+      "nm_kab": "TELUK WONDAMA",
+      "id_m_setup_prop": 92.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "SORONG",
+      "id_m_setup_prop": 92.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "KOTA BARU",
+      "id_m_setup_prop": 63.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 8.0,
+      "nm_kab": "HULU SUNGAI UTARA",
+      "id_m_setup_prop": 63.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 72.0,
+      "nm_kab": "KOTA BANJAR BARU",
+      "id_m_setup_prop": 63.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "MAMUJU UTARA",
+      "id_m_setup_prop": 76.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "MAMASA",
+      "id_m_setup_prop": 76.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "ADM. KEPULAUAN SERIBU",
+      "id_m_setup_prop": 31.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 12.0,
+      "nm_kab": "INDRAMAYU",
+      "id_m_setup_prop": 32.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "LAHAT",
+      "id_m_setup_prop": 16.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 8.0,
+      "nm_kab": "OGAN KOMERING ULU TIMUR",
+      "id_m_setup_prop": 16.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 72.0,
+      "nm_kab": "KOTA PAGAR ALAM",
+      "id_m_setup_prop": 16.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "TANAH DATAR",
+      "id_m_setup_prop": 13.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 6.0,
+      "nm_kab": "AGAM",
+      "id_m_setup_prop": 13.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 9.0,
+      "nm_kab": "KEPULAUAN MENTAWAI",
+      "id_m_setup_prop": 13.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 12.0,
+      "nm_kab": "PASAMAN BARAT",
+      "id_m_setup_prop": 13.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 73.0,
+      "nm_kab": "KOTA SAWAH LUNTO",
+      "id_m_setup_prop": 13.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 76.0,
+      "nm_kab": "KOTA PAYAKUMBUH",
+      "id_m_setup_prop": 13.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "ACEH SELATAN",
+      "id_m_setup_prop": 11.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "ACEH TENGAH",
+      "id_m_setup_prop": 11.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 6.0,
+      "nm_kab": "ACEH BESAR",
+      "id_m_setup_prop": 11.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 9.0,
+      "nm_kab": "SIMEULUE",
+      "id_m_setup_prop": 11.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 11.0,
+      "nm_kab": "BIREUEN",
+      "id_m_setup_prop": 11.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 13.0,
+      "nm_kab": "GAYO LUES",
+      "id_m_setup_prop": 11.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 16.0,
+      "nm_kab": "ACEH TAMIANG",
+      "id_m_setup_prop": 11.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA BANDA ACEH",
+      "id_m_setup_prop": 11.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 74.0,
+      "nm_kab": "KOTA LANGSA",
+      "id_m_setup_prop": 11.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "KENDARI",
+      "id_m_setup_prop": 74.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "KONAWE SELATAN",
+      "id_m_setup_prop": 74.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "KEPULAUAN SULA",
+      "id_m_setup_prop": 82.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "HALMAHERA UTARA",
+      "id_m_setup_prop": 82.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 72.0,
+      "nm_kab": "KOTA TIDORE KEPULAUAN",
+      "id_m_setup_prop": 82.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "GORONTALO",
+      "id_m_setup_prop": 75.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "POHUWATO",
+      "id_m_setup_prop": 75.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "BANTUL",
+      "id_m_setup_prop": 34.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "SLEMAN",
+      "id_m_setup_prop": 34.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "CILACAP",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "PURBALINGGA",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 6.0,
+      "nm_kab": "PURWOREJO",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 9.0,
+      "nm_kab": "KONAWE UTARA",
+      "id_m_setup_prop": 74.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 17.0,
+      "nm_kab": "SUMBA TENGAH",
+      "id_m_setup_prop": 53.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 6.0,
+      "nm_kab": "MINAHASA UTARA",
+      "id_m_setup_prop": 71.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 9.0,
+      "nm_kab": "KEPULAUAN SIAU TAGULANDANG BIARO ATAU SITARO",
+      "id_m_setup_prop": 71.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 75.0,
+      "nm_kab": "KOTA SUBULUSSALAM",
+      "id_m_setup_prop": 11.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 74.0,
+      "nm_kab": "KOTA PRABUMULIH",
+      "id_m_setup_prop": 16.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 8.0,
+      "nm_kab": "MAGELANG",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 10.0,
+      "nm_kab": "KLATEN",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 12.0,
+      "nm_kab": "WONOGIRI",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 16.0,
+      "nm_kab": "BLORA",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 19.0,
+      "nm_kab": "KUDUS",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 22.0,
+      "nm_kab": "SEMARANG",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 24.0,
+      "nm_kab": "KENDAL",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 28.0,
+      "nm_kab": "TEGAL",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 73.0,
+      "nm_kab": "KOTA SALATIGA",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 76.0,
+      "nm_kab": "KOTA TEGAL",
+      "id_m_setup_prop": 33.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "MERANGIN",
+      "id_m_setup_prop": 15.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "BATANG HARI",
+      "id_m_setup_prop": 15.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 7.0,
+      "nm_kab": "TANJUNG JABUNG TIMUR",
+      "id_m_setup_prop": 15.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA JAMBI",
+      "id_m_setup_prop": 15.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "REJANG LEBONG",
+      "id_m_setup_prop": 17.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "KAMPAR",
+      "id_m_setup_prop": 14.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "INDRAGIRI HULU",
+      "id_m_setup_prop": 14.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "BENGKALIS",
+      "id_m_setup_prop": 14.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "INDRAGIRI HILIR",
+      "id_m_setup_prop": 14.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "PELALAWAN",
+      "id_m_setup_prop": 14.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 6.0,
+      "nm_kab": "ROKAN HULU",
+      "id_m_setup_prop": 14.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 7.0,
+      "nm_kab": "ROKAN HILIR",
+      "id_m_setup_prop": 14.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 8.0,
+      "nm_kab": "SIAK",
+      "id_m_setup_prop": 14.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 9.0,
+      "nm_kab": "KUANTAN SINGINGI",
+      "id_m_setup_prop": 14.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 10.0,
+      "nm_kab": "KEPULAUAN MERANTI",
+      "id_m_setup_prop": 14.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA PEKANBARU",
+      "id_m_setup_prop": 14.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 72.0,
+      "nm_kab": "KOTA DUMAI",
+      "id_m_setup_prop": 14.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "KEPULAUAN ANAMBAS",
+      "id_m_setup_prop": 21.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 20.0,
+      "nm_kab": "SABU RAIJUA",
+      "id_m_setup_prop": 53.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "BENGKULU UTARA",
+      "id_m_setup_prop": 17.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "KAUR",
+      "id_m_setup_prop": 17.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "SELUMA",
+      "id_m_setup_prop": 17.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 6.0,
+      "nm_kab": "MUKO MUKO",
+      "id_m_setup_prop": 17.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 7.0,
+      "nm_kab": "LEBONG",
+      "id_m_setup_prop": 17.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 8.0,
+      "nm_kab": "KEPAHIANG",
+      "id_m_setup_prop": 17.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 9.0,
+      "nm_kab": "BENGKULU TENGAH",
+      "id_m_setup_prop": 17.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 71.0,
+      "nm_kab": "KOTA BENGKULU",
+      "id_m_setup_prop": 17.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 1.0,
+      "nm_kab": "LAMPUNG SELATAN",
+      "id_m_setup_prop": 18.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 2.0,
+      "nm_kab": "LAMPUNG TENGAH",
+      "id_m_setup_prop": 18.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 3.0,
+      "nm_kab": "LAMPUNG UTARA",
+      "id_m_setup_prop": 18.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 4.0,
+      "nm_kab": "LAMPUNG BARAT",
+      "id_m_setup_prop": 18.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 5.0,
+      "nm_kab": "TULANG BAWANG",
+      "id_m_setup_prop": 18.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 6.0,
+      "nm_kab": "TANGGAMUS",
+      "id_m_setup_prop": 18.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 7.0,
+      "nm_kab": "LAMPUNG TIMUR",
+      "id_m_setup_prop": 18.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 8.0,
+      "nm_kab": "WAY KANAN",
+      "id_m_setup_prop": 18.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    },
+    {
+      "id_m_setup_kab": 9.0,
+      "nm_kab": "PESAWARAN",
+      "id_m_setup_prop": 18.0,
+      "created_at": null,
+      "updated_at": null,
+      "deleted_at": null
+    }
+  ]
+}
