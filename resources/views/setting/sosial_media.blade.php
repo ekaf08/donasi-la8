@@ -1,4 +1,5 @@
-<form action="{{ route('setting.update', $setting->id) }}?pills=sosial-media" method="POST" enctype="multipart/form-data">
+<form action="{{ route('setting.update', encrypt($setting->id)) }}?pills=sosial-media" method="POST"
+    enctype="multipart/form-data">
     @csrf
     @method('put')
 
