@@ -14,11 +14,11 @@ class AddNewColumnSettingsTable extends Migration
     public function up()
     {
         Schema::table('settings', function (Blueprint $table) {
-            $table->string('phone_hours');
-            $table->string('instagram_link');
-            $table->string('twitter_link');
-            $table->string('fanpage_link');
-            $table->string('google_plus_link');
+            $table->string('phone_hours')->nullable();
+            $table->string('instagram_link')->nullable();
+            $table->string('twitter_link')->nullable();
+            $table->string('fanpage_link')->nullable();
+            $table->string('google_plus_link')->nullable();
         });
     }
 
