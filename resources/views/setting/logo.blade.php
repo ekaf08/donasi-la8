@@ -8,9 +8,13 @@
         <div class="row justify-content-center">
             <div class="col-lg-4">
                 <strong class="d-block text-center">Favicon</strong>
-                <div class="text-center">
-                    <img src="{{ url($setting->path_image ?? '../img/user2.png') }}" alt=""
-                        class="img-thumbnail preview-path_image" width="200">
+                <div class="text-center preview-container">
+                    <img src="{{ Storage::disk('local')->url($setting->path_image ?? '../img/user2.png') }}"
+                        alt="" class="img-thumbnail preview-path_image" width="200">
+                    <button type="button" id="hapus-favicon" class="close text-danger" title="Hapus Lampiran"
+                        aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="form-group mt-3">
                     <div class="custom-file">
@@ -27,8 +31,8 @@
             <div class="col-lg-4">
                 <strong class="d-block text-center">Header</strong>
                 <div class="text-center">
-                    <img src="{{ url($setting->path_image_header ?? '../img/user2.png') }}" alt=""
-                        class="img-thumbnail preview-path_image_header" width="200">
+                    <img src="{{ Storage::disk('local')->url($setting->path_image_header ?? '../img/user2.png') }}"
+                        alt="" class="img-thumbnail preview-path_image_header" width="200">
                 </div>
                 <div class="form-group mt-3">
                     <div class="custom-file">
@@ -45,10 +49,10 @@
         <div class="row justify-content-center">
             <div class="col-lg-4">
                 <strong class="d-block text-center">Footer</strong>
-                <div class="text-center">
+                <div class="text-center preview-container">
                     <img class="img-thumbnail preview-path_image_footer"
-                        src="{{ url($setting->path_image_footer ?? '../img/user2.png') }}" alt=""
-                        width="200">
+                        src="{{ Storage::disk('local')->url($setting->path_image_footer ?? '../img/user2.png') }}"
+                        alt="" width="200">
                 </div>
                 <div class="form-group mt-3">
                     <div class="custom-file">
@@ -68,13 +72,7 @@
     </x-card>
 
 </form>
-@includeIf('includes.datepicker')
 <x-swal />
 @push('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#phone').inputmask();
-        })
-    </script>
+    <script></script>
 @endpush

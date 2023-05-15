@@ -24,8 +24,8 @@ class SettingController extends Controller
 
     public function update(Request $request)
     {
-        $setting = Setting::where('id', $request->id)->first();
-        // dd($setting);
+        $setting = Setting::where('id', decrypt($request->id))->first();
+
         $rules = [
             'owner_name'    => 'required',
             'email'         => 'required|email',
@@ -79,31 +79,29 @@ class SettingController extends Controller
             'is_main.unique' => 'Akun utama sudah ada sebelumnya.'
         ]);
 
-        $data = $request->except('path_image', 'path_image_header', 'path_image_footer');
+        $data = $request->except('path_image', 'path_image_header', 'path_image_footer', 'pills');
 
         if ($request->hasFile('path_image')) {
             if (Storage::disk('public')->exists($request->path_image)) {
                 Storage::disk('public')->delete($request->path_image);
             }
-            $data['path_image'] = upload('setting', $request->file('path_image'), 'setting');
+            $data['path_image'] = upload('setting', $request->file('path_image'), 'favicon');
         }
 
         if ($request->hasFile('path_image_header')) {
             if (Storage::disk('public')->exists($request->path_image_header)) {
                 Storage::disk('public')->delete($request->path_image_header);
             }
-            $data['path_image_header'] = upload('setting', $request->file('path_image_header'), 'setting');
+            $data['path_image_header'] = upload('setting', $request->file('path_image_header'), 'header');
         }
 
         if ($request->hasFile('path_image_footer')) {
             if (Storage::disk('public')->exists($request->path_image_footer)) {
                 Storage::disk('public')->delete($request->path_image_footer);
             }
-            $data['path_image_footer'] = upload('setting', $request->file('path_image_footer'), 'setting');
+            $data['path_image_footer'] = upload('setting', $request->file('path_image_footer'), 'footer');
         }
 
-        $data = $request->except(['pills']);
-        // dd($setting, $data);
         $setting->update($data);
 
         if ($request->has('pills') && $request->pills == 'bank') {
