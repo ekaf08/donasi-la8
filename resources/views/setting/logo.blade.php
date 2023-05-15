@@ -8,10 +8,11 @@
         <div class="row justify-content-center">
             <div class="col-lg-4">
                 <strong class="d-block text-center">Favicon</strong>
-                <div class="text-center preview-container">
-                    <img src="{{ Storage::disk('local')->url($setting->path_image ?? '../img/user2.png') }}"
-                        alt="" class="img-thumbnail preview-path_image" width="200">
-                    <button type="button" id="hapus-favicon" class="close text-danger" title="Hapus Lampiran"
+                <div class="text-center preview_favicon">
+                    <img id="img_favicon"
+                        src="{{ Storage::disk('local')->url($setting->path_image ?? '../img/user2.png') }}" alt=""
+                        class="img-thumbnail preview-path_image" width="200">
+                    <button type="button" id="hapus_favicon" class="close text-danger" title="Hapus Lampiran"
                         aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -74,5 +75,23 @@
 </form>
 <x-swal />
 @push('scripts')
-    <script></script>
+    <script>
+        const hapus_favicon = document.getElementById('hapus_favicon');
+        const srcFavicon = document.getElementById('img_favicon');
+        const path_image_favicon = document.getElementById('path_image');
+
+        hapus_favicon.addEventListener('click', function() {
+            $('.preview_favicon').hide();
+            srcFavicon.src = "";
+            path_image_favicon.value = '';
+        })
+
+        $('#hapus_favicon').click(function() {
+
+        });
+
+        $('#path_image').click(function() {
+            $('.preview_favicon').show();
+        });
+    </script>
 @endpush
