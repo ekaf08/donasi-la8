@@ -7,6 +7,7 @@ use App\Models\Bank;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
+use File;
 
 class SettingController extends Controller
 {
@@ -25,6 +26,8 @@ class SettingController extends Controller
     public function update(Request $request)
     {
         $setting = Setting::where('id', decrypt($request->id))->first();
+        // $gambar = $setting->path_image;
+        // return $gambar;
 
         $rules = [
             'owner_name'    => 'required',
@@ -85,6 +88,7 @@ class SettingController extends Controller
             if (Storage::disk('public')->exists($request->path_image)) {
                 Storage::disk('public')->delete($request->path_image);
             }
+            File::delete($setting->path_image);
             $data['path_image'] = upload('setting', $request->file('path_image'), 'favicon');
         }
 

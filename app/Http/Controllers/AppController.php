@@ -72,12 +72,10 @@ class AppController extends Controller
         $menu = M_Role_Menu::leftJoin('roles', 'roles.id', 'm_role_menu.id_role')
             ->leftJoin('m_menu', 'm_menu.id', 'm_role_menu.id_menu')
             ->where('roles.id', decrypt($request->id_role))
-            ->orderBy('m_role_menu.urutan', 'asc')
             ->select('roles.id as role_id', 'm_menu.id as m_menu_id', 'm_menu.nama_menu', 'm_role_menu.*')
+            ->orderBy('m_role_menu.urutan', 'asc')
             ->withTrashed()
             ->get();
-
-        // dd($menu);
 
         return datatables($menu)
             ->addIndexColumn()
@@ -106,15 +104,33 @@ class AppController extends Controller
 
     public function urutanMenu(Request $request)
     {
-        // dd($request->all());
-        $naik = M_Role_Menu::find($request->id);
-        $naik->urutan = $request->urutan_up;
-        $naik->save();
+        $id        = $request->id;
+        $direction = $request->direction;
 
-        $turun = M_Role_Menu::find($request->id_down);
-        $turun->urutan = $request->urutan_down;
-        $turun->save();
+        $item = M_Role_Menu::find($id);
+        $currentOrder   = $item->urutan;
+        $currentRole    = $item->id_role;
+        // dd($id, $currentOrder, $currentRole);
 
+        if ($direction == 'up') {
+            // urutan Naik/ Panah Atas
+            $itemAbove = M_Role_Menu::where('urutan', '<', $currentOrder)->where('id_role', $currentRole)->orderBy('urutan', 'desc')->first();
+            if ($itemAbove) {
+                $item->urutan = $itemAbove->urutan;
+                $itemAbove->urutan = $currentOrder;
+                $item->save();
+                $itemAbove->save();
+            }
+        } elseif ($direction == 'down') {
+            // urutan Turun/ Panah Bawah
+            $itemBellow = M_Role_Menu::where('urutan', '>', $currentOrder)->where('id_role', $currentRole)->orderBy('urutan')->first();
+            if ($itemBellow) {
+                $item->urutan = $itemBellow->urutan;
+                $itemBellow->urutan = $currentOrder;
+                $item->save();
+                $itemBellow->save();
+            }
+        }
         return response()->json(['message' => 'Menu Berhasil Diperbarui', 'success' => true]);
     }
 
