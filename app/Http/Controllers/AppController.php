@@ -31,6 +31,10 @@ class AppController extends Controller
         // dd($query);
         return datatables($query)
             ->addIndexColumn()
+            ->editColumn('name', function ($query) {
+                $name = ucwords($query->name);
+                return $name;
+            })
             ->addColumn('action', function ($query) {
                 $role = Role::with(['menu' => function ($query) {
                     $query->with('menu_detail');
@@ -62,7 +66,7 @@ class AppController extends Controller
                 ';
                 return $action;
             })
-            ->rawColumns(['action'])
+            ->rawColumns(['action', 'name'])
             ->escapeColumns([])
             ->make(true);
     }
@@ -79,6 +83,10 @@ class AppController extends Controller
 
         return datatables($menu)
             ->addIndexColumn()
+            ->editColumn('nama_menu', function ($menu) {
+                $nama_menu = ucwords($menu->nama_menu);
+                return $nama_menu;
+            })
             ->editColumn('deleted_at', function ($menu) {
                 $checked = $menu->deleted_at ? '' : 'checked';
                 return ' 
@@ -91,30 +99,31 @@ class AppController extends Controller
             })
             ->addColumn('action', function ($menu) {
                 $panah = '
-                    <button type="button" class="btn btn-link text-success" id="atas" data-urutan="' . $menu->urutan . '" data-id="' . $menu->id . '" data-jumlah="7"><i class="fas fa-arrow-alt-circle-up"></i></button>
-                    <button type="button" class="btn btn-link text-success" id="bawah" data-urutan="' . $menu->urutan . '" data-id="' . $menu->id . '" data-jumlah="7"><i class="fas fa-arrow-alt-circle-down"></i></button>
+                    <button type="button" class="btn btn-link text-success" id="atas" data-urutan="' . $menu->urutan . '" data-id="' . encrypt($menu->id) . '" data-jumlah="7"><i class="fas fa-arrow-alt-circle-up"></i></button>
+                    <button type="button" class="btn btn-link text-success" id="bawah" data-urutan="' . $menu->urutan . '" data-id="' . encrypt($menu->id) . '" data-jumlah="7"><i class="fas fa-arrow-alt-circle-down"></i></button>
                 ';
-                $urutan = '<input type="text" class="form-control text-center" name="urutan" id="urutan" value="' . $menu->urutan . '" data-id="' . $menu->id . '">';
+                $urutan = '<input type="text" class="form-control text-center" name="urutan" id="urutan" value="' . $menu->urutan . '" data-id="' . encrypt($menu->id) . '">';
                 return $panah;
             })
-            ->rawColumns(['deleted_at', 'action'])
+            ->rawColumns(['deleted_at', 'action', 'nama_menu'])
             ->escapeColumns([])
             ->make(true);
     }
 
     public function urutanMenu(Request $request)
     {
-        $id        = $request->id;
+        $id        = decrypt($request->id);
         $direction = $request->direction;
 
         $item = M_Role_Menu::find($id);
         $currentOrder   = $item->urutan;
         $currentRole    = $item->id_role;
-        // dd($id, $currentOrder, $currentRole);
 
         if ($direction == 'up') {
             // urutan Naik/ Panah Atas
-            $itemAbove = M_Role_Menu::where('urutan', '<', $currentOrder)->where('id_role', $currentRole)->orderBy('urutan', 'desc')->first();
+            $itemAbove = M_Role_Menu::where('urutan', '<', $currentOrder)
+                ->where('id_role', $currentRole)
+                ->orderBy('urutan', 'desc')->first();
             if ($itemAbove) {
                 $item->urutan = $itemAbove->urutan;
                 $itemAbove->urutan = $currentOrder;
@@ -123,7 +132,9 @@ class AppController extends Controller
             }
         } elseif ($direction == 'down') {
             // urutan Turun/ Panah Bawah
-            $itemBellow = M_Role_Menu::where('urutan', '>', $currentOrder)->where('id_role', $currentRole)->orderBy('urutan')->first();
+            $itemBellow = M_Role_Menu::where('urutan', '>', $currentOrder)
+                ->where('id_role', $currentRole)
+                ->orderBy('urutan')->first();
             if ($itemBellow) {
                 $item->urutan = $itemBellow->urutan;
                 $itemBellow->urutan = $currentOrder;
@@ -137,7 +148,6 @@ class AppController extends Controller
     public function hapus_menu(Request $request)
     {
         $id = decrypt($request->id);
-        // dd($id);
         $data = M_Role_Menu::find($id);
         $data->delete();
 
@@ -147,7 +157,6 @@ class AppController extends Controller
     public function restore_menu(Request $request)
     {
         $id = decrypt($request->id);
-        // dd($id);
         $data = M_Role_Menu::withTrashed()->find($id);
         $data->restore();
 
@@ -174,6 +183,10 @@ class AppController extends Controller
         // dd($query);
         return datatables($query)
             ->addIndexColumn()
+            ->editColumn('nama_sub_menu', function ($query) {
+                $nama_sub_menu = ucwords($query->nama_sub_menu);
+                return $nama_sub_menu;
+            })
             ->editColumn('c_select', function ($query) {
                 $checked = $query->c_select ? 'checked' : '';
                 return '
@@ -232,14 +245,13 @@ class AppController extends Controller
             ->addColumn('action', function ($query) {
                 return ' <button type="button" class="btn btn-link text-danger" onclick="deleteData(`' . route('setup.hapus_subMenu', encrypt($query->id)) . '`, `Menu ' . $query->nama_sub_menu . '`)" title="Hapus- `' . $query->nama_sub_menu . '`"><i class="fas fa-trash-alt"></i></button>';
             })
-            ->rawColumns(['c_select', 'c_insert', 'c_update', 'c_delete', 'c_export', 'c_import', 'action'])
+            ->rawColumns(['c_select', 'c_insert', 'c_update', 'c_delete', 'c_export', 'c_import', 'action', 'nama_sub_menu'])
             ->escapeColumns([])
             ->make(true);
     }
 
     public function configMenu(Request $request)
     {
-        // dd($request->all());
         $this->validate($request, [
             'is_active' => 'boolean'
         ]);
