@@ -34,22 +34,22 @@
                 {{-- Identitas --}}
                 <li class="nav-item" role="presentation">
                     <a class="nav-link @if (request('pills') == '') active @endif"
-                        href="{{ route('setting.index') }}">Identitas</a>
+                        href="{{ route('sistem.index') }}">Identitas</a>
                 </li>
                 {{-- logo --}}
                 <li class="nav-item" role="presentation">
                     <a class="nav-link @if (request('pills') == 'logo') active @endif"
-                        href="{{ route('setting.index') }}?pills=logo">logo</a>
+                        href="{{ route('sistem.index') }}?pills=logo">logo</a>
                 </li>
                 {{-- Sosial Media --}}
                 <li class="nav-item">
-                    <a href="{{ route('setting.index') }}?pills=sosial-media"
+                    <a href="{{ route('sistem.index') }}?pills=sosial-media"
                         class="nav-link @if (request('pills') == 'sosial-media') active @endif">Sosial Media</a>
                 </li>
                 {{-- Bank --}}
                 <li class="nav-item">
                     <a class="nav-link @if (request('pills') == 'bank') active @endif"
-                        href="{{ route('setting.index') }}?pills=bank">Bank</a>
+                        href="{{ route('sistem.index') }}?pills=bank">Bank</a>
                 </li>
             </ul>
             <div class="tab-content" id="pills-tabContent">

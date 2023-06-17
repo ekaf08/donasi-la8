@@ -48,8 +48,9 @@ Route::group([
         Route::resource('/campaign', CampaignController::class)->except(['create', 'edit']);
 
         // route untuk setting
-        Route::get('/setting', [SettingController::class, 'index'])->name('setting.index');
-        Route::put('/setting/{id}', [SettingController::class, 'update'])->name('setting.update');
+        Route::resource('/sistem', SettingController::class);
+        // Route::get('/setting', [SettingController::class, 'index'])->name('setting.index');
+        // Route::put('/setting/{id}', [SettingController::class, 'update'])->name('setting.update');
 
         // route untuk donasi
         Route::resource('/donation', DonationController::class);

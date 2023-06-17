@@ -13,7 +13,7 @@ class DonaturController extends Controller
      */
     public function index()
     {
-        //
+        dd('Ok Donation Controller');
     }
 
     /**
