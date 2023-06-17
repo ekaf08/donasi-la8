@@ -85,6 +85,7 @@
 @includeIf('includes.select2')
 @includeIf('includes.datepicker')
 @includeIf('includes.numbering')
+@includeIf('includes.sweetalert')
 {{-- @includeIf('includes.filepond') --}}
 
 @push('scripts')
@@ -217,11 +218,8 @@
                     $('#categories').val(selectedCategories).trigger('change');
                 })
                 .fail(errors => {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Mohon maaf !!...',
-                        text: 'Data tidak dapat di tampilkan',
-                    })
+                    var message = 'Data tidak dapat ditampilkan.'
+                    showAlert(message, 'gagal')
                 });
         }
 
@@ -242,22 +240,15 @@
                 .fail(errors => {
                     // console.log(errors.responseJSON.errors);
                     // return;
+                    var message = 'Data gagal disimpan.'
                     if (errors.status == 422) {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Mohon maaf ..',
-                            text: 'Data gagal disimpan !!',
-                            footer: 'Silahkan cek isian anda'
-                        })
+                        // console.log(errors.responseJSON.message);
+                        showAlert(message, 'gagal');
                         loopErrors(errors.responseJSON.errors);
                         return;
                     }
 
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Mohon maaf ..',
-                        text: 'Data gagal disimpan !!',
-                    })
+                    showAlert(message, 'gagal');
                 });
         }
 
@@ -267,8 +258,8 @@
                 text: "Menghapus Data Ini ?",
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
+                confirmButtonColor: '#87adbd ',
+                cancelButtonColor: '#f27474',
                 confirmButtonText: 'Ya',
                 cancelButtonText: 'Tidak',
             }).then((result) => {
@@ -282,11 +273,8 @@
                             table.ajax.reload();
                         })
                         .fail((errors) => {
-                            Swal.fire(
-                                'Oops',
-                                'Data Gagal Di Hapus',
-                                'error'
-                            )
+                            var message = 'Data gagal dihapus'
+                            showAlert(message, 'gagal')
                             return;
                         })
                 }
@@ -353,36 +341,6 @@
                     }
                 }
             }
-        }
-
-        function showAlert(message, type) {
-            $(function() {
-                var Toast = Swal.mixin({
-                    toast: true,
-                    position: 'center',
-                    showConfirmButton: false,
-                    timer: 2000
-                });
-                switch (type) {
-                    case 'success':
-                        Toast.fire({
-                            icon: 'success',
-                            title: message
-                        })
-                        break;
-                    case 'error':
-                        Toast.fire({
-                            icon: 'error',
-                            title: message
-                        })
-                        break;
-
-                    default:
-                        break;
-                }
-
-
-            })
         }
 
         $('.form-control').keypress(function(event) {
