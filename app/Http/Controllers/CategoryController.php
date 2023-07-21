@@ -122,7 +122,6 @@ class CategoryController extends Controller
         $id = Crypt::decryptString($id);
         // dd($id);
         $data = Category::find($id);
-        $data['f_status'] = 'f';
         $data->update();
         $data->delete();
 

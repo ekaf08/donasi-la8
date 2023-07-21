@@ -43,7 +43,7 @@
                     toast: true,
                     position: 'center',
                     showConfirmButton: false,
-                    timer: 1500,
+                    timer: 1000,
                     timerProgressBar: true,
                     iconColor: 'white',
                     customClass: {
@@ -63,8 +63,6 @@
                             icon: 'error',
                             position: 'center',
                             title: message,
-                            showConfirmButton: false,
-                            timer: 1500,
                         })
                         break;
 

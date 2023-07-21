@@ -202,6 +202,7 @@
 
 {{-- <x-swal /> --}}
 @includeIf('includes.datatable')
+@includeIf('includes.sweetalert')
 
 @push('scripts')
     <script>

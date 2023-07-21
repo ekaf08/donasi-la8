@@ -69,6 +69,7 @@
             </x-card>
         </div>
     </div>
+    @includeIf('includes.sweetalert')
 @endsection
 {{-- <x-toast /> --}}
 <x-swal />
