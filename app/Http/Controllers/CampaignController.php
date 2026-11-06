@@ -27,6 +27,7 @@ class CampaignController extends Controller
 
     public function data(Request $request)
     {
+        dd($request->all());
         $query = Campaign::orderBy('publish_date', 'desc')
             ->when($request->has('filter_status') && $request->filter_status != "", function ($query) use ($request) {
                 $query->where('status', $request->filter_status);

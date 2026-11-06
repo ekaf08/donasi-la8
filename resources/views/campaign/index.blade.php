@@ -215,6 +215,7 @@
                     response.data.categories.forEach(item => {
                         selectedCategories.push(item.id);
                     });
+                    console.log(selectedCategories);
                     $('#categories').val(selectedCategories).trigger('change');
                 })
                 .fail(errors => {
